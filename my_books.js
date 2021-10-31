@@ -29,11 +29,11 @@ function load_page() {
 
         var all_books = await contract.methods._readAll().call();
 
-        for (let x=0; x<all_books.length; x++) {
+        for (let x=all_books.length - 1; x>=0; x--) {
 
             if (all_books[x][0] != "") {
                 console.log(all_books[x][0], all_books[x][1], all_books[x][2])
-                create_book_layout(all_books[x][0], all_books[x][1], all_books[x][2])
+                create_book_layout(all_books[x][0], all_books[x][1], all_books[x][2], all_books[x][3])
             };
         }
 
@@ -58,16 +58,16 @@ document.querySelector("#upload-submit").addEventListener("click", async () => {
     await web3.eth.getAccounts(console.log);
 
     //Connect to the contract
-    const abi = [{"inputs":[{"internalType":"string","name":"_title","type":"string"},{"internalType":"string","name":"_img","type":"string"},{"internalType":"string","name":"_text","type":"string"}],"name":"_createBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_deleteBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_readAll","outputs":[{"components":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"}],"internalType":"struct bookStorage.Book[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"books","outputs":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"}],"stateMutability":"view","type":"function"}]
-    const address = '0x6C38e1bD2421a1F5Eba19Ee65fbB9F6Ec3e01A67'//0x8B4BC70F423fBB9c93324B9a0c4AA1FA1a50A2d8'//'//
+    const abi = [{"inputs":[{"internalType":"string","name":"_title","type":"string"},{"internalType":"string","name":"_img","type":"string"},{"internalType":"string","name":"_text","type":"string"},{"internalType":"string","name":"_date","type":"string"}],"name":"_createBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_deleteBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_readAll","outputs":[{"components":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"},{"internalType":"string","name":"date","type":"string"}],"internalType":"struct bookStorage.Book[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"books","outputs":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"},{"internalType":"string","name":"date","type":"string"}],"stateMutability":"view","type":"function"}]
+    const address = '0xc36ecA308b6b5C0e095460ea4303Ec05E8cB3401'//0x8B4BC70F423fBB9c93324B9a0c4AA1FA1a50A2d8'//'//
     const contract = new web3.eth.Contract(abi, address)
 
     const title = document.getElementById('title').value;
     const hash = document.getElementById('hash').value;
     const img = document.getElementById('img').value;
+    if (document.getElementById('date').checked == true) {var date = ""} else { var date = "2021" };
 
-
-    await contract.methods._createBook(`${title}`, `${img}`, `${hash}`).send({from: account});
+    await contract.methods._createBook(`${title}`, `${img}`, `${hash}`, `${date}`).send({from: account});
 });
 
 /*////////////////////
@@ -84,8 +84,8 @@ document.querySelector("#delete").addEventListener("click", async () => {
     await web3.eth.getAccounts(console.log);
 
     //Connect to the contract
-    const abi = [{"inputs":[{"internalType":"string","name":"_title","type":"string"},{"internalType":"string","name":"_img","type":"string"},{"internalType":"string","name":"_text","type":"string"}],"name":"_createBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_deleteBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_readAll","outputs":[{"components":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"}],"internalType":"struct bookStorage.Book[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"books","outputs":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"}],"stateMutability":"view","type":"function"}]
-    const address = '0x6C38e1bD2421a1F5Eba19Ee65fbB9F6Ec3e01A67'//0x8B4BC70F423fBB9c93324B9a0c4AA1FA1a50A2d8'//'//
+    const abi = [{"inputs":[{"internalType":"string","name":"_title","type":"string"},{"internalType":"string","name":"_img","type":"string"},{"internalType":"string","name":"_text","type":"string"},{"internalType":"string","name":"_date","type":"string"}],"name":"_createBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_deleteBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_readAll","outputs":[{"components":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"},{"internalType":"string","name":"date","type":"string"}],"internalType":"struct bookStorage.Book[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"books","outputs":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"},{"internalType":"string","name":"date","type":"string"}],"stateMutability":"view","type":"function"}]
+    const address = '0xc36ecA308b6b5C0e095460ea4303Ec05E8cB3401'//0x8B4BC70F423fBB9c93324B9a0c4AA1FA1a50A2d8'//'//
     const contract = new web3.eth.Contract(abi, address)
 
     await contract.methods._deleteBook().send({from: account});
@@ -101,8 +101,8 @@ document.querySelector("#delete").addEventListener("click", async () => {
 //////////////////////*/
 function create_contract() {
     //Connect to the contract
-    const abi = [{"inputs":[{"internalType":"string","name":"_title","type":"string"},{"internalType":"string","name":"_img","type":"string"},{"internalType":"string","name":"_text","type":"string"}],"name":"_createBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_deleteBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_readAll","outputs":[{"components":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"}],"internalType":"struct bookStorage.Book[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"books","outputs":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"}],"stateMutability":"view","type":"function"}]
-    const address = '0x6C38e1bD2421a1F5Eba19Ee65fbB9F6Ec3e01A67'//0x8B4BC70F423fBB9c93324B9a0c4AA1FA1a50A2d8'//'//
+    const abi = [{"inputs":[{"internalType":"string","name":"_title","type":"string"},{"internalType":"string","name":"_img","type":"string"},{"internalType":"string","name":"_text","type":"string"},{"internalType":"string","name":"_date","type":"string"}],"name":"_createBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_deleteBook","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"_readAll","outputs":[{"components":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"},{"internalType":"string","name":"date","type":"string"}],"internalType":"struct bookStorage.Book[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"books","outputs":[{"internalType":"string","name":"title","type":"string"},{"internalType":"string","name":"img","type":"string"},{"internalType":"string","name":"text","type":"string"},{"internalType":"string","name":"date","type":"string"}],"stateMutability":"view","type":"function"}]
+    const address = '0xc36ecA308b6b5C0e095460ea4303Ec05E8cB3401'//0x8B4BC70F423fBB9c93324B9a0c4AA1FA1a50A2d8'//'//
     const contract = new web3.eth.Contract(abi, address)
     return contract;
 }
@@ -114,7 +114,7 @@ function create_contract() {
 /// Creating the Book Element
 ///////////////////*/
 
-function create_book_layout(book_title, book_img, book_text) {
+function create_book_layout(book_title, book_img, book_text, book_date) {
     //Create the row
     //var row = document.createElement("div");
     //row.setAttribute("class", "row");
@@ -156,10 +156,13 @@ function create_book_layout(book_title, book_img, book_text) {
     link2.innerHTML = book_title;
 
     if (book_text === "") {
-        console.log(`Helooooo ${book_title, book_text}`)
         //Appending everything in the right order
-        document.querySelector("#begin").appendChild(col);
-        //row.appendChild(col);
+        if (book_date == "2021") {
+            document.querySelector("#begin").appendChild(col);
+        }
+        else {
+            document.querySelector("#end").appendChild(col);
+        }
         col.appendChild(thumbnail);
         thumbnail.appendChild(img_group);
         img_group.appendChild(img);
@@ -170,8 +173,12 @@ function create_book_layout(book_title, book_img, book_text) {
     }
     else {
         //Appending everything in the right order
-        document.querySelector("#begin").appendChild(col);
-        //row.appendChild(col);
+        if (book_date == "2021") {
+            document.querySelector("#begin").appendChild(col);
+        }
+        else {
+            document.querySelector("#end").appendChild(col);
+        }
         col.appendChild(thumbnail);
         thumbnail.appendChild(img_group);
         img_group.appendChild(link1);
