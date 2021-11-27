@@ -1,0 +1,58 @@
+h1 {
+    font-family: 'Lora';
+}
+
+h2 {
+    font-family: 'Lora';
+}
+
+h3 {
+    font-family: 'Lora';
+}
+
+h4 {
+    font-family: 'Lora';
+}
+
+h5 {
+    font-family: 'Lora';
+}
+
+p {
+    font-family: 'Lora';
+}
+
+li {
+    font-family: 'Lora';
+}
+
+#main > ul {
+    padding-bottom: 25px;
+}
+
+a{
+	text-decoration:none;
+	color:#20b;
+	overflow-wrap:break-word;
+	word-wrap:break-word
+}
+a:visited{
+	color:#606
+}
+a:hover{
+	text-decoration:underline
+}
+
+.nav-item{
+    color: red;
+}
+
+#main > p {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+#main > h4 {
+    padding-bottom: 55px;
+}
+
