@@ -32,7 +32,7 @@ function load_page() {
         for (let x=all_books.length - 1; x>=0; x--) {
 
             if (all_books[x][0] != "") {
-                console.log(all_books[x][0], all_books[x][1], all_books[x][2])
+                console.log(all_books[x][0], all_books[x][1], all_books[x][2], all_books[x][3])
                 create_book_layout(all_books[x][0], all_books[x][1], all_books[x][2], all_books[x][3])
             };
         }
