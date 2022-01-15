@@ -65,7 +65,7 @@ document.querySelector("#upload-submit").addEventListener("click", async () => {
     const title = document.getElementById('title').value;
     const hash = document.getElementById('hash').value;
     const img = document.getElementById('img').value;
-    if (document.getElementById('date').checked == true) {var date = ""} else { var date = "2021" };
+    if (document.getElementById('date').checked == true) {var date = ""} else { var date = "2022" };
 
     await contract.methods._createBook(`${title}`, `${img}`, `${hash}`, `${date}`).send({from: account});
 });
@@ -160,6 +160,9 @@ function create_book_layout(book_title, book_img, book_text, book_date) {
         if (book_date == "2021") {
             document.querySelector("#begin").appendChild(col);
         }
+        else if (book_date == "2022") {
+            document.querySelector("#2022").appendChild(col);
+        }
         else {
             document.querySelector("#end").appendChild(col);
         }
@@ -175,6 +178,9 @@ function create_book_layout(book_title, book_img, book_text, book_date) {
         //Appending everything in the right order
         if (book_date == "2021") {
             document.querySelector("#begin").appendChild(col);
+        }
+        else if (book_date == "2022") {
+            document.querySelector("#2022").appendChild(col);
         }
         else {
             document.querySelector("#end").appendChild(col);
