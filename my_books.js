@@ -180,7 +180,7 @@ function create_book_layout(book_title, book_img, book_text, book_date) {
             document.querySelector("#begin").appendChild(col);
         }
         else if (book_date == "2022") {
-            document.querySelector("#2022").appendChild(col);
+            document.querySelector("#fmylife").appendChild(col);
         }
         else {
             document.querySelector("#end").appendChild(col);
