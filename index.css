@@ -50,6 +50,8 @@ a:hover{
 #main > p {
     padding-top: 10px;
     padding-bottom: 25px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 #main > h4 {
