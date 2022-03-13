@@ -216,7 +216,7 @@ div.presentation_summary{
 }
 @media screen and (max-width: 440px){
 	section#masthead h1{
-		font-size:2em
+		font-size:2.5em
 	}
 	div.presentation_summary img{
 		display:block
