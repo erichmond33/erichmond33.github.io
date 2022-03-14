@@ -15,11 +15,18 @@
     <hr>
 
     <section id="masthead">
-        <style>
-            section#masthead h1 a{
-                animation: flicker 3s linear, flicker 1s linear;
-            }
-        </style>
+        <script>
+            window.addEventListener('load', function() {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    function getRandomInt(max) {
+                        return Math.floor(Math.random() * max);
+                    }
+
+                    document.querySelector("#masthead h1 a").style.animation = 
+                        `flicker ${getRandomInt(4)}s linear, flicker ${getRandomInt(4)}s linear`;
+                };
+            });
+        </script>
         <h1>
             <a href="/index.html">Eli Richmond</a>
         </h1>
@@ -59,6 +66,11 @@
                 <li>
                     <a href="/articles/BeAPirate.html">
                         Be A Pirate: Resumes And Why I Hate Them
+                    </a>
+                </li>
+                <li>
+                    <a href="/articles/StopKillingYourIdeas.html">
+                        Stop Killing Your Ideas: Jot Them Down
                     </a>
                 </li>
             </ul>
