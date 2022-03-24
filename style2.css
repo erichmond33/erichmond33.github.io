@@ -155,6 +155,9 @@ section#masthead h1 a{
 	color:#000;
 	text-decoration-thickness: 1px;
 }
+section#masthead small{
+	margin-left:10px;
+}
 body#home {
 	padding-left:1em;
 	padding-right:1em;
@@ -216,7 +219,7 @@ div.presentation_summary{
 }
 @media screen and (max-width: 440px){
 	section#masthead h1{
-		font-size:2.75em
+		font-size:3.5em
 	}
 	div.presentation_summary img{
 		display:block
@@ -264,6 +267,9 @@ div.presentation_summary{
 	color: #fff;
 	text-shadow:
 		0 0 7px #fff;
+	}
+	blockquote {
+		color: #ccc;
 	}
 }
 ul#reviews {
