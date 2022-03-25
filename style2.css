@@ -150,7 +150,7 @@ section#masthead h1{
 	margin:0;
 	text-align:left;
 	font-family: TESLA;
-	word-spacing: -1em;
+	word-spacing: -1ch;
 }
 section#masthead h1 span{
 	font-family: alegreya;
