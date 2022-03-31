@@ -13,6 +13,10 @@
 	font-family: alegreya;
 	src: url("AlegreyaSansSC-Light.ttf");
 }
+@font-face {
+	font-family: special;
+	src: url("special.woff");
+}
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
 	opacity: .99;
