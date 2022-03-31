@@ -35,7 +35,7 @@ body{
 	text-align: justify;
 	font-weight: 300;
 }
-h1,h2,h3,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
+h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
 	font-family:alegreya;
 	font-weight:normal;
 	font-style:normal;
@@ -174,7 +174,7 @@ body#home div#content ul{
 	padding-left:1em;
 }
 body#home div#content ul li{
-	list-style-type: none;
+	list-style-type: disc;
 }
 body#home div#content section#photos img{
 	display:inline
@@ -268,7 +268,7 @@ div.presentation_summary{
 			0 0 102px #FDE47D,
 			0 0 151px #FDE47D;
 	}
-	h1,h1 a,h2,h2 a,h3,h3 a {
+	h1,h1 a,h2,h2 a,h3,h3,h4 a {
 	color: #fff;
 	text-shadow:
 		0 0 7px #fff;
