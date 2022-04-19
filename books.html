@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Books | Wilder Change</title>
+        <!-- Our CSS&JS -->
+        <link rel="shortcut icon" type="image/x-icon" href="https://gateway.pinata.cloud/ipfs/QmdNJirrbz29nCg6sJVJtSGMBjhUCu1CwdDCSK58JdbfZN" />
+        <link href="style2.css" rel="stylesheet">
+
+        <script src="books.js"></script>
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- Option 1: Include in HTML -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- web3.js -->
+        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+        a {
+            text-decoration: none;
+        }
+        body {
+            max-width:40em;
+            margin:0 auto;
+            padding:5px;
+            font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+            font-size:20px;
+            line-height:30px;
+            background-color:#fff;
+            color:#000;
+            text-align: justify;
+            font-weight: 300;
+        }
+        @media(prefers-color-scheme:dark){
+	body{
+		background-color:#000;
+		color:#ccc
+	}
+	a{
+		color:#88f
+	}
+	a:visited{
+		color:#aaf
+	}
+	.response{
+		background-color:#444
+	}
+	section#masthead h1 a{
+		color: #fff;
+		text-shadow:
+			0 0 7px #fff,
+			0 0 10px #fff,
+			0 0 21px #fff,
+			0 0 42px #FDE47D,
+			0 0 82px #FDE47D,
+			0 0 92px #FDE47D,
+			0 0 102px #FDE47D,
+			0 0 151px #FDE47D;
+	}
+	h1,h1 a,h2,h2 a,h3,h3,h4 a {
+	color: #fff;
+	text-shadow:
+		0 0 7px #fff;
+	}
+	blockquote {
+		color: #ccc;
+	}
+	.panel-info > .panel-heading {
+		border-bottom: 3px solid white;
+		}
+}
+
+     
+    </style>
+
+<body>
+        <!-- This begins the body -->
+        <div class="container" id="main_container">
+            <hr>
+            <section id="masthead">
+                <h1>
+                    <a href="/index.html">Wilder</a> <span>Change</span>
+                </h1>
+                <small>
+                    Eli Richmond
+                </small>
+
+            </section>
+            <div class="panel panel-info panel-default mt-5">
+                <div class="panel-heading p-2 mb-3"><h2>`2022</h2></div>
+                    <div class="panel-body">
+                        <div class="row" id="year2022">
+
+
+
+                        </div>
+                    </div>
+            </div>
+
+
+            <div class="panel panel-info panel-default">
+                <div class="panel-heading p-2 mb-3"><h2>`2021 (Starting in September)</h2></div>
+                    <div class="panel-body">
+                        <div class="row" id="year2021">
+                            
+                        </div>
+                    </div>
+            </div>
+
+            <div class="panel panel-info panel-default">
+                <div class="panel-heading p-2 mb-3"><h2>`Unknown Date (In no particular order)</h2></div>
+                    <div class="panel-body">
+                        <div class="row" id="yearunknown">
+
+                        </div>
+                    </div>
+            </div>
+            <hr>
+        </div>
+    </body>
+</html>

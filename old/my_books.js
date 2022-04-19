@@ -28,14 +28,16 @@ function load_page() {
         const contract = create_contract();
 
         var all_books = await contract.methods._readAll().call();
-
+        var manyBooks = [];
         for (let x=all_books.length - 1; x>=0; x--) {
 
             if (all_books[x][0] != "") {
                 console.log(all_books[x][0], all_books[x][1], all_books[x][2], all_books[x][3])
                 create_book_layout(all_books[x][0], all_books[x][1], all_books[x][2], all_books[x][3])
+                manyBooks.push(all_books[x][0])
             };
         }
+        console.log(manyBooks)
 
         document.querySelector("#spinner").style.display = "none";
 

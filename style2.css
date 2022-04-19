@@ -280,6 +280,9 @@ div.presentation_summary{
 	blockquote {
 		color: #ccc;
 	}
+	.panel-info > .panel-heading {
+		border-bottom: 3px solid white;
+		}
 }
 ul#reviews {
 	margin: 0;
@@ -296,6 +299,10 @@ ul#reviews li blockquote cite {
 	margin-top: 1em
 }
 /* ---- dropdown ----- */
+.panel-info > .panel-heading {
+	border-bottom: 3px solid black;
+	font-family: alegreya;
+}
 .dropbtn {
 	background-color: #04AA6D;
 	color: white;
