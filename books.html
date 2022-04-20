@@ -3,7 +3,7 @@
     <head>
         <title>Books | Wilder Change</title>
         <!-- Our CSS&JS -->
-        <link rel="shortcut icon" type="image/x-icon" href="https://gateway.pinata.cloud/ipfs/QmdNJirrbz29nCg6sJVJtSGMBjhUCu1CwdDCSK58JdbfZN" />
+        <link rel="icon" href="static/xi.png">
         <link href="style2.css" rel="stylesheet">
 
         <script src="books.js"></script>
@@ -20,10 +20,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <style>
-        a {
-            text-decoration: none;
-        }
-        body {
+        body{
             max-width:40em;
             margin:0 auto;
             padding:5px;
@@ -35,44 +32,326 @@
             text-align: justify;
             font-weight: 300;
         }
+        h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
+            font-family:alegreya;
+            font-weight:normal;
+            font-style:normal;
+            text-align:left;
+        }
+        span.url {
+            font-family:Georgia,serif;
+        }
+        small,.small,footer,dl#tweetlist dt{
+            font-size:1em;
+            color:#666
+        }
+        h1,h2,h3,label{
+            line-height:1em;
+        }
+        h1{
+            font-size:2em
+        }
+        h2 a{
+            color:#000;
+            text-decoration: underline
+        }
+        h2,h3{
+            margin-top:2em
+        }
+        h3{
+            font-size:1.5em
+        }
+        a{
+            text-decoration:none;
+            color:#20b;
+            overflow-wrap:break-word;
+            word-wrap:break-word
+        }
+        a:visited{
+            color:#606
+        }
+        a:hover{
+            text-decoration:underline
+        }
+        dt{
+            margin-top:2em;
+            font-size:1.2em
+        }
+        li,dd{
+            margin-bottom:1em
+        }
+        figure{
+            margin:0
+        }
+        blockquote{
+            margin:2em;
+            color:#444
+        }
+        pre{
+            color:#fff;
+            background-color:#333;
+            padding:0.25em;
+            line-height:1
+        }
+        code{
+            font-size:0.8em
+        }
+        img,iframe,audio{
+            max-width:100%;
+            display:block
+        }
+        img{
+            height:auto
+        }
+        input[type="text"],input[type="password"],input[type="email"],select,textarea{
+            padding:0.5em 0.6em;
+            display:block;
+            border:1px solid #ccc;
+            box-shadow:inset 0 1px 3px #ddd;
+            border-radius:4px;
+            vertical-align:middle;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            max-width:99%
+        }
+        input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus,select:focus,textarea:focus{
+            outline:0;
+            border-color:#129FEA
+        }
+        input[type="submit"]{
+            padding:5px;
+            font-size:1em;
+            background:#000;
+            color:#fff;
+            font-weight:bold
+        }
+        form.inlineform input{
+            display:inline
+        }
+        select{
+            height:2.25em;
+            border:1px solid #ccc;
+            background-color:#fff
+        }
+        label{
+            margin:0.5em 0 0.2em
+        }
+        section{
+            margin-bottom:4em
+        }
+        section#masthead{
+            margin-bottom:1em
+        }
+        section#masthead h1{
+            margin:0;
+            text-align:left;
+            font-family: TESLA;
+            word-spacing: -1ch;
+        }
+        section#masthead h1 span{
+            font-family: alegreya;
+            font-size: .5em;
+        }
+        section#masthead h1 a{
+            color:#000;
+            text-decoration-thickness: 1px;
+        }
+        section#masthead small{
+            margin-left:10px;
+        }
+        body#home {
+            padding-left:1em;
+            padding-right:1em;
+        }
+        body#home div#content h2 small{
+            margin-left:2em
+        }
+        body#home div#content ul{
+            padding-left:1em;
+        }
+        body#home div#content ul li{
+            list-style-type: disc;
+        }
+        body#home div#content section#photos img{
+            display:inline
+        }
+        div.blogparent{
+            font-size:1.2em;
+            margin:1em 0 -0.5em 0
+        }
+        body#oneblog div#content article header h1{
+            margin-bottom:0
+        }
+        div#comments ol{
+            padding-left:2em
+        }
+        div#comments li{
+            margin-bottom:2em
+        }
+        div#comments li p{
+            overflow-wrap:break-word;
+            word-wrap:break-word
+        }
+        .response{
+            display:block;
+            margin-left:1em;
+            padding:4px;
+            background-color:#ffc;
+            border:1px solid #000;
+            font-family:sans-serif;
+            font-size:14px
+        }
+        body#book figure img,body#booklist figure img{
+            float:left;
+            margin-right:2em
+        }
+        body#booklist div.abook{
+            margin:0 0 8em 0
+        }
+        body#interview header h2 a {
+            color: #009;
+            text-decoration: underline
+        }
+        cite {
+            color: #666
+        }
+        div.presentation_summary{
+            margin-bottom:6em
+        }
+        @media screen and (max-width: 440px){
+            section#masthead h1{
+                font-size:3em;
+            }
+            div.presentation_summary img{
+                display:block
+            }
+            body{
+                font-size: 16px;
+                text-align: left;
+            }
+        }
+        @media screen and (min-width: 440px){
+            section#masthead h1{
+                font-size:3.5em
+            }
+            div.presentation_summary img{
+                float:right
+            }
+        }
         @media(prefers-color-scheme:dark){
-	body{
-		background-color:#000;
-		color:#ccc
-	}
-	a{
-		color:#88f
-	}
-	a:visited{
-		color:#aaf
-	}
-	.response{
-		background-color:#444
-	}
-	section#masthead h1 a{
-		color: #fff;
-		text-shadow:
-			0 0 7px #fff,
-			0 0 10px #fff,
-			0 0 21px #fff,
-			0 0 42px #FDE47D,
-			0 0 82px #FDE47D,
-			0 0 92px #FDE47D,
-			0 0 102px #FDE47D,
-			0 0 151px #FDE47D;
-	}
-	h1,h1 a,h2,h2 a,h3,h3,h4 a {
-	color: #fff;
-	text-shadow:
-		0 0 7px #fff;
-	}
-	blockquote {
-		color: #ccc;
-	}
-	.panel-info > .panel-heading {
-		border-bottom: 3px solid white;
-		}
-}
+            body{
+                background-color:#000;
+                color:#ccc
+            }
+            a{
+                color:#88f
+            }
+            a:visited{
+                color:#aaf
+            }
+            .response{
+                background-color:#444
+            }
+            section#masthead h1 a{
+                color: #fff;
+                text-shadow:
+                    0 0 7px #fff,
+                    0 0 10px #fff,
+                    0 0 21px #fff,
+                    0 0 42px #FDE47D,
+                    0 0 82px #FDE47D,
+                    0 0 92px #FDE47D,
+                    0 0 102px #FDE47D,
+                    0 0 151px #FDE47D;
+            }
+            h1,h1 a,h2,h2 a,h3,h3,h4 a {
+            color: #fff;
+            text-shadow:
+                0 0 7px #fff;
+            }
+            blockquote {
+                color: #ccc;
+            }
+            .panel-info > .panel-heading {
+                border-bottom: 3px solid white;
+                }
+        }
+        ul#reviews {
+            margin: 0;
+            padding: 0
+        }
+        ul#reviews li {
+            list-style-type: none
+        }
+        ul#reviews li blockquote {
+            margin: 1em 0 3em 0
+        }
+        ul#reviews li blockquote cite {
+            display: block;
+            margin-top: 1em
+        }
+        /* ---- dropdown ----- */
+        .panel-info > .panel-heading {
+            border-bottom: 3px solid black;
+            font-family: alegreya;
+        }
+        .dropbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 0;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 10px;
+            right: 10px
+        }
+        .dropbtn > img {
+            height: 64px;
+        }
+        
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #3e8e41;
+        }
+        
+        .dropdown {
+            float: right;
+            position: relative;
+
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            right: 0;
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown a:hover {background-color: #ddd;}
+        
+        .show {display: block;}
+
+        hr {
+        display: block;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        border-top-style: inset;
+        border-top-width: 1px;
+        }
 
      
     </style>
@@ -90,7 +369,7 @@
                 </small>
 
             </section>
-            <div class="panel panel-info panel-default mt-5">
+            <div class="panel panel-info panel-default mt-3">
                 <div class="panel-heading p-2 mb-3"><h2>`2022</h2></div>
                     <div class="panel-body">
                         <div class="row" id="year2022">
