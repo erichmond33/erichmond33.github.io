@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Never Eat Alone": "neverEatAlone.jpeg",
         "The Courage To Be Disliked" : "theCourageToBeDisliked.jpeg",
         "Hell Yeah or No: What's Worth Doing" : "hellYeahOrNo.jpeg",
         "River Out of Eden: A Darwinian View of Life" : "riverOutOfEden.jpeg",
