@@ -11,7 +11,7 @@
 
 @font-face {
 	font-family: alegreya;
-	src: url("AlegreyaSansSC-Light.ttf");
+	src: url("AlegreyaSansSC-Regular.ttf");
 }
 @font-face {
 	font-family: special;
@@ -44,6 +44,7 @@ h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite
 	font-weight:normal;
 	font-style:normal;
 	text-align:left;
+	font-size: 1.75em;
 }
 span.url {
 	font-family:Georgia,serif;
