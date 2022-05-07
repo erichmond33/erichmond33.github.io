@@ -182,7 +182,11 @@ body#home div#content ul li{
 	list-style-type: disc;
 }
 body#home div#content section#photos img{
-	display:inline
+	display:inline-flex;
+	margin:auto;
+}
+body#home div#content section#photos a{
+	width: 25%; text-align: center;
 }
 div.blogparent{
 	font-size:1.2em;
@@ -298,6 +302,9 @@ ul#reviews li blockquote {
 ul#reviews li blockquote cite {
 	display: block;
 	margin-top: 1em
+}
+.img-200 {
+	width: 200px;
 }
 /* ---- dropdown ----- */
 .panel-info > .panel-heading {
