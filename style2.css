@@ -184,6 +184,9 @@ body#home div#content ul li{
 body#home div#content section#photos img{
 	display:inline;
 }
+body#home div#content section#meInTenSeconds img{
+	display:inline;
+}
 div.blogparent{
 	font-size:1.2em;
 	margin:1em 0 -0.5em 0
