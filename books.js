@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "A Generalist Agent (GATO)" : "gato.jpg",
+        "Thinking Fast and Slow in Ai" : "FastSlow.jpg",
         "Never Eat Alone": "neverEatAlone.jpeg",
         "The Courage To Be Disliked" : "theCourageToBeDisliked.jpeg",
         "Hell Yeah or No: What's Worth Doing" : "hellYeahOrNo.jpeg",
