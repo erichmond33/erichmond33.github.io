@@ -75,50 +75,52 @@ function navbarFunctionality() {
     var sections = document.querySelectorAll('section');
 
     navLinks.forEach(link => {
-        link.addEventListener("mouseover", function() {
-            if (link.innerHTML == "Me") {
-                sections.forEach(element => {
-                    if (element.id == "meInTenSeconds" || element.id == "masthead") {
-                        element.style.display = "block";
-                    } else {
-                        element.style.display = "none";
-                    }
-                });
-            }
-            else if (link.innerHTML == "Now") {
-                sections.forEach(element => {
-                    if (element.id == "whatImDoingNow" || element.id == "masthead") {
-                        element.style.display = "block";
-                    } else {
-                        element.style.display = "none";
-                    }
-                });
-            }
-            else if (link.innerHTML == "Blog") {
-                sections.forEach(element => {
-                    if (element.id == "articles" || element.id == "masthead") {
-                        element.style.display = "block";
-                    } else {
-                        element.style.display = "none";
-                    }
-                });
-            }
-            else if (link.innerHTML == "Misc") {
-                sections.forEach(element => {
-                    if (element.id == "myRealEducation" || element.id == "masthead") {
-                        element.style.display = "block";
-                    } else {
-                        element.style.display = "none";
-                    }
-                });
-            }
-        });
-
-        link.addEventListener("mouseout", function() {
-            sections.forEach(element => {
-                element.style.display = "block";
+        if (window.location.pathname == '/index.html' || window.location.pathname == "/Users/erichmond_33/github/erichmond33.github.io/index.html") {
+            link.addEventListener("mouseover", function() {
+                if (link.innerHTML == "Me") {
+                    sections.forEach(element => {
+                        if (element.id == "meInTenSeconds" || element.id == "masthead") {
+                            element.style.display = "block";
+                        } else {
+                            element.style.display = "none";
+                        }
+                    });
+                }
+                else if (link.innerHTML == "Now") {
+                    sections.forEach(element => {
+                        if (element.id == "whatImDoingNow" || element.id == "masthead") {
+                            element.style.display = "block";
+                        } else {
+                            element.style.display = "none";
+                        }
+                    });
+                }
+                else if (link.innerHTML == "Blog") {
+                    sections.forEach(element => {
+                        if (element.id == "articles" || element.id == "masthead") {
+                            element.style.display = "block";
+                        } else {
+                            element.style.display = "none";
+                        }
+                    });
+                }
+                else if (link.innerHTML == "Misc") {
+                    sections.forEach(element => {
+                        if (element.id == "myRealEducation" || element.id == "masthead") {
+                            element.style.display = "block";
+                        } else {
+                            element.style.display = "none";
+                        }
+                    });
+                }
             });
-        });
+
+            link.addEventListener("mouseout", function() {
+                sections.forEach(element => {
+                    element.style.display = "block";
+                });
+            });
+        }
 
         link.addEventListener("click", function() {
             sections.forEach(element => {
