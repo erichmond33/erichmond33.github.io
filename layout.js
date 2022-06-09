@@ -50,17 +50,17 @@ function navbarElements() {
         nav.appendChild(divNavLinks);
 
             let me = document.createElement('a');
-            me.setAttribute('href', 'index.html#meInTenSeconds');
+            me.setAttribute('href', '../index.html#meInTenSeconds');
             me.innerHTML = "Me";
             divNavLinks.appendChild(me);
 
             let now = document.createElement('a');
-            now.setAttribute('href', './index.html#whatImDoingNow');
+            now.setAttribute('href', '../index.html#whatImDoingNow');
             now.innerHTML = "Now";
             divNavLinks.appendChild(now);
 
             let blog = document.createElement('a');
-            blog.setAttribute('href', '/index.html#articles');
+            blog.setAttribute('href', '../index.html#articles');
             blog.innerHTML = "Blog";
             divNavLinks.appendChild(blog);
 
