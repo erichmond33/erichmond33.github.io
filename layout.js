@@ -55,17 +55,17 @@ function navbarElements() {
             divNavLinks.appendChild(me);
 
             let now = document.createElement('a');
-            now.setAttribute('href', 'index.html#whatImDoingNow');
+            now.setAttribute('href', './index.html#whatImDoingNow');
             now.innerHTML = "Now";
             divNavLinks.appendChild(now);
 
             let blog = document.createElement('a');
-            blog.setAttribute('href', 'index.html#articles');
+            blog.setAttribute('href', '/index.html#articles');
             blog.innerHTML = "Blog";
             divNavLinks.appendChild(blog);
 
             let misc = document.createElement('a');
-            misc.setAttribute('href', 'index.html#myRealEducation');
+            misc.setAttribute('href', '../index.html#myRealEducation');
             misc.innerHTML = "Misc";
             divNavLinks.appendChild(misc);
 }
