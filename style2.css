@@ -197,8 +197,8 @@ section#masthead small{
 	margin-left:10px;
 }
 section#masthead nav {
-	border-bottom: 1px solid white;
-	border-top: 1px solid white;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
 }
 section#masthead #nav-links {
 	display: flex;
@@ -299,6 +299,10 @@ div.presentation_summary{
 	}
 }
 @media(prefers-color-scheme:dark){
+	section#masthead nav {
+		border-bottom: 1px solid white;
+		border-top: 1px solid white;
+	}
 	body{
 		background-color:#000;
 		color:#ccc
