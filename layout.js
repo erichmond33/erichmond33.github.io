@@ -32,7 +32,7 @@ function navbarElements() {
         divRow2.appendChild(divColMediaLinks);
 
             let contact = document.createElement('a');
-            contact.setAttribute('href', '#contact');
+            contact.setAttribute('href', '../index.html#contact');
             contact.innerHTML = "contact";
             divColMediaLinks.appendChild(contact);
 
