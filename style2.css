@@ -14,6 +14,10 @@
 	src: url("AlegreyaSansSC-Regular.ttf");
 }
 @font-face {
+	font-family: alegreya-bold;
+	src: url("AlegreyaSansSC-Bold.ttf");
+}
+@font-face {
 	font-family: special;
 	src: url("special.woff");
 }
@@ -36,8 +40,9 @@ body{
 	line-height:30px;
 	background-color:#fff;
 	color:#000;
-	text-align: justify;
+	text-align: justify; 
 	font-weight: 300;
+	overflow-y:scroll;
 }
 h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
 	font-family:alegreya;
@@ -81,23 +86,6 @@ a:visited{
 a:hover{
 	text-decoration:underline
 }
-/*
-p a, li a {
-	text-decoration:none;
-	border-bottom: 2px solid green;
-	box-shadow: inset 0 -2px 0 green;
-	color: inherit;
-	transition: background 0.5s cubic-bezier(.33,.66,.66,1);
-}
-p a:hover {
-	background: green;
-	text-decoration: none;
-}
-h2 a, h3 a, dt a{
-	color: green;	
-	text-decoration: none;
-}
-*/
 dt{
 	margin-top:2em;
 	font-size:1.2em
@@ -110,7 +98,7 @@ figure{
 }
 blockquote{
 	margin:2em;
-	color:#444
+	color:#444;
 }
 pre{
 	color:#fff;
@@ -170,26 +158,62 @@ section#masthead{
 	margin-bottom:1em;
 	position: relative;
 }
-section#masthead h1{
+
+section#masthead img{
+	position: absolute;
+	margin:auto;
+	top:10px;
+	left: 0;
+	width: 90px;
+	z-index: 1;
+}
+section#masthead #logo{
 	margin:0;
-	text-align:left;
+	text-align:center;
 	font-family: TESLA;
-	word-spacing: -1ch;
+	line-height: .8em;
 }
-section#masthead h1 span{
+section#masthead #lastName{
 	font-family: alegreya;
-	font-size: .5em;
+	font-size: 1em;
+	text-align: right;
+	line-height: 0em;
+	padding-top: 1px;
+	padding-bottom: 8px;
 }
-section#masthead h1 a{
+section#masthead #mediaLinks {
+	font-family: alegreya-bold;
+	font-size: .7em;
+	padding-top: 1px;
+	padding-bottom: 7px;
+	text-align: left;
+	line-height: 0em;
+}
+section#masthead #logo a{
 	color:#000;
 	text-decoration-thickness: 2px;
 }
 section#masthead small{
 	margin-left:10px;
 }
+section#masthead nav {
+	border-bottom: 1px solid white;
+	border-top: 1px solid white;
+}
+section#masthead #nav-links {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+section#masthead #nav-links a {
+	text-decoration: none;
+	font-size: 1em;
+	font-family: alegreya-bold;
+	letter-spacing: 0.1em;
+}
 body#home {
-	padding-left:1em;
 	padding-right:1em;
+	padding-left: 1em;
 }
 body#home div#content h2 small{
 	margin-left:2em
@@ -250,8 +274,13 @@ div.presentation_summary{
 	margin-bottom:6em
 }
 @media screen and (max-width: 440px){
-	section#masthead h1{
+	section#masthead #logo{
 		font-size:3em;
+	}
+	section#masthead img{
+		top:25px;
+		left: 0;
+		width: 60px;
 	}
 	div.presentation_summary img{
 		display:block
@@ -262,7 +291,7 @@ div.presentation_summary{
 	}
 }
 @media screen and (min-width: 440px){
-	section#masthead h1{
+	section#masthead #logo{
 		font-size:3.5em
 	}
 	div.presentation_summary img{
@@ -283,7 +312,7 @@ div.presentation_summary{
 	.response{
 		background-color:#444
 	}
-	section#masthead h1 a{
+	section#masthead #logo a{
 		color: #fff;
 		text-shadow:
 			0 0 7px #fff,

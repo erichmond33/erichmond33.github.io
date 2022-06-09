@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
-        "A Generalist Agent (GATO)" : "gato.jpg",
-        "Thinking Fast and Slow in Ai" : "FastSlow.jpg",
+        "The Conciousness Instict" : "conciousness.jpg",
         "Never Eat Alone": "neverEatAlone.jpeg",
         "The Courage To Be Disliked" : "theCourageToBeDisliked.jpeg",
         "Hell Yeah or No: What's Worth Doing" : "hellYeahOrNo.jpeg",
@@ -53,6 +52,7 @@ function load_page() {
         "Deep Learning For Dummies" : "DlForDummies.jpeg",
         "The History of Money" : "theHistoryOfMoney.jpeg",
         "Can't Hurt Me" : "cantHurtMe.jpeg",
+        "Ignition" : "ignition.jpeg",
         "The Hitchhiker's Guide to the Galaxy" : "hitchhikersGuide.jpeg",
         "Shoe Dog" : "shoeDog.jpeg",
         "The Brain Book: Development, Function, Disorder, Health" : "brainBook.jpeg",

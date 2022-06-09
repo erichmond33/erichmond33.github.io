@@ -5,8 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="I am a serious competitor, unusually ambitious, extremely curious, and an adaptomaniac. New technology and innovation is what excites me. My circle of competence includes artificial intelligence, decentralization (crypto/web3), and software engineering in general.">
         <meta name="keywords" content="Wilder Change, Ai, artificial intelligence, web3, crytpo, decentralization, blog, article"> 
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <link rel="icon" href="static/xi.png">
         <link rel="stylesheet" href="style2.css">
+        <script src="layout.js"></script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-QBML9BFWCB"></script>
@@ -22,71 +27,38 @@
     <body id="home">
 
     <section id="masthead">
-        <script>
-            window.addEventListener('load', function() {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    function getRandomInt(max) {
-                        return Math.floor(Math.random() * max);
-                    }
-
-                    document.querySelector("#masthead h1 a").style.animation = 
-                        `flicker ${getRandomInt(4)}s linear, flicker ${getRandomInt(4)}s linear`;
-                };
-            });
-        </script>
-        <h1>
-            <a href="/index.html">Wilder</a><span>Change</span>
-        </h1>
-        <small>
-            Eli Richmond
-        </small>
-        <!--
-        <hr>
-        <nav>
-            <style>
-                #nav-links {
-                    display: flex;
-                    justify-content:flex-start;
-                    align-items: center;
-                }
-
-                #nav-links a {
-                    text-decoration: none;
-                    color: #fff;
-                    font-size: 1em;
-                    font-family: alegreya;
-                    letter-spacing: 0.1em;
-                }
-                #nav-links a:hover {
-                    color: #000;
-                }
-            </style>
-            <div id="nav-links">
-                <a href="/index.html">Home</a>
-                <a href="/blog.html">Blog</a>
-                <a href="/about.html">About</a>
-                <a href="/contact.html">Contact</a>
-            </div>
-        </nav>
-        <hr>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-
-
-                var navLinks = document.querySelectorAll('#nav-links a');
-                
-                navLinks[0].addEventListener("mouseover", function() {
-                    document.getElementById("meInTenSeconds").style.display = "none";
-                    navLinks[1].style.color = "green";
-                    console.log("hovering over home");
-                }) 
-
-
-            });
-        </script>
-    -->
-
     </section>
+    <!--
+    <section style="position:relative;height:1000px;">
+        <style>
+            #brain {
+                width: 500px;
+                position: absolute;
+                top: 0;
+                right: -100px;
+                z-index: -1;
+            }
+            .font {
+                font-size: 3.5em;
+                text-align: left;
+            }
+        </style>
+        <div style="padding-top: 300px;padding-left: 50px;">
+            <h1 class="font">Choose</h1>
+        </div>
+        <div style="padding-left: 25px;">
+            <h1 class="font">Your</h1>
+        </div>
+        <div style="padding-left: 75px;">
+            <h1 class="font">Unique</h1>
+        </div>
+        <div style="padding-left: 200px;">
+            <h1 class="font">Story</h1>
+        </div>
+        <img id="brain" src="static/xi.png">
+    </section>
+-->
+
     <div id="content">
         <section id="meInTenSeconds">
             <h2>
@@ -139,32 +111,7 @@
                 you can find a ten minute read about some of the most defining moments in my life and the key lessons that have shaped who I am today.
             </p>
         </section>
-        <section id="myRealEduction">
-            <h2>
-                My real education
-            </h2>
-            <dl>
-                <dt>
-                    <a href="/projects.html">Projects</a>
-                </dt>
-                <dd>
-                    A list of all the projects I've worked on.
-                </dd>
-                <dt>
-                    <a href="/books.html">Books</a>
-                </dt>
-                <dd>
-                    Almost everything I've ever read.
-                </dd>
-                <dt>
-                    <a href="/courses.html">Courses</a>
-                </dt>
-                <dd>
-                    Every online course I've taken.
-                </dd>
-            </dl>
-        </section>
-        <section id="myProjects">
+        <section id="articles">
             <h2>
                 Articles
                 <small>
@@ -208,8 +155,33 @@
                     </a>
                 </li>
             </ul>
+        </section>        
+        <section id="myRealEducation">
+            <h2>
+                My real education
+            </h2>
+            <dl>
+                <dt>
+                    <a href="/projects.html">Projects</a>
+                </dt>
+                <dd>
+                    A list of all the projects I've worked on.
+                </dd>
+                <dt>
+                    <a href="/books.html">Books</a>
+                </dt>
+                <dd>
+                    Almost everything I've ever read.
+                </dd>
+                <dt>
+                    <a href="/courses.html">Courses</a>
+                </dt>
+                <dd>
+                    Every online course I've taken.
+                </dd>
+            </dl>
         </section>
-        <section>
+        <section id="contact">
             <h2>
                 Contact me?
             </h2>
