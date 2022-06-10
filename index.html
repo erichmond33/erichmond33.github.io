@@ -28,6 +28,61 @@
 
     <section id="masthead">
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            let height = window.innerHeight - document.getElementById("masthead").clientHeight;
+
+            document.getElementById("motto").style.height = height + "px";
+
+            window.addEventListener('resize', function() {
+                height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                document.getElementById("motto").style.height = height + "px";
+            });
+
+});
+    </script>
+    <style>
+        #brain {
+            width: 500px;
+            position: absolute;
+            top: 0;
+            right: -100px;
+            z-index: -1;
+        }
+        #section {
+            position: relative;
+            top: -100px;
+        }
+        #motto div {
+            font-family: alegreya-bold;
+            position: absolute;
+            font-size: 1.75em;
+            text-align: left;
+            bottom: 75px;
+        }
+        #motto div h1 {
+            font-family: alegreya;
+        }
+        #motto div h1 span {
+            font-family: alegreya-bold;
+        }
+        @media screen and (max-width: 440px){
+        #motto div {
+            font-size: 1.5em;
+        }
+        }
+}
+    </style>
+
+    <section id="motto">
+        <div>
+            <h1>
+            You can choose <br> to do <span>Great </span>things.
+            </h1>
+        </div>
+    </section>
     <!--
     <section style="position:relative;height:1000px;">
         <style>
