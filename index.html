@@ -37,9 +37,13 @@
             document.getElementById("motto").style.height = height + "px";
 
             window.addEventListener('resize', function() {
-                height = window.innerHeight - document.getElementById("masthead").clientHeight;
-                document.getElementById("motto").style.height = height + "px";
+                if (window.innerWidth > 440) {
+                    height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                    document.getElementById("motto").style.height = height + "px"; console.log("bigger than 440px");
+                }
             });
+           
+            
 
 });
     </script>
