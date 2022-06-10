@@ -211,6 +211,19 @@ section#masthead #nav-links a {
 	font-family: alegreya-bold;
 	letter-spacing: 0.1em;
 }
+section#motto div {
+	font-family: alegreya-bold;
+	position: absolute;
+	font-size: 1.75em;
+	text-align: left;
+	bottom: 75px;
+}
+section#motto div h1 {
+	font-family: alegreya;
+}
+section#motto div h1 span {
+	font-family: alegreya-bold;
+}
 body#home {
 	padding-right:1em;
 	padding-left: 1em;
@@ -281,6 +294,9 @@ div.presentation_summary{
 		top:25px;
 		left: 0;
 		width: 60px;
+	}
+	section#motto div {
+		font-size: 1.5em;
 	}
 	div.presentation_summary img{
 		display:block
