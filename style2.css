@@ -177,15 +177,12 @@ section#masthead #lastName{
 	font-family: alegreya;
 	font-size: 1em;
 	text-align: right;
-	line-height: 0em;
-	padding-top: 1px;
+	line-height: 0;
 	padding-bottom: 8px;
 }
 section#masthead #mediaLinks {
 	font-family: alegreya-bold;
 	font-size: .7em;
-	padding-top: 1px;
-	padding-bottom: 7px;
 	text-align: left;
 	line-height: 0em;
 }
