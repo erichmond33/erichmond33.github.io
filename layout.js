@@ -75,7 +75,7 @@ function navbarFunctionality() {
     var sections = document.querySelectorAll('section');
 
     navLinks.forEach(link => {
-        if (window.location.pathname == '/index.html' || window.location.pathname == "/Users/erichmond_33/github/erichmond33.github.io/index.html") {
+        if (window.location.pathname == "" || window.location.pathname == "/" || window.location.pathname == "/index" || window.location.pathname == '/index.html' || window.location.pathname == "/Users/erichmond_33/github/erichmond33.github.io/index.html") {
             link.addEventListener("mouseover", function() {
                 if (link.innerHTML == "Me") {
                     sections.forEach(element => {
