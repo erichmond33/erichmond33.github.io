@@ -35,8 +35,14 @@
             window.addEventListener('resize', function() {
                 if (window.innerWidth > 440) {
                     height = window.innerHeight - document.getElementById("masthead").clientHeight;
-                    document.getElementById("motto").style.height = height + "px"; console.log("bigger than 440px");
+                    document.getElementById("motto").style.height = height + "px";
                 }
+            });
+
+            window.addEventListener('orientationchange', function() {
+                console.log('orientation changed');
+                height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                document.getElementById("motto").style.height = height + "px";
             });
         });
     </script>
