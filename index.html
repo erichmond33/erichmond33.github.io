@@ -39,11 +39,18 @@
                 }
             });
 
-            window.addEventListener('orientationchange', function() {
-                console.log('orientation changed');
-                height = window.innerHeight - document.getElementById("masthead").clientHeight;
-                document.getElementById("motto").style.height = height + "px";
-            });
+            var previousOrientation = window.orientation;
+            var checkOrientation = function(){
+                if(window.orientation !== previousOrientation){
+                    previousOrientation = window.orientation;
+                    height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                    document.getElementById("motto").style.height = height + "px";
+                }
+            };
+
+            window.addEventListener("resize", checkOrientation, false);
+            window.addEventListener("orientationchange", checkOrientation, false);
+
         });
     </script>
 
