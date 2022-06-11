@@ -29,28 +29,29 @@
         document.addEventListener('DOMContentLoaded', function() {
 
             let height = window.innerHeight - document.getElementById("masthead").clientHeight;
-
             document.getElementById("motto").style.height = height + "px";
 
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 440) {
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                let portrait = window.matchMedia("(orientation: portrait)");
+
+                portrait.addEventListener("change", function(e) {
+                    if(e.matches) {
+                        // Portrait mode
+                        height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                        document.getElementById("motto").style.height = height + "px";
+                    } else {
+                        // Landscape
+                        height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                        document.getElementById("motto").style.height = height + "px";
+                    }
+                })
+            }
+            else {
+                window.addEventListener('resize', function() {
                     height = window.innerHeight - document.getElementById("masthead").clientHeight;
                     document.getElementById("motto").style.height = height + "px";
-                }
-            });
-
-            var previousOrientation = window.orientation;
-            var checkOrientation = function(){
-                if(window.orientation !== previousOrientation){
-                    previousOrientation = window.orientation;
-                    height = window.innerHeight - document.getElementById("masthead").clientHeight;
-                    document.getElementById("motto").style.height = height + "px";
-                }
-            };
-
-            window.addEventListener("resize", checkOrientation, false);
-            window.addEventListener("orientationchange", checkOrientation, false);
-
+                });
+            }
         });
     </script>
 
