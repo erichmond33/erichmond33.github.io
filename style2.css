@@ -286,6 +286,11 @@ cite {
 div.presentation_summary{
 	margin-bottom:6em
 }
+@media screen and (max-height: 400px){
+	section#motto div {
+		position:static;
+	}
+}
 @media screen and (max-width: 440px){
 	section#masthead #logo{
 		font-size:3em;
