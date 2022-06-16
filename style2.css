@@ -211,6 +211,9 @@ section#masthead #nav-links a {
 	font-family: alegreya-bold;
 	letter-spacing: 0.1em;
 }
+section#masthead #nav-links a:hover {
+	text-decoration: underline;
+}
 section#motto div {
 	font-family: alegreya-bold;
 	position: absolute;
