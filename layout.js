@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname == "/") { document.location.href = "/index.html"; }
 
     navbarElements();
-    navbarFunctionality();
+    setTimeout(navbarFunctionality, 10);
 
 
 });
