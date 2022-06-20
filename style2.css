@@ -217,7 +217,7 @@ section#masthead #nav-links a:hover {
 section#motto {
 	background-image: url("static/other.png");
 	background-repeat: no-repeat;
-	background-position-x: right -100px;
+	background-position: right -100px top 0px;
 	background-position-y: 0px;
 	background-size:contain;
 	background-origin: padding-box;
@@ -319,7 +319,6 @@ div.presentation_summary{
 }
 @media screen and (max-width: 570px){
 	section#motto {
-		background-position-x:right -100px;
 		background-size:115%;
 	}
 }
@@ -335,7 +334,7 @@ div.presentation_summary{
 	}
 	section#motto {
 		background-size: 150%;
-		background-position-x:right -150px;
+		background-position: right -150px top 0px;
 	}
 	section#motto div {
 		font-size: 1.5em;
