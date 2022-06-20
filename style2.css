@@ -214,15 +214,35 @@ section#masthead #nav-links a {
 section#masthead #nav-links a:hover {
 	text-decoration: underline;
 }
+section#motto {
+	background-image: url("static/other.png");
+	background-repeat: no-repeat;
+	background-position-x: right -100px;
+	background-position-y: 0px;
+	background-size:contain;
+	background-origin: padding-box;
+}
 section#motto div {
 	font-family: alegreya-bold;
 	position: absolute;
 	font-size: 1.75em;
 	text-align: left;
-	bottom: 75px;
+	bottom: 10px;
 }
 section#motto div h1 {
 	font-family: alegreya;
+	margin: 0;
+	text-shadow:
+	0 0 7px white,
+	0 0 8px white,
+	0 0 9px white,
+	0 0 10px white,
+	0 0 21px white,
+	0 0 42px white,
+	0 0 82px white,
+	0 0 92px white,
+	0 0 102px white,
+	0 0 151px white;
 }
 section#motto div h1 span {
 	font-family: alegreya-bold;
@@ -290,8 +310,17 @@ div.presentation_summary{
 	margin-bottom:6em
 }
 @media screen and (max-height: 400px){
+	section#motto {
+		background-position-y:10000px;
+	}
 	section#motto div {
 		position:static;
+	}
+}
+@media screen and (max-width: 570px){
+	section#motto {
+		background-position-x:right -100px;
+		background-size:115%;
 	}
 }
 @media screen and (max-width: 440px){
@@ -303,6 +332,10 @@ div.presentation_summary{
 		top:25px;
 		left: 0;
 		width: 60px;
+	}
+	section#motto {
+		background-size: 150%;
+		background-position-x:right -150px;
 	}
 	section#motto div {
 		font-size: 1.5em;
@@ -353,7 +386,24 @@ div.presentation_summary{
 			0 0 102px #FDE47D,
 			0 0 151px #FDE47D;
 	}
-	h1,h1 a,h2,h2 a,h3,h3,h4 a {
+	section#motto {
+		background-image: url("static/other2.png");
+	}
+	section#motto div h1 {
+	text-shadow:
+	0 0 7px #fff,
+	0 0 8px #000,
+	0 0 9px #000,
+	0 0 10px #000,
+	0 0 11px #000,
+	0 0 12px #000,
+	0 0 13px #000,
+	0 0 14px #000,
+	0 0 15px #000,
+	0 0 16px #000,
+	0 0 21px #000;
+	}
+	h1,h1 a,h2,h2 a,h3,h3,h4,h5 a {
 	color: #fff;
 	text-shadow:
 		0 0 7px #fff;

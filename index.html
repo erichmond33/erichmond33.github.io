@@ -32,17 +32,22 @@
             document.getElementById("motto").style.height = height + "px";
 
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                console.log("Mobile");
                 let portrait = window.matchMedia("(orientation: portrait)");
 
                 portrait.addEventListener("change", function(e) {
                     if(e.matches) {
                         // Portrait mode
+                        // Resizing the masthead to the height of the window
                         height = window.innerHeight - document.getElementById("masthead").clientHeight;
                         document.getElementById("motto").style.height = height + "px";
+
                     } else {
                         // Landscape
+                        // Resizing the masthead to the height of the window
                         height = window.innerHeight - document.getElementById("masthead").clientHeight;
                         document.getElementById("motto").style.height = height + "px";
+
                     }
                 })
             }
@@ -58,7 +63,7 @@
     <section id="motto">
         <div>
             <h1>
-            You can choose <br> to do <span>Great </span>things.
+                You can <br> choose to do <br> <span>Great </span> things.
             </h1>
         </div>
     </section>
