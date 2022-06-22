@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Your Music and People" : "yourMusicAndPeople.jpeg",
+        "The Idea Factory" : "IdeaFactory.jpeg",
         "The Conciousness Instict" : "conciousness.jpg",
         "Never Eat Alone": "neverEatAlone.jpeg",
         "The Courage To Be Disliked" : "theCourageToBeDisliked.jpeg",
