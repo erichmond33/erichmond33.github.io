@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "The Difference Between God and Larry Ellison" : "larry.jpeg",
+        "Build" : "build.jpeg",  
         "Your Music and People" : "yourMusicAndPeople.jpeg",
         "The Idea Factory" : "IdeaFactory.jpeg",
         "The Conciousness Instict" : "conciousness.jpg",
