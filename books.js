@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "How to Avoid a Climate Disaster" : "climate.jpg",
         "Purple Cow" : "purpleCow.jpeg",
         "Super Founders" : "superFounders.jpg",
         "The Difference Between God and Larry Ellison" : "larry.jpeg",
