@@ -57,6 +57,11 @@ function navbarElements() {
             me.innerHTML = "Me";
             divNavLinks.appendChild(me);
 
+            // let why = document.createElement('a');
+            // why.setAttribute('href', '../index.html#why');
+            // why.innerHTML = "Why";
+            // divNavLinks.appendChild(why);
+
             let now = document.createElement('a');
             now.setAttribute('href', '../index.html#whatImDoingNow');
             now.innerHTML = "Now";
@@ -77,70 +82,84 @@ function navbarFunctionality() {
     var navLinks = document.querySelectorAll('#nav-links a');
     var sections = document.querySelectorAll('section');
 
-    navLinks.forEach(link => {
-        if (window.location.pathname == "" || window.location.pathname == "/" || window.location.pathname == "/index" || window.location.pathname == '/index.html' || window.location.pathname == "/Users/erichmond_33/github/erichmond33.github.io/index.html") {
-            link.addEventListener("mouseover", function() {
-                if (link.innerHTML == "Me") {
-                    sections.forEach(element => {
-                        if (element.id == "meInTenSeconds" || element.id == "masthead") {
-                            element.style.display = "block";
-                        } else {
-                            element.style.display = "none";
-                        }
-                    });
-                }
-                else if (link.innerHTML == "Now") {
-                    sections.forEach(element => {
-                        if (element.id == "whatImDoingNow" || element.id == "masthead") {
-                            element.style.display = "block";
-                        } else {
-                            element.style.display = "none";
-                        }
-                    });
-                }
-                else if (link.innerHTML == "Blog") {
-                    sections.forEach(element => {
-                        if (element.id == "articles" || element.id == "masthead") {
-                            element.style.display = "block";
-                        } else {
-                            element.style.display = "none";
-                        }
-                    });
-                }
-                else if (link.innerHTML == "Misc") {
-                    sections.forEach(element => {
-                        if (element.id == "myRealEducation" || element.id == "masthead") {
-                            element.style.display = "block";
-                        } else {
-                            element.style.display = "none";
-                        }
-                    });
-                }
-            });
+    navLinks.forEach(link => { hoverability(link, sections); });
+}
 
-            link.addEventListener("mouseout", function() {
+function hoverability(link, sections) {
+    if (window.location.pathname == "" || window.location.pathname == "/" || window.location.pathname == "/index" || window.location.pathname == '/index.html' || window.location.pathname == "/Users/erichmond_33/github/erichmond33.github.io/index.html") {
+        link.addEventListener("mouseover", function() {
+            if (link.innerHTML == "Me") {
                 sections.forEach(element => {
-                    element.style.display = "block";
+                    if (element.id == "meInTenSeconds" || element.id == "masthead") {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
                 });
-            });
-        }
+            }
+            else if (link.innerHTML == "Now") {
+                sections.forEach(element => {
+                    if (element.id == "whatImDoingNow" || element.id == "masthead") {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            }
+            else if (link.innerHTML == "Blog") {
+                sections.forEach(element => {
+                    if (element.id == "articles" || element.id == "masthead") {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            }
+            else if (link.innerHTML == "Misc") {
+                sections.forEach(element => {
+                    if (element.id == "myRealEducation" || element.id == "masthead") {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            }
+            // else if (link.innerHTML == "Why") {
+            //     sections.forEach(element => {
+            //         if (element.id == "why" || element.id == "masthead") {
+            //             element.style.display = "block";
+            //         } else {
+            //             element.style.display = "none";
+            //         }
+            //     });
+            // }
+        });
 
-        link.addEventListener("click", function() {
+        link.addEventListener("mouseout", function() {
             sections.forEach(element => {
                 element.style.display = "block";
             });
-            if (link.innerHTML == "Me") {
-                document.getElementById('meInTenSeconds').scrollIntoView();
-            }
-            else if (link.innerHTML == "Now") {
-                document.getElementById('whatImDoingNow').scrollIntoView();
-            }
-            else if (link.innerHTML == "Blog") {
-                document.getElementById('articles').scrollIntoView();
-            }
-            else if (link.innerHTML == "Misc") {
-                document.getElementById('myRealEducation').scrollIntoView();
-            }
         });
-    })
+    }
+
+    link.addEventListener("click", function() {
+        sections.forEach(element => {
+            element.style.display = "block";
+        });
+        if (link.innerHTML == "Me") {
+            document.getElementById('meInTenSeconds').scrollIntoView();
+        }
+        else if (link.innerHTML == "Now") {
+            document.getElementById('whatImDoingNow').scrollIntoView();
+        }
+        // else if (link.innerHTML == "Why") {
+        //     document.getElementById('why').scrollIntoView();
+        // }
+        else if (link.innerHTML == "Blog") {
+            document.getElementById('articles').scrollIntoView();
+        }
+        else if (link.innerHTML == "Misc") {
+            document.getElementById('myRealEducation').scrollIntoView();
+        }
+    });
 }

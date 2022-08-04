@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Purple Cow" : "purpleCow.jpeg",
+        "Super Founders" : "superFounders.jpg",
         "The Difference Between God and Larry Ellison" : "larry.jpeg",
         "Build" : "build.jpeg",  
         "Your Music and People" : "yourMusicAndPeople.jpeg",

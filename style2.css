@@ -202,7 +202,7 @@ section#masthead nav {
 }
 section#masthead #nav-links {
 	display: flex;
-	justify-content: space-around;
+	justify-content:space-around;
 	align-items: center;
 }
 section#masthead #nav-links a {

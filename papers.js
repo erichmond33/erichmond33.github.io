@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Video PreTraining (VPT): Learning to Act by Watching Unlabeled Online Videos" : "minecraft.jpg",
+        "OPT: Open Pre-trained Transformer Language Models" : "opt.jpg",
+        "LaMDA: Language Models for Dialog Applications" : "lamda.jpg",
+        "Attention Is All You Need" : "attention.jpg",
         "(Imagen) Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding" : "imagen.jpg",
         "(DALLE2) Hierarchical Text-Conditional Image Generation with CLIP Latents" : "dalle2.jpg",
         "(GATO) A Generalist Agent" : "gato.jpg",
@@ -18,6 +22,7 @@ function load_page() {
     }
 
     const BOOK_TITLES = {
+        "Attribute2Font: Creating Fonts You Want From Attributes" : "font.jpg",
         "(DALLE) Zero-Shot Text-to-Image Generation" : "dalle.jpg",
         "(GPT3) Language Models are Few-Shot Learners" : "gpt3.jpg",
         "(MNIST)" : "mnist.jpg",
