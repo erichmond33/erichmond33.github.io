@@ -11,11 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Six Easy Pieces" : "sixEasyPieces.jpg",
         "How to Avoid a Climate Disaster" : "climate.jpg",
         "Purple Cow" : "purpleCow.jpeg",
         "Super Founders" : "superFounders.jpg",
         "The Difference Between God and Larry Ellison" : "larry.jpeg",
-        "Build" : "build.jpeg",  
+        "Build" : "build.jpeg",
+        "Ai 2041" : "ai2041.jpg",
         "Your Music and People" : "yourMusicAndPeople.jpeg",
         "The Idea Factory" : "IdeaFactory.jpeg",
         "The Conciousness Instict" : "conciousness.jpg",
