@@ -1,40 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-
     load_page()
-
-
 });
-
-//Shoe Dog, QmXvXFihf7mbkcQzFGS6WDUhGAcDik1TK2vpqUmDDpW5FF, QmTxTYJcuULjCu7yWxYU3482uxkeShwr9Edj5nFStBhnti
 
 function load_page() {
 
-    const BOOK_TITLES_2022 = {
-        "The Practice" : "thePractice.jpg",
-        "12 More Rules For Life" : "12more.jpeg",
-        "Six Easy Pieces" : "sixEasyPieces.jpg",
-        "How to Avoid a Climate Disaster" : "climate.jpg",
-        "Purple Cow" : "purpleCow.jpeg",
-        "Super Founders" : "superFounders.jpg",
-        "The Difference Between God and Larry Ellison" : "larry.jpeg",
-        "Build" : "build.jpeg",
-        "Ai 2041" : "ai2041.jpg",
-        "Your Music and People" : "yourMusicAndPeople.jpeg",
-        "The Idea Factory" : "IdeaFactory.jpeg",
-        "The Conciousness Instict" : "conciousness.jpg",
-        "Never Eat Alone": "neverEatAlone.jpeg",
-        "The Courage To Be Disliked" : "theCourageToBeDisliked.jpeg",
-        "Hell Yeah or No: What's Worth Doing" : "hellYeahOrNo.jpeg",
-        "River Out of Eden: A Darwinian View of Life" : "riverOutOfEden.jpeg",
-        "You Don't Know JS Yet: Get Started" : "youDon'tKnowJsYet.jpeg",
-        "A Thousand Brains" : "aThousandBrains.jpeg",
-        "Will" : "will.jpeg",
-        "hello, startup" : "helloStartup.jpeg",
-        "Anything You Want" : "anythingYouWant.jpeg",
-        "The Founders" : "theFounders.jpeg",
-        "Hard Drive" : "hardDrive.jpeg",
-        "How To Defi: Advanced" : "howToDefi.jpeg"
+    const PROJECTS = {
+        "Rick Rolled" : {
+            "greatnessScore" : 10,
+            
+        }
     }
 
     const BOOK_TITLES_2021 = {

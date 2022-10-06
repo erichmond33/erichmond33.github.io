@@ -11,15 +11,15 @@
 
 @font-face {
 	font-family: alegreya;
-	src: url("AlegreyaSansSC-Regular.ttf");
+	src: url("fonts/AlegreyaSansSC-Regular.ttf");
 }
 @font-face {
 	font-family: alegreya-bold;
-	src: url("AlegreyaSansSC-Bold.ttf");
+	src: url("fonts/AlegreyaSansSC-Bold.ttf");
 }
 @font-face {
 	font-family: special;
-	src: url("special.woff");
+	src: url("fonts/special.woff");
 }
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
