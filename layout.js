@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    if (window.location.pathname == "/") { document.location.href = "/index.html"; }
+    // if (window.location.pathname == "/") { document.location.href = "/index.html"; }
 
     navbarElements();
     setTimeout(navbarFunctionality, 10);
