@@ -28,9 +28,15 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
+            // Reisze the motto background to fit screen
             let height = window.innerHeight - document.getElementById("masthead").clientHeight;
             document.getElementById("motto").style.height = height + "px";
 
+            // Resize the motto's bottom padding due to nav bar height change
+            let mastHeadHeight = document.getElementById("masthead").clientHeight;
+            document.querySelector("#motto div").style.bottom = mastHeadHeight + "px";
+
+            // Phone screen rotation
             if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 console.log("Mobile");
                 let portrait = window.matchMedia("(orientation: portrait)");
@@ -38,13 +44,13 @@
                 portrait.addEventListener("change", function(e) {
                     if(e.matches) {
                         // Portrait mode
-                        // Resizing the masthead to the height of the window
+                        // Resizing the motto background to the height of the window
                         height = window.innerHeight - document.getElementById("masthead").clientHeight;
                         document.getElementById("motto").style.height = height + "px";
 
                     } else {
                         // Landscape
-                        // Resizing the masthead to the height of the window
+                        // Resizing the motto background to the height of the window
                         height = window.innerHeight - document.getElementById("masthead").clientHeight;
                         document.getElementById("motto").style.height = height + "px";
 
@@ -53,8 +59,13 @@
             }
             else {
                 window.addEventListener('resize', function() {
+                    // Reisze the motto background to fit screen
                     height = window.innerHeight - document.getElementById("masthead").clientHeight;
                     document.getElementById("motto").style.height = height + "px";
+
+                    // Resize the motto's bottom padding due to nav bar height change
+                    let mastHeadHeight = document.getElementById("masthead").clientHeight;
+                    document.querySelector("#motto div").style.bottom = mastHeadHeight + "px";
                 });
             }
         });
@@ -63,7 +74,8 @@
     <section id="motto">
         <div>
             <h1>
-                You can <br> choose to do <br> <span>Great </span> things.
+                change<br>
+                things<br>
             </h1>
         </div>
     </section>
@@ -116,9 +128,6 @@
             <p>
             Born and raised in Arkansas.
             </p>
-            <blockquote><i>
-            "[Wilder] is a strange mix between Steve Jobs, Brain Bosworth, and Matthew McConaughey"
-            </i></blockquote>
             <p>
                 <small>(click to enlarge)</small>
             </p>
@@ -153,37 +162,37 @@
             </h2>
             <ul>
                 <li>
-                    <a href="/articles/greatness.html">
+                    <a href="./articles/greatness.html">
                         An unusual message for people who want to change the world
                     </a>
                 </li>
                 <li>
-                    <a href="/articles/stories.html">
+                    <a href="./articles/stories.html">
                         Tell Great Stories
                     </a>
                 </li>
                 <li>
-                    <a href="/articles/adaptomaniac.html">
+                    <a href="./articles/adaptomaniac.html">
                         Adaptomaniac
                     </a>
                 </li>
                 <li>
-                    <a href="/articles/TheMostImportantThing.html">
+                    <a href="./articles/TheMostImportantThing.html">
                         The Most Important Question
                     </a>
                 </li>
                 <li>
-                    <a href="/articles/TheBestCourse.html">
+                    <a href="./articles/TheBestCourse.html">
                         The Best Introductory Coding Course. Period.
                     </a>
                 </li>
                 <li>
-                    <a href="/articles/StopKillingYourIdeas.html">
+                    <a href="./articles/StopKillingYourIdeas.html">
                         Stop Killing Your Ideas: Jot Them Down
                     </a>
                 </li>
                 <li>
-                    <a href="/articles/BeAPirate.html">
+                    <a href="./articles/BeAPirate.html">
                         Be A Pirate: Resumes And Why I Hate Them
                     </a>
                 </li>

@@ -22,7 +22,7 @@ function navbarElements() {
 
             let wilder = document.createElement('a');
             wilder.setAttribute('href', '/index.html');
-            wilder.innerHTML = "Wilder";
+            wilder.innerHTML = "Eli Richmond";
             divColLogo.appendChild(wilder);
 
     let divRow2 = document.createElement('div');
@@ -37,13 +37,13 @@ function navbarElements() {
             let contact = document.createElement('a');
             contact.setAttribute('href', '../index.html#contact');
             contact.innerHTML = "contact";
-            divColMediaLinks.appendChild(contact);
+            // divColMediaLinks.appendChild(contact);
 
         let divColLastName = document.createElement('div');
         divColLastName.classList.add('col');
         divColLastName.setAttribute('id', 'lastName');
         divColLastName.innerHTML = "Change";
-        divRow2.appendChild(divColLastName);
+        // divRow2.appendChild(divColLastName);
 
     let nav = document.createElement('nav');
     masthead.appendChild(nav);
@@ -52,10 +52,15 @@ function navbarElements() {
         divNavLinks.setAttribute('id', 'nav-links');
         nav.appendChild(divNavLinks);
 
+            let spacer = document.createElement('div');
+            spacer.innerHTML = "|";
+
             let me = document.createElement('a');
             me.setAttribute('href', '../index.html#meInTenSeconds');
+            me.setAttribute('class', 'border-right');
             me.innerHTML = "Me";
             divNavLinks.appendChild(me);
+            divNavLinks.appendChild(spacer.cloneNode(true));
 
             // let why = document.createElement('a');
             // why.setAttribute('href', '../index.html#why');
@@ -66,11 +71,19 @@ function navbarElements() {
             now.setAttribute('href', '../index.html#whatImDoingNow');
             now.innerHTML = "Now";
             divNavLinks.appendChild(now);
+            divNavLinks.appendChild(spacer.cloneNode(true));
 
             let blog = document.createElement('a');
             blog.setAttribute('href', '../index.html#articles');
             blog.innerHTML = "Blog";
             divNavLinks.appendChild(blog);
+            divNavLinks.appendChild(spacer.cloneNode(true));
+
+            // let ask = document.createElement('a');
+            // ask.setAttribute('href', '../index.html#articles');
+            // ask.innerHTML = "Ask";
+            // divNavLinks.appendChild(ask);
+            // divNavLinks.appendChild(spacer.cloneNode(true));
 
             let misc = document.createElement('a');
             misc.setAttribute('href', '../index.html#myRealEducation');
