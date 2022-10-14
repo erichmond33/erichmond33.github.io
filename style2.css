@@ -229,7 +229,7 @@ section#motto div {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);	font-size: 1.75em;
-	text-align: left;
+	text-align: center;
 	/* bottom: Navbar height; */
 }
 section#motto div h1 {
@@ -302,7 +302,7 @@ div.presentation_summary{
 		background-position-y:10000px;
 	} */
 	section#motto div {
-		position:static;
+		top: 25%;
 	}
 }
 /* @media screen and (max-width: 570px){
