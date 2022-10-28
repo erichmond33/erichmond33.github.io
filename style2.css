@@ -81,12 +81,12 @@ h3{
 }
 a{
 	text-decoration:none;
-	color:#20b;
+	color: #ff8272;
 	overflow-wrap:break-word;
 	word-wrap:break-word
 }
 a:visited{
-	color:#606
+	 color: #941100;
 }
 a:hover{
 	text-decoration:underline
@@ -345,34 +345,26 @@ div.presentation_summary{
 }
 @media(prefers-color-scheme:dark){
 	body{
-		background-color:#000;
+		background-color:#1e1e1e;
 		color:#ccc
 	}
 	a{
-		color:#88f
+		color: #ffb472;
 	}
 	a:visited{
-		color:#aaf
+		color:#ffd6b2
 	}
 	.response{
 		background-color:#444
 	}
 	section#masthead #logo a{
 		color: #fff;
-		text-shadow:
-		0 0 7px #fff;
 	}
 	/* section#motto {
 		background-image: url("static/other2.png");
 	} */
-	section#motto div h1 {
-	text-shadow:
-	0 0 7px #fff;
-	}
 	h1,h1 a,h2,h2 a,h3,h3,h4,h5 a {
 	color: #fff;
-	text-shadow:
-		0 0 7px #fff;
 	}
 	blockquote {
 		color: #ccc;
