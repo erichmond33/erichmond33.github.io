@@ -369,9 +369,6 @@ div.presentation_summary{
 	blockquote {
 		color: #ccc;
 	}
-	.panel-info > .panel-heading {
-		border-bottom: 3px solid white;
-	}
 }
 ul#reviews {
 	margin: 0;
@@ -389,7 +386,6 @@ ul#reviews li blockquote cite {
 }
 /* ---- dropdown ----- */
 .panel-info > .panel-heading {
-	border-bottom: 3px solid black;
 	font-family: Nexa;
 }
 .dropbtn {

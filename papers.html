@@ -41,9 +41,9 @@
         .container {
             padding: 0;
         }
-@font-face { 
+		@font-face { 
 	font-family: Sabado;
-	src: url("fonts/Sabado\ Regular.otf");
+	src: url("fonts/Sabado\ Regular.ttf");
 	font-style: normal;
   }
 
@@ -72,6 +72,21 @@
 	}
 html {
 	scroll-behavior: smooth;
+}
+body{
+	max-width:40em;
+	margin:0 auto;
+	padding:5px;
+	padding-right:1em;
+	padding-left: 1em;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-size:20px;
+	line-height:30px;
+	background-color:#fff;
+	color:#000;
+	text-align: justify; 
+	font-weight: 300;
+	overflow-y:scroll;
 }
 h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
 	font-family: Nexa;
@@ -109,12 +124,15 @@ h3{
 }
 a{
 	text-decoration:none;
-	color:#20b;
+	color: #ea322e;
 	overflow-wrap:break-word;
 	word-wrap:break-word
 }
 a:visited{
-	color:#606
+	 color: #941100;
+}
+a:hover{
+	text-decoration:underline
 }
 dt{
 	margin-top:2em;
@@ -254,7 +272,7 @@ section#motto div {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);	font-size: 1.75em;
-	text-align: left;
+	text-align: center;
 	/* bottom: Navbar height; */
 }
 section#motto div h1 {
@@ -327,7 +345,7 @@ div.presentation_summary{
 		background-position-y:10000px;
 	} */
 	section#motto div {
-		position:static;
+		top: 25%;
 	}
 }
 /* @media screen and (max-width: 570px){
@@ -370,34 +388,26 @@ div.presentation_summary{
 }
 @media(prefers-color-scheme:dark){
 	body{
-		background-color:#000;
+		background-color:#1e1e1e;
 		color:#ccc
 	}
 	a{
-		color:#88f
+		color: #ffb472;
 	}
 	a:visited{
-		color:#aaf
+		color:#ffd6b2
 	}
 	.response{
 		background-color:#444
 	}
 	section#masthead #logo a{
 		color: #fff;
-		text-shadow:
-		0 0 7px #fff;
 	}
 	/* section#motto {
 		background-image: url("static/other2.png");
 	} */
-	section#motto div h1 {
-	text-shadow:
-	0 0 7px #fff;
-	}
 	h1,h1 a,h2,h2 a,h3,h3,h4,h5 a {
 	color: #fff;
-	text-shadow:
-		0 0 7px #fff;
 	}
 	blockquote {
 		color: #ccc;
