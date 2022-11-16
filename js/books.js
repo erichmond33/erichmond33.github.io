@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Do the Work" : "work.jpg",
+        "Turning Pro" : "pro.jpg",
+        "Tools Of Titans" : "tools.jpg",
         "The Subtle Art of Not Giving a F*ck" : "theSubtleArt.jpg",
         "The Practice" : "thePractice.jpg",
         "12 More Rules For Life" : "12more.jpeg",
