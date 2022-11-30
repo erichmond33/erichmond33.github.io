@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "The War of Art" : "art.jpg",
+        "The Knowledge" : "knowledge.jpg",
         "Do the Work" : "work.jpg",
         "Turning Pro" : "pro.jpg",
         "Tools Of Titans" : "tools.jpg",
