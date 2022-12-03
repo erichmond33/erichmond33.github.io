@@ -261,6 +261,9 @@ div.blogparent{
 body#oneblog div#content article header h1{
 	margin-bottom:0
 }
+section#article img {
+	margin-top: 2em;
+}
 div#comments ol{
 	padding-left:2em
 }
