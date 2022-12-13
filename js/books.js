@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Sum" : "sum.jpg",
+        "Nobody Wants to Read Your Sh*t" : "nobody.jpg", 
+        "Learning SQL" : "sql.jpg",
         "The War of Art" : "art.jpg",
         "The Knowledge" : "knowledge.jpg",
         "Do the Work" : "work.jpg",
