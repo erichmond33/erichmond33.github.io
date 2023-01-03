@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2022 = {
+        "Govt Cheese" : "govtCheese.jpg",
+        "The 4-Hour Workweek" : "fourHourWorkWeek.jpg",
         "Sum" : "sum.jpg",
         "Nobody Wants to Read Your Sh*t" : "nobody.jpg", 
         "Learning SQL" : "sql.jpg",
