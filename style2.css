@@ -38,7 +38,7 @@ body{
 	padding-left: 1em;
 	font-family:Georgia, 'Times New Roman', Times, serif;
 	font-size:20px;
-	line-height:30px;
+	line-height:normal;
 	background-color:#fff;
 	color:#000;
 	text-align: justify; 
