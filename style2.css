@@ -337,6 +337,9 @@ div.presentation_summary{
 		font-size: 16px;
 		text-align: left;
 	}
+	body p{
+		line-height: 26px;
+	}
 }
 @media screen and (min-width: 440px){
 	section#masthead #logo{
