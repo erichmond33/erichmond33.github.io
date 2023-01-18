@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function load_page() {
 
+    const BOOK_TITLES_2023 = {
+        "Tao Te Ching (Stephen Mitchell)" : "tao.jpg"
+    }
+
     const BOOK_TITLES_2022 = {
         "Govt Cheese" : "govtCheese.jpg",
         "The 4-Hour Workweek" : "fourHourWorkWeek.jpg",
@@ -118,6 +122,11 @@ function load_page() {
     }
             
     console.log("connected");
+
+    for (const [key, value] of Object.entries(BOOK_TITLES_2023)) {
+        console.log(key, value, "2023");
+        create_book_layout(key, value, "2023");
+    }
 
     for (const [key, value] of Object.entries(BOOK_TITLES_2022)) {
         console.log(key, value, "2022");
