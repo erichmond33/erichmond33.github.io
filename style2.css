@@ -242,6 +242,10 @@ section#motto div h1 span {
 body#home div#content h2 small{
 	margin-left:2em
 }
+body#home div#content h3 small{
+	margin-left:2em;
+	font-size: .85em;
+}
 body#home div#content ul{
 	padding-left:1em;
 }
