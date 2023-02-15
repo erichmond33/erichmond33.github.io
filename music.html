@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Music | Eli Richmond</title>
+        <meta name="keywords" content="Eli Richmond, Ai, artificial intelligence, web3, crytpo, decentralization, blog, article, projects"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./static/xi.png">
+        <link rel="stylesheet" href="./style2.css">
+        <script src="./layout.js"></script>
+    </head>
+
+    <body id="home">
+
+    <section id="masthead">
+    </section>
+    
+    <div id="content">
+        <section id="article">
+            <style>
+                .left {
+                    height: 64px;
+                    width: 76px;
+                }
+                .icon {
+                    height: 100%;
+                    margin: 8px;
+                    position: relative;
+                    background-repeat: no-repeat;
+                    background-size: 60px 48px;
+                }
+                .right {
+                    flex: 1;
+                    height: auto;
+                    min-width: 0;
+                    padding-right: 8px;
+                    padding-top: 4px;
+                    padding-bottom: 4px;
+                }
+                .middle {
+                    display: block;
+                    height: auto;
+                    min-width: 0;
+                    padding-right: 8px;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                }
+                .track:hover {
+                    text-decoration: none;
+                }
+                .video_title {
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                    min-width: 0px;
+                    font-size: 16px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .video_artist {
+                    color: #666;
+                    font-size: 13px;
+                }
+                .track {
+                    display: flex;
+                    height: auto;
+                    border-bottom: 1pt solid #DDD;
+                    text-decoration: none;
+                    text-overflow: ellipsis;
+                }
+                .time {
+                    color: #666;
+                    font-size: 13px;
+                }
+                .playlist_content {
+                    margin-top: 32px;
+                    margin-bottom: 32px;
+                    background-color: white;
+                    border: 1pt solid #DDD;
+                }
+            </style>
+
+            <h1>Eli's Music</h1>
+            <h3>Cool new sounds</h3>
+            <div id="playlist_content">
+                <div class="time">I think the lyrics are very cool</div>
+                <a class="track" href="https://youtube.com/watch?v=3wLLgJ_a7Rs" target="_blank">
+                    <div class="left">
+                        <div class="icon" style="background-image:url('https://i.ytimg.com/vi/3wLLgJ_a7Rs/hqdefault.jpg');"></div>
+                    </div>
+                    <div class="right">
+                        <div class="video_title">Oliver Tree - Alien Boy [Official Audio]</div>
+                        <div class="video_artist">Oliver Tree</div>
+                        <div class="time">Added on 2023-02-15</div>
+                    </div>
+                </a>
+            </div>
+
+            <h3>
+                My music library
+            </h3>
+            <p>
+                <small style="font-size: .75em;">newest -> oldest</small>
+            </p>
+            <iframe id="iframe" src="https://feelthemusi.com/playlist/f6zm5s" width=100%></iframe>
+            <script>
+
+                var height = window.innerHeight;
+                var iframe = document.getElementById("iframe");
+                iframe.style.height = 7000 + "px";
+
+                // iframe.onload = function(){
+                //     iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+                // }
+            </script>
+        </section>
+
+    </div>
+    </body>
+</html>
