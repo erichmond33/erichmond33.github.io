@@ -77,10 +77,17 @@
                     background-color: white;
                     border: 1pt solid #DDD;
                 }
+                #iframe {
+                    object-position: 250px 125px;
+                }
             </style>
 
-            <h1>Eli's Music</h1>
-            <h3>Cool new sounds</h3>
+            <h1>Music</h1>
+            <!-- <h3>Interesting songs
+                <small>
+                    <a href="/ideas">see all</a>
+                </small>
+            </h3>
             <div id="playlist_content">
                 <div class="time">I think the lyrics are very cool</div>
                 <a class="track" href="https://youtube.com/watch?v=3wLLgJ_a7Rs" target="_blank">
@@ -94,23 +101,21 @@
                     </div>
                 </a>
             </div>
+            <small><a>See more</a></small> -->
 
             <h3>
-                My music library
+                My whole library
             </h3>
             <p>
-                <small style="font-size: .75em;">newest -> oldest</small>
+                <small>newest -> oldest</small>
             </p>
-            <iframe id="iframe" src="https://feelthemusi.com/playlist/f6zm5s" width=100%></iframe>
+            <iframe id="iframe" src="https://feelthemusi.com/playlist/f6zm5s#playlist_content" width=100% height="7000px" frameborder="0"></iframe>
             <script>
 
                 var height = window.innerHeight;
                 var iframe = document.getElementById("iframe");
-                iframe.style.height = 7000 + "px";
+                iframe.style.height = height + "px";
 
-                // iframe.onload = function(){
-                //     iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-                // }
             </script>
         </section>
 
