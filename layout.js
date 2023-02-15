@@ -63,7 +63,7 @@ function navbarElements() {
             divNavLinks.appendChild(spacer.cloneNode(true));
 
             let now = document.createElement('a');
-            now.setAttribute('href', '/now');
+            now.setAttribute('href', '/#whatImDoingNow');
             now.innerHTML = "Now";
             divNavLinks.appendChild(now);
             divNavLinks.appendChild(spacer.cloneNode(true));
@@ -101,7 +101,7 @@ function hoverability(link, sections) {
             }
             else if (link.innerHTML == "Now") {
                 sections.forEach(element => {
-                    if (element.id == "nowHoverDisplay" || element.id == "masthead") {
+                    if (element.id == "whatImDoingNow" || element.id == "masthead") {
                         element.style.display = "block";
                     } else {
                         element.style.display = "none";
@@ -130,12 +130,7 @@ function hoverability(link, sections) {
 
         link.addEventListener("mouseout", function() {
             sections.forEach(element => {
-                if (element.id != "nowHoverDisplay") {
-                    element.style.display = "block";
-                }
-                else {
-                    element.style.display = "none";
-                }
+                element.style.display = "block";
             });
         });
     }
