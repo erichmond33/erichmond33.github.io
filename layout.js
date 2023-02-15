@@ -133,6 +133,9 @@ function hoverability(link, sections) {
                 if (element.id != "nowHoverDisplay") {
                     element.style.display = "block";
                 }
+                else {
+                    element.style.display = "none";
+                }
             });
         });
     }
