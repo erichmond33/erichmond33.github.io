@@ -62,13 +62,8 @@ function navbarElements() {
             divNavLinks.appendChild(me);
             divNavLinks.appendChild(spacer.cloneNode(true));
 
-            // let why = document.createElement('a');
-            // why.setAttribute('href', '/#why');
-            // why.innerHTML = "Why";
-            // divNavLinks.appendChild(why);
-
             let now = document.createElement('a');
-            now.setAttribute('href', '/#whatImDoingNow');
+            now.setAttribute('href', '/now');
             now.innerHTML = "Now";
             divNavLinks.appendChild(now);
             divNavLinks.appendChild(spacer.cloneNode(true));
@@ -78,12 +73,6 @@ function navbarElements() {
             blog.innerHTML = "Blog";
             divNavLinks.appendChild(blog);
             divNavLinks.appendChild(spacer.cloneNode(true));
-
-            // let ask = document.createElement('a');
-            // ask.setAttribute('href', '/#articles');
-            // ask.innerHTML = "Ask";
-            // divNavLinks.appendChild(ask);
-            // divNavLinks.appendChild(spacer.cloneNode(true));
 
             let misc = document.createElement('a');
             misc.setAttribute('href', '/#myRealEducation');
@@ -112,7 +101,7 @@ function hoverability(link, sections) {
             }
             else if (link.innerHTML == "Now") {
                 sections.forEach(element => {
-                    if (element.id == "whatImDoingNow" || element.id == "masthead") {
+                    if (element.id == "nowHoverDisplay" || element.id == "masthead") {
                         element.style.display = "block";
                     } else {
                         element.style.display = "none";
@@ -137,20 +126,13 @@ function hoverability(link, sections) {
                     }
                 });
             }
-            // else if (link.innerHTML == "Why") {
-            //     sections.forEach(element => {
-            //         if (element.id == "why" || element.id == "masthead") {
-            //             element.style.display = "block";
-            //         } else {
-            //             element.style.display = "none";
-            //         }
-            //     });
-            // }
         });
 
         link.addEventListener("mouseout", function() {
             sections.forEach(element => {
-                element.style.display = "block";
+                if (element.id != "nowHoverDisplay") {
+                    element.style.display = "block";
+                }
             });
         });
     }
@@ -165,9 +147,6 @@ function hoverability(link, sections) {
         else if (link.innerHTML == "Now") {
             document.getElementById('whatImDoingNow').scrollIntoView();
         }
-        // else if (link.innerHTML == "Why") {
-        //     document.getElementById('why').scrollIntoView();
-        // }
         else if (link.innerHTML == "Blog") {
             document.getElementById('articles').scrollIntoView();
         }

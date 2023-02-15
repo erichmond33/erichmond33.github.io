@@ -232,6 +232,16 @@
                 Or just shoot me an email, and I'll add you to my mailing list - no spam, just new articles.
             </p>
         </section>
+        <section id="nowHoverDisplay" >
+            <iframe id="nowIframe" src="./now.html?iframe=yes" frameborder="0" width="100%" scrolling="no"></iframe>
+            <script>
+
+                // Set iframe height to the size of the screen
+                let height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                document.getElementById("nowIframe").style.height = height + "px";
+
+            </script>
+        </section>
     </div>
     </body>
 </html>

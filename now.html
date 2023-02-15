@@ -10,6 +10,16 @@
         <script src="layout.js"></script>
     </head>
 
+    <script>
+        // If the query parameter iframe=yes, then hide the masthead
+        let urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.get("iframe") == "yes") {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById("masthead").style.display = "none";
+            });
+        }
+    </script>
+
     <body id="home">
      
 
