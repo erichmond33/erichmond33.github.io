@@ -16,6 +16,9 @@
         if(urlParams.get("iframe") == "yes") {
             document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById("masthead").style.display = "none";
+                
+                // Get rid of body padding
+                document.body.style.padding = "0";
             });
         }
     </script>
