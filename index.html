@@ -235,11 +235,13 @@
         <section id="nowHoverDisplay" style="display: none;">
             <iframe id="nowIframe" src="./now.html?iframe=yes" frameborder="0" width="100%" scrolling="no"></iframe>
             <script>
+                document.addEventListener('DOMContentLoaded', function() {
 
-                // Set iframe height to the size of the screen
-                let height = window.innerHeight - document.getElementById("masthead").clientHeight;
-                document.getElementById("nowIframe").style.height = height + "px";
-
+                    // Set iframe height to the size of the screen
+                    let height = window.innerHeight - document.getElementById("masthead").clientHeight;
+                    document.getElementById("nowIframe").style.height = height + "px";
+                
+                });
             </script>
         </section>
     </div>
