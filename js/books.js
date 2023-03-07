@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "I am a Strange Loop" : "loop.jpg",
+        "So Good They Can't Ignore You" : "soGood.jpg",
+        "The Contrarian" : "peter.jpg",
         "Never Finished" : "neverFinished.jpg",
         "The Creative Act" : "creative.jpg",
         "Tao Te Ching (Stephen Mitchell)" : "tao.jpg"
