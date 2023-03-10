@@ -2,12 +2,10 @@
 	font-family: Sabado;
 	src: url("fonts/Sabado\ Regular.ttf");
 	font-style: normal;
-  }
-
+}
 @font-face {
 	font-family: Nexa;
 	 src: url("fonts/Nexa\ Bold.otf");
-
 }
 @font-face {
 	font-family: mono;
@@ -16,6 +14,14 @@
 @font-face {
 	font-family: special;
 	src: url("fonts/special.woff");
+}
+@font-face {
+	font-family: Rich-Georgia-Bold;
+	src: url("fonts/Rich-Georgia-Bold.ttf");
+}
+@font-face {
+	font-family: Rich-Georgia;
+	src: url("fonts/Rich-Georgia.ttf");
 }
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
@@ -36,7 +42,7 @@ body{
 	padding:5px;
 	padding-right:1em;
 	padding-left: 1em;
-	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-family:Rich-Georgia, Georgia,'Times New Roman', Times, serif;
 	font-size:20px;
 	line-height:30px;
 	background-color:#fff;
@@ -90,6 +96,10 @@ a:visited{
 }
 a:hover{
 	text-decoration:underline
+}
+b {
+	font-family: Rich-Georgia-Bold, Georgia,'Times New Roman', Times, serif;
+	font-weight: normal;
 }
 dt{
 	margin-top:2em;
