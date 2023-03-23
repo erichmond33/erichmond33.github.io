@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "Impromptu" : "impromptu.jpg",
+        "Steve Jobs: The Journey Is the Reward" : "steve.jpg",
         "I am a Strange Loop" : "loop.jpg",
         "So Good They Can't Ignore You" : "soGood.jpg",
         "The Contrarian" : "peter.jpg",
