@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "Models" : "models.jpg",
+        "Choose Yourself!" : "chooseYourself.jpg",
         "The Infinite Game" : "game.jpg",
         "Everything Is F*cked" : "everything.jpg",
         "Impromptu" : "impromptu.jpg",
