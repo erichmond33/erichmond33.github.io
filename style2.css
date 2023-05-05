@@ -261,7 +261,11 @@ body#home div#content ul{
 	padding-left:1em;
 }
 body#home div#content ul li{
-	list-style-type: disc;
+	list-style-type: none;
+}
+body#home div#content ul li::before{
+	content: "\2015";
+	margin-right: 0.5em;
 }
 body#home div#content section#photos img{
 	display:inline;
