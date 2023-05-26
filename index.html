@@ -28,10 +28,20 @@
     <body id="home">
 
     <section id="masthead">
+        <div id="logo"><a href="/">Eli Richmond</a></div>
     </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            // Add elements
+            let motto = document.getElementById("motto");
+            let div = document.createElement('div');
+            let h1 = document.createElement('h1');
+            h1.innerHTML = "what can we<br>contribute?";
+
+            motto.append(div);
+            div.append(h1);
 
             // Reisze the motto background to fit screen
             let height = window.innerHeight - document.getElementById("masthead").clientHeight;
@@ -77,12 +87,12 @@
     </script>
 
     <section id="motto">
-        <div>
+        <!-- <div>
             <h1>
                 what can we<br>
                 contribute?
             </h1>
-        </div>
+        </div> -->
     </section>
 
     <div id="content">

@@ -10,13 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function navbarElements() {
     let masthead = document.getElementById('masthead');
+    masthead.innerHTML = "";
 
     let divRow1 = document.createElement('div');
-    divRow1.setAttribute('class', 'row p-auto');
     masthead.appendChild(divRow1);
 
         let divColLogo = document.createElement('div');
-        divColLogo.classList.add('col');
         divColLogo.setAttribute('id', 'logo');
         divRow1.appendChild(divColLogo);
 
