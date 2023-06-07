@@ -319,6 +319,21 @@ cite {
 div.presentation_summary{
 	margin-bottom:6em
 }
+/* Eli's stuff */
+#gallery {
+	columns:3;
+	gap:.5rem;
+}
+#gallery div {
+	display: flex;
+	flex-direction: column;
+	padding-bottom:.5rem;
+	font-size: 15px;
+	line-height: 24px;
+}
+#gallery div a {
+	display: flex;
+}
 @media screen and (max-height: 400px){
 	/* section#motto {
 		background-position-y:10000px;
@@ -359,6 +374,13 @@ div.presentation_summary{
 	}
 	body p{
 		line-height: 26px;
+	}
+	#gallery {
+		columns:2;
+	}
+	#gallery div {
+		font-size: 11px;
+		line-height: 16px;
 	}
 }
 @media screen and (min-width: 440px){
