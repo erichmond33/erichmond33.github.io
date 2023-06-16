@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "The Dip" : "theDip.jpg",
         "The Inevitable" : "inevitable.jpg",
         "When the Heavens Went on Sale" : "heavens.jpg",
         "Models" : "models.jpg",
