@@ -18,25 +18,6 @@
     
     <div id="content">
         <section id="article">
-            <button onclick="downloadFile()">Download File</button>
-
-            <script>
-                function downloadFile() {
-                var data = "This is the content of the file.";
-                var filename = "static/izzy.jpg";
-                var element = document.createElement('a');
-                
-                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
-                element.setAttribute('download', filename);
-
-                element.style.display = 'none';
-                document.body.appendChild(element);
-
-                element.click();
-
-                document.body.removeChild(element);
-                }
-            </script>
             <h1>
                 My father
             </h1>
@@ -85,9 +66,6 @@
             <small>
                 2022-06-18
             </small>
-            <small><a href="static/Izzy.jpg" download="static/Izzy.jpg">
-                Click here to download this as an image
-            </a></small>
         </section>
 
     </div>
