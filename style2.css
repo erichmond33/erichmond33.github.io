@@ -105,7 +105,7 @@ dt{
 	font-size:1.2em;
 	font-family: mono
 }
-li,dd{
+dd{
 	margin-bottom:1em
 }
 figure{
@@ -258,14 +258,19 @@ body#home div#content h3 small{
 	font-size: .85em;
 }
 body#home div#content ul{
-	padding-left:1em;
+	padding-left:0em;
 }
 body#home div#content ul li{
-	list-style-type: none;
+	list-style-type:none;
+	padding-bottom: 1em;
+	padding-left:1.5em;
+	position: relative;
 }
 body#home div#content ul li::before{
 	content: "\2015";
 	margin-right: 0.5em;
+	position: absolute;
+	left: 0;
 }
 body#home div#content section#photos img{
 	display:inline;
@@ -335,22 +340,17 @@ div.presentation_summary{
 	display: flex;
 }
 @media screen and (max-height: 400px){
-	/* section#motto {
-		background-position-y:10000px;
-	} */
 	section#motto div {
 		top: 65%;
 	}
 }
-/* @media screen and (max-width: 570px){
-	section#motto {
-		background-size:115%;
-	}
-} */
 @media screen and (max-width: 440px){
 	section#masthead #logo{
 		font-size:3em;
 		text-shadow: .5px 0 0 black;
+	}
+	section#masthead #logo a{
+		text-decoration-thickness: 1.5px;
 	}
 	section#masthead img{
 		top:25px;
