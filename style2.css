@@ -339,6 +339,9 @@ div.presentation_summary{
 #gallery div a {
 	display: flex;
 }
+#gallery div a img{
+	width: 100%;
+}
 @media screen and (max-height: 400px){
 	section#motto div {
 		top: 65%;
