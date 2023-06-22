@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(id);
     }
 
-    setTimeout(scrollToId, 100);
-
+    window.onload = function() {
+        scrollToId();
+    }
 
 });
 
