@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
     navbarElements();
     setTimeout(navbarFunctionality, 10);
 
+    // A function that waits for images to load then scrolls the the #id loacated in the URL
+    function scrollToId() {
+        if (window.location.hash) {
+            var id = window.location.hash;
+            var element = document.querySelector(id);
+            if (element) {
+                element.scrollIntoView();
+            }
+        }
+        console.log(id);
+    }
+
+    setTimeout(scrollToId, 100);
+
 
 });
 
