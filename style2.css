@@ -325,6 +325,10 @@ div.presentation_summary{
 	margin-bottom:6em
 }
 /* Eli's stuff */
+#ideas-content {
+	border-left: 5px solid #666;
+	padding-left: 15px;
+}
 #gallery {
 	columns:3;
 	gap:.5rem;
