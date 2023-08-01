@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "The Pmarca Blog Archives" : "pmarca.jpg",
+        "Nothing & Everything" : "nothingAndEverything.jpg",
         "The E-Myth Revisited" : "emyth.jpg",
         "The Dip" : "theDip.jpg",
         "The Inevitable" : "inevitable.jpg",
