@@ -1,0 +1,28 @@
+<rss version="2.0">
+    <channel>
+        <title>Eli's blog</title>
+        <link>https://bloge.li/articles</link>
+        <description>My blog</description>
+        <language>en-us</language>
+        <image>
+            <title>Bloge.li logo</title>
+            <url>https://bloge.li/static/xi.png</url>
+            <link>https://bloge.li/articles</link>
+            <width>88</width>
+            <height>31</height>
+            <description>News for web users that write back</description>
+        </image>
+        <item>
+            <title>AI angst</title>
+            <link>https://bloge.li/articles/2023-07-26</link>
+            <description>How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href="http://howe.iki.rssi.ru/GCTC/gctc_e.htm">Star City</a>.</description>
+            <pubDate>Tue, 03 Jun 2003 09:39:21 GMT</pubDate>
+        </item>
+        <item>
+            <title>AI angst</title>
+            <link>https://bloge.li/articles/2023-07-26</link>
+            <description>Sky watchers in Europe, Asia, and parts of Alaska and Canada will experience a <a href="http://science.nasa.gov/headlines/y2003/30may_solareclipse.htm">partial eclipse of the Sun</a> on Saturday, May 31st.</description>
+            <pubDate>Fri, 30 May 2003 11:06:42 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
