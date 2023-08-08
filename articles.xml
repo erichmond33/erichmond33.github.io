@@ -1,26 +1,24 @@
 <rss version="2.0">
     <channel>
-        <title>Eli's blog</title>
+        <title>Eli Richmond's Blog</title>
         <link>https://bloge.li/articles</link>
         <description>My blog</description>
         <language>en-us</language>
         <image>
-            <title>Bloge.li logo</title>
+            <title>bloge.li</title>
             <url>https://bloge.li/static/xi.png</url>
             <link>https://bloge.li/articles</link>
-            <width>88</width>
-            <height>31</height>
-            <description>News for web users that write back</description>
         </image>
         <item>
             <title>AI angst</title>
             <link>https://bloge.li/articles/2023-07-26</link>
             <description>How do Americans get ready to work with Russians aboard the International Space Station? They take a crash course in culture, language and protocol at Russia's <a href="http://howe.iki.rssi.ru/GCTC/gctc_e.htm">Star City</a>.</description>
-            <pubDate>2023-08-1</pubDate>
+            <pubDate>Wed, 26 Apr 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title>AI angst</title>
-            <link>https://bloge.li/articles/2023-07-26</link>
+            <title>This feels (mostly) right</title>
+            <link>https://bloge.li/articles/2023-07-20</link>
+            <pubDate>Wed, 20 Apr 2023 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
