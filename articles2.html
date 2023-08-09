@@ -37,7 +37,24 @@
     </channel>
 </rss>
 
-<!DOCTYPE html>
+<script>
+    console.log("this script is working.")
+    let item = document.createElement("item")
+    let title = document.createElement("title")
+    title.innerHTML = "AI angsttttttt"
+    let link = document.createElement("link")
+    link.innerHTML = "https://bloge.li/articles/2023-07-26"
+    let pubDate = document.createElement("pubDate")
+    pubDate.innerHTML = "Wed, 26 Jul 2023 00:00:00 GMT"
+
+    item.appendChild(title)
+    item.appendChild(link)
+    item.appendChild(pubDate)
+
+    document.getElementsByName("channel").appendChild(item);
+</script>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Articles | Eli Richmond</title>
@@ -249,4 +266,4 @@
 
     </div>
     </body>
-</html>
+</html> -->
