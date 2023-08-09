@@ -24,7 +24,7 @@ def main():
     xml_output = xml_start
 
     for article in all_articles:
-        xml_output += article + "\n"
+        xml_output += article
 
     xml_output += "</feed>"
 
@@ -41,7 +41,7 @@ def HtmlArticleToXmlEntry(raw_html):
     # Extract relevant data from the parsed HTML
     entry_title = soup.find('h2').text
     published = soup.find('small').text.strip()  # Remove leading/trailing whitespace
-    content = str(soup.find('section'))
+    content = str(soup.find('section', id='idea'))
 
     # Format the 'updated' and 'published' dates to match the Atom feed format
     published_date = datetime.strptime(published, '%Y-%m-%d').strftime('%Y-%m-%dT00:00:00Z')
@@ -53,8 +53,8 @@ def HtmlArticleToXmlEntry(raw_html):
     # Generate the XML output
     xml_output = f'''
         <entry>
-            <id>https://bloge.li/articles/{published}</id>
-            <link href="https://bloge.li/articles/{published}"/>
+            <id>https://bloge.li/ideas/{published}</id>
+            <link href="https://bloge.li/ideas/{published}"/>
             <title>{entry_title}</title>
             <published>{published_date}</published>
             <content type="html">
