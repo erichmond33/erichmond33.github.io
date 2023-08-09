@@ -5,8 +5,8 @@ import os
 xml_start = """<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-    <title>Eli Richmond's Blog</title>
-    <link href="http://bloge.li/articles"/>
+    <title>Eli Richmond's Interesting Ideas</title>
+    <link href="http://bloge.li/ideas"/>
     <updated>2002-11-26T18:30:02Z</updated>
     <author>
     <name>Eli Richmond</name>
@@ -29,7 +29,7 @@ def main():
     xml_output += "</feed>"
 
     # Save to a file
-    with open('../articles.xml', 'w') as f:
+    with open('../ideas.xml', 'w') as f:
         f.write(xml_output)
 
 
@@ -39,20 +39,11 @@ def HtmlArticleToXmlEntry(raw_html):
     soup = BeautifulSoup(raw_html, 'html.parser')
 
     # Extract relevant data from the parsed HTML
-    title = soup.find('title').text
-    link = soup.find('div', class_='blogparent').find('a')['href']
-    updated = soup.find('small').text.strip()  # Remove leading/trailing whitespace
-    author_name = soup.find('div', id='logo').find('a').text
-    logo = soup.find('link', rel='icon')['href']
-    icon = soup.find('link', rel='icon')['href']
-    entry_id = soup.find('link', rel='icon')['href']
-    entry_link = soup.find('link', rel='icon')['href']
     entry_title = soup.find('h2').text
     published = soup.find('small').text.strip()  # Remove leading/trailing whitespace
-    content = str(soup.find('section', id='article'))
+    content = str(soup.find('section'))
 
     # Format the 'updated' and 'published' dates to match the Atom feed format
-    updated_date = datetime.strptime(updated, '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ')
     published_date = datetime.strptime(published, '%Y-%m-%d').strftime('%Y-%m-%dT00:00:00Z')
 
     # Replace the published date & title with ""
@@ -80,7 +71,7 @@ def FormatAllArticles():
 
     # Filter out all of my old articles
     filtered_articles = []
-    for a in os.listdir('../articles'):
+    for a in os.listdir('../ideas'):
         if "20" in a:
             filtered_articles.append(a)
 
@@ -89,7 +80,7 @@ def FormatAllArticles():
         if article[0] != ".":
             if article[0] == "2":
                 # Grab the enitre html text from the article
-                with open(f'../articles/{article}', 'r') as f:
+                with open(f'../ideas/{article}', 'r') as f:
                     print(article)
                     raw_html = f.read()
                     all_articles.append(HtmlArticleToXmlEntry(raw_html))

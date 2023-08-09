@@ -1,18 +1,192 @@
-<rss version="2.0">
-    <channel>
-        <title>Eli Richmond's Interesting Ideas</title>
-        <link>https://bloge.li/ideas</link>
-        <description>Cool things that resonate</description>
-        <language>en-us</language>
-        <image>
-            <title>bloge.li</title>
-            <url>https://bloge.li/static/xi.png</url>
-            <link>https://bloge.li/ideas</link>
-        </image>
-        <item>
-            <title>John Cena Reflects on Living Out of His Car</title>
-            <link>https://bloge.li//ideas/u-cant-see-me</link>
-            <pubDate>Tue, 13 Jul 2023 00:00:00 GMT</pubDate>
-        </item>
-    </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Eli Richmond's Interesting Ideas</title>
+    <link href="http://bloge.li/ideas"/>
+    <updated>2002-11-26T18:30:02Z</updated>
+    <author>
+    <name>Eli Richmond</name>
+    </author>
+    <id>bloge.li</id>
+    <logo>https://bloge.li/static/xi.png</logo>
+    <icon>https://bloge.li/static/xi.png</icon>
+
+    
+        <entry>
+            <id>https://bloge.li/articles/2023-07-13</id>
+            <link href="https://bloge.li/articles/2023-07-13"/>
+            <title>
+                John Cena Reflects on Living Out of His Car
+            </title>
+            <published>2023-07-13T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-07-4</id>
+            <link href="https://bloge.li/articles/2023-07-4"/>
+            <title>
+                Douglas Hofstadter changes his mind on Deep Learning & AI risk
+            </title>
+            <published>2023-07-04T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-07-3</id>
+            <link href="https://bloge.li/articles/2023-07-3"/>
+            <title>
+                What does Geoffrey Hinton believe about AGI existential risk?
+            </title>
+            <published>2023-07-03T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-06-29</id>
+            <link href="https://bloge.li/articles/2023-06-29"/>
+            <title>
+                The seduction of grad school
+            </title>
+            <published>2023-06-29T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-06-18</id>
+            <link href="https://bloge.li/articles/2023-06-18"/>
+            <title>
+                A single family... High school? (My dreamhome)
+            </title>
+            <published>2023-06-18T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-05-26</id>
+            <link href="https://bloge.li/articles/2023-05-26"/>
+            <title>
+                Cosmic Insignificance Therapy
+            </title>
+            <published>2023-05-26T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-03-23</id>
+            <link href="https://bloge.li/articles/2023-03-23"/>
+            <title>
+                Greatness
+            </title>
+            <published>2023-03-23T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-02-18</id>
+            <link href="https://bloge.li/articles/2023-02-18"/>
+            <title>
+                Products don't exist - only brands do
+            </title>
+            <published>2023-02-18T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-02-9</id>
+            <link href="https://bloge.li/articles/2023-02-9"/>
+            <title></title>
+            <published>2023-02-09T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-01-26</id>
+            <link href="https://bloge.li/articles/2023-01-26"/>
+            <title>
+                Non-Traditional living
+            </title>
+            <published>2023-01-26T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2023-01-14</id>
+            <link href="https://bloge.li/articles/2023-01-14"/>
+            <title>
+                The end of the high school essay
+            </title>
+            <published>2023-01-14T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
+            <id>https://bloge.li/articles/2022-12-26</id>
+            <link href="https://bloge.li/articles/2022-12-26"/>
+            <title>
+                Fisherman Parable
+            </title>
+            <published>2022-12-26T00:00:00Z</published>
+            <content type="html">
+                <section id="masthead">
+<div id="logo"><a href="/">Eli Richmond</a></div>
+</section>
+            </content>
+        </entry>
+    
+</feed>
