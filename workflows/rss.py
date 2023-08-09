@@ -81,7 +81,7 @@ def FormatAllArticles():
     # Filter out all of my old articles
     filtered_articles = []
     for a in os.listdir('../articles'):
-        if "2023" in a:
+        if "20" in a:
             filtered_articles.append(a)
 
     # Loop through every file in ../articles sorted by date
