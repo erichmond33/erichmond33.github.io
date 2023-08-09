@@ -1,4 +1,9 @@
-<rss version="2.0">
+<body>
+
+</body>
+
+<script>
+    let string = `<rss version=\"2.0\">
     <channel>
         <title>Eli Richmond's Blog</title>
         <link>https://bloge.li/articles</link>
@@ -35,23 +40,10 @@
             <pubDate>Sun, 2 Jul 2023 00:00:00 GMT</pubDate>
         </item>
     </channel>
-</rss>
+</rss>`
 
-<script>
-    console.log("this script is working.")
-    let item = document.createElement("item")
-    let title = document.createElement("title")
-    title.innerHTML = "AI angsttttttt"
-    let link = document.createElement("link")
-    link.innerHTML = "https://bloge.li/articles/2023-07-26"
-    let pubDate = document.createElement("pubDate")
-    pubDate.innerHTML = "Wed, 26 Jul 2023 00:00:00 GMT"
+document.getElementsByTagName('body')[0].innerHTML = string
 
-    item.appendChild(title)
-    item.appendChild(link)
-    item.appendChild(pubDate)
-
-    document.getElementsByTagName("channel")[0].appendChild(item)
 </script>
 
 <!-- <!DOCTYPE html>
