@@ -24,11 +24,9 @@ def HtmlArticleToXmlEntry(raw_html):
     updated_date = datetime.strptime(updated, '%Y-%m-%d').strftime('%Y-%m-%dT%H:%M:%SZ')
     published_date = datetime.strptime(published, '%Y-%m-%d').strftime('%Y-%m-%dT00:00:00Z')
 
-    # Hide the <small> element in content by doing <small hidden>
-    content = content.replace('<small>', '<small hidden>')
-
-    # Hide the leading <h2> element
-
+    # Replace the published date & title with ""
+    content = content.replace(f'{published}', '')
+    content = content.replace(f'{entry_title}', '')
 
     # Generate the XML output
     xml_output = f'''
@@ -48,10 +46,12 @@ def HtmlArticleToXmlEntry(raw_html):
 
 # Loop through every file in ../articles
 for article in os.listdir('../articles'):
-    # Grab the enitre html text from the article
-    with open(f'../articles/{article}', 'r') as f:
-        raw_html = f.read()
+    if article[0] != ".":
+        # Grab the enitre html text from the article
+        with open(f'../articles/{article}', 'r') as f:
+            print(article)
+            raw_html = f.read()
 
-        print(HtmlArticleToXmlEntry(raw_html))
+            print(HtmlArticleToXmlEntry(raw_html))
 
 

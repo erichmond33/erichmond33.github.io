@@ -17,7 +17,8 @@
     <title>AI angst</title>
     <published>2023-07-26T00:00:00+00:00</published>
     <content type="html">
-            <p style="visibility: hidden;">
+            <h2></h2>
+            <p>
                 AI is everywhere, and it is scary.
                 Even the godfathers of AI like Yoshua Bengio and Geoffrey Hinton have expressed their anxiety.
                 So no, you are not alone.
@@ -73,6 +74,7 @@
                 What are your thoughts?
                 Is this helpful?
             </p>
+            <small></small>
     </content>
     </entry>
 
