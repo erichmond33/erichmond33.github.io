@@ -1,0 +1,18 @@
+<rss version="2.0">
+    <channel>
+        <title>Eli Richmond's Interesting Ideas</title>
+        <link>https://bloge.li/ideas</link>
+        <description>Cool things that resonate</description>
+        <language>en-us</language>
+        <image>
+            <title>bloge.li</title>
+            <url>https://bloge.li/static/xi.png</url>
+            <link>https://bloge.li/ideas</link>
+        </image>
+        <item>
+            <title>John Cena Reflects on Living Out of His Car</title>
+            <link>https://bloge.li//ideas/u-cant-see-me</link>
+            <pubDate>Tue, 13 Jul 2023 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
