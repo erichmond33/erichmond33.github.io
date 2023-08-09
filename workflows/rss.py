@@ -2,6 +2,37 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import os
 
+xml_start = """<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Eli Richmond's Blog</title>
+    <link href="http://bloge.li/articles"/>
+    <updated>2002-11-26T18:30:02Z</updated>
+    <author>
+    <name>Eli Richmond</name>
+    </author>
+    <id>bloge.li</id>
+    <logo>https://bloge.li/static/xi.png</logo>
+    <icon>https://bloge.li/static/xi.png</icon>
+
+    """ 
+
+def main():
+    all_articles = FormatAllArticles()
+
+    # Add all articles to xml_start
+    xml_output = xml_start
+
+    for article in all_articles:
+        xml_output += article + "\n"
+
+    xml_output += "</feed>"
+
+    # Save to a file
+    with open('../articles.xml', 'w') as f:
+        f.write(xml_output)
+
+
 def HtmlArticleToXmlEntry(raw_html):
 
     # Parse the raw HTML using Beautiful Soup
@@ -31,8 +62,8 @@ def HtmlArticleToXmlEntry(raw_html):
     # Generate the XML output
     xml_output = f'''
         <entry>
-            <id>{entry_link}</id>
-            <link href="{entry_link}"/>
+            <id>https://bloge.li/articles/{published}</id>
+            <link href="https://bloge.li/articles/{published}"/>
             <title>{entry_title}</title>
             <published>{published_date}</published>
             <content type="html">
@@ -41,17 +72,31 @@ def HtmlArticleToXmlEntry(raw_html):
         </entry>
     '''
 
-    # Print the XML output
-    print(xml_output)
+    return xml_output
 
-# Loop through every file in ../articles
-for article in os.listdir('../articles'):
-    if article[0] != ".":
-        # Grab the enitre html text from the article
-        with open(f'../articles/{article}', 'r') as f:
-            print(article)
-            raw_html = f.read()
+def FormatAllArticles():
 
-            print(HtmlArticleToXmlEntry(raw_html))
+    all_articles = []
 
+    # Filter out all of my old articles
+    filtered_articles = []
+    for a in os.listdir('../articles'):
+        if "2023" in a:
+            filtered_articles.append(a)
+
+    # Loop through every file in ../articles sorted by date
+    for article in sorted(filtered_articles, key=lambda x: datetime.strptime(x.split('.')[0], '%Y-%m-%d'), reverse=True):
+        if article[0] != ".":
+            if article[0] == "2":
+                # Grab the enitre html text from the article
+                with open(f'../articles/{article}', 'r') as f:
+                    print(article)
+                    raw_html = f.read()
+                    all_articles.append(HtmlArticleToXmlEntry(raw_html))
+
+    return all_articles
+
+
+if __name__ == '__main__':
+    main()
 
