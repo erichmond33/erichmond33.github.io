@@ -8,14 +8,16 @@
     <name>Eli Richmond</name>
     </author>
     <id>bloge.li</id>
+    <logo>https://bloge.li/static/xi.png</logo>
+    <icon>https://bloge.li/static/xi.png</icon>
 
     <entry>
+    <id>https://bloge.li/articles/2023-07-26</id>
+    <link href="https://bloge.li/articles/2023-07-26"/>
+    <title>AI angst</title>
+    <published>2023-07-26T00:00:00+00:00</published>
     <content type="html">
-        <section id="article">
-            <h2>
-                AI angst
-            </h2>
-            <p>
+            <p style="visibility: hidden;">
                 AI is everywhere, and it is scary.
                 Even the godfathers of AI like Yoshua Bengio and Geoffrey Hinton have expressed their anxiety.
                 So no, you are not alone.
@@ -71,15 +73,7 @@
                 What are your thoughts?
                 Is this helpful?
             </p>
-            <small>
-                2022-07-26
-            </small>
-        </section>
     </content>
-    <id>https://bloge.li/articles/2023-07-26</id>
-    <link href="https://bloge.li/articles/2023-07-26"/>
-    <title>AI angst</title>
-    <published>2023-07-26T00:00:00+00:00</published>
     </entry>
 
 </feed>
