@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "The Song of Significance" : "significance.jpg",
+        "Startup Playbook" : "startup.jpg",
         "The Pmarca Blog Archives" : "pmarca.jpg",
         "Nothing & Everything" : "nothingAndEverything.jpg",
         "The E-Myth Revisited" : "emyth.jpg",
