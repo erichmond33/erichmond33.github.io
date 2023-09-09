@@ -346,6 +346,7 @@ div.presentation_summary{
 #gallery div a img{
 	width: 100%;
 	height: auto;
+	border-radius: 10px;
 }
 @media screen and (max-height: 400px){
 	section#motto div {
