@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "Revolution in The Valley" : "revo.jpg",
+        "Elon Musk" : "elon.jpg",
         "The Art of Profitability" : "artOfProfit.jpg",
         "You Can Negotiate Anything" : "negotiate.jpg",
         "The Song of Significance" : "significance.jpg",
