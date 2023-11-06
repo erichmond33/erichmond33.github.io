@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "The Millionaire Fastlane" : "fastlane.jpg",
+        "Although Of Course You End Up Becoming Yourself" : "dfw.jpg",
         "Revolution in The Valley" : "revo.jpg",
         "Elon Musk" : "elon.jpg",
         "The Art of Profitability" : "artOfProfit.jpg",
