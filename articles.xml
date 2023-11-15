@@ -13,6 +13,42 @@
 
     
         <entry>
+            <id>https://bloge.li/articles/2023-11-14</id>
+            <link href="https://bloge.li/articles/2023-11-14"/>
+            <title>
+                Ad-blocker smart glasses
+            </title>
+            <published>2023-11-14T00:00:00Z</published>
+            <content type="html">
+                <section id="article">
+<h2></h2>
+<p>
+                For a while I was really worried ads would overrun the world.
+                NYC and Tokyo would be awful for me with all the flashing screens on every surface.
+                Maybe they aren't so bad now, but thinking about the future, I could imagine things getting much more pervasive.
+                But luckily we have AI.
+            </p><p>
+                It is only a matter of time before we have ad blocker smart glasses.
+                These will recognize unwanted ads or logos or whatever you don't want to see, and replace these areas of your vision.
+                Maybe in the beginning it will just blur or paste an image of your choice over the area.
+                But eventually it will probably fill the area with something more natural – AI can already do this just not in real time.
+                Our perception might look something like this, which was done with AI in one take.
+            </p><p>
+<img alt="AI eyes" src="../static/articles/no-ad-glasses.png" width="100%"/>
+</p><p>
+                I'm looking forward to the day these become real.
+                I like my world real quiet.
+                Less noise makes me feel like I can pay more attention to now vs my senses being mined for $$$.
+            </p>
+<small>
+                
+            </small>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
             <id>https://bloge.li/articles/2023-10-31</id>
             <link href="https://bloge.li/articles/2023-10-31"/>
             <title>
@@ -25,7 +61,7 @@
 <p>
                 When I think of interesting attractive lifestyles like an entrepreneur, actor, entertainer, etc, the first thing that comes to mind is rich, glamorous living.
                 The reality is that to get to that point, often we must endure a very hard, uncomfortable, scrappy, frugal, anti-glamorous, and maybe even scary kind of living.
-                <a>John Cena's early days</a> are a fantastic example of this.
+                <a href="https://bloge.li/ideas/2023-07-13" target="_blank">John Cena's early days</a> are a fantastic example of this.
             </p><p>
                 He moved out to California in hopes of applying his college degree to a normal 9-5 job; however, nobody would give his piece of paper any validation.
                 (Did ya hear that soon-to-be grads?)
