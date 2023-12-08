@@ -348,6 +348,17 @@ div.presentation_summary{
 	height: auto;
 	border-radius: 10px;
 }
+#cover{
+	float: right;
+	margin: 0 0 1em 1em;
+	width: 50%;
+	box-shadow: 0 0 1em 0 rgba(0,0,0,0.5);
+}
+#index-cover{
+	margin: auto;
+	width: 50%;
+	box-shadow: 0 0 1em 0 rgba(0,0,0,0.5);
+}
 @media screen and (max-height: 400px){
 	section#motto div {
 		top: 65%;
@@ -390,6 +401,12 @@ div.presentation_summary{
 	#gallery div {
 		font-size: 11px;
 		line-height: 16px;
+	}
+	#cover {
+		float: none;
+		display: block;
+		width: 80%;
+		margin: auto;
 	}
 }
 @media screen and (min-width: 440px){

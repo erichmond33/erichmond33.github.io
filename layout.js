@@ -87,6 +87,12 @@ function navbarElements() {
             blog.innerHTML = "Blog";
             divNavLinks.appendChild(blog);
             divNavLinks.appendChild(spacer.cloneNode(true));
+            
+            let book = document.createElement('a');
+            book.setAttribute('href', '/#book');
+            book.innerHTML = "Book";
+            divNavLinks.appendChild(book);
+            divNavLinks.appendChild(spacer.cloneNode(true));
 
             let misc = document.createElement('a');
             misc.setAttribute('href', '/#myRealEducation');
@@ -131,6 +137,15 @@ function hoverability(link, sections) {
                     }
                 });
             }
+            else if (link.innerHTML == "Book") {
+                sections.forEach(element => {
+                    if (element.id == "book" || element.id == "masthead") {
+                        element.style.display = "block";
+                    } else {
+                        element.style.display = "none";
+                    }
+                });
+            }
             else if (link.innerHTML == "Misc") {
                 sections.forEach(element => {
                     if (element.id == "myRealEducation" || element.id == "masthead") {
@@ -161,6 +176,9 @@ function hoverability(link, sections) {
         }
         else if (link.innerHTML == "Blog") {
             document.getElementById('articles').scrollIntoView();
+        }
+        else if (link.innerHTML == "Book") {
+            document.getElementById('book').scrollIntoView();
         }
         else if (link.innerHTML == "Misc") {
             document.getElementById('myRealEducation').scrollIntoView();
