@@ -47,7 +47,7 @@ def HtmlArticleToXmlEntry(raw_html):
     published_date = datetime.strptime(published, '%Y-%m-%d').strftime('%Y-%m-%dT00:00:00Z')
 
     # Replace the published date & title with ""
-    content = content.replace(f'{published}', '')
+    content = content.replace(f'{published}', '<br>')
     content = content.replace(f'{entry_title}', '')
 
     # Generate the XML output
@@ -68,6 +68,7 @@ def HtmlArticleToXmlEntry(raw_html):
 def FormatAllArticles():
 
     all_articles = []
+
 
     # Filter out all of my old articles
     filtered_articles = []
