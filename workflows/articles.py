@@ -49,7 +49,6 @@ def HtmlArticleToXmlEntry(raw_html):
     # Replace the published date & title with ""
     content = content.replace(f'{published}', '')
     content = content.replace(f'{entry_title}', '')
-    content = content + '<br>'
 
     # Generate the XML output
     xml_output = f'''
