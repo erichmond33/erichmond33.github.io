@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2023 = {
+        "The Authentic Swing" : "swing.jpg",
         "Infinite Jest" : "jest.jpg",
         "Make: Bootstrapper's Handbook" : "make.jpg",
         "Brand Seduction" : "brand.jpg",
