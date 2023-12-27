@@ -329,6 +329,9 @@ div.presentation_summary{
 	border-left: 5px solid #666;
 	padding-left: 15px;
 }
+#original-link {
+	padding-bottom: 4em;
+}
 #gallery {
 	columns:3;
 	gap:.5rem;
