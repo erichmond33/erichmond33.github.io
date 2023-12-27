@@ -112,7 +112,8 @@ figure{
 	margin:0
 }
 blockquote{
-	margin:2em;
+	margin:0;
+	padding-left: 2em;
 	color:#444;
 }
 pre{
