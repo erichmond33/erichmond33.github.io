@@ -70,7 +70,7 @@ function navbarElements() {
             spacer.innerHTML = "|";
 
             let me = document.createElement('a');
-            me.setAttribute('href', '/#meInTenSeconds');
+            me.setAttribute('href', '/#me');
             me.setAttribute('class', 'border-right');
             me.innerHTML = "Me";
             divNavLinks.appendChild(me);
@@ -112,7 +112,7 @@ function hoverability(link, sections) {
         link.addEventListener("mouseover", function() {
             if (link.innerHTML == "Me") {
                 sections.forEach(element => {
-                    if (element.id == "meInTenSeconds" || element.id == "masthead") {
+                    if (element.id == "me" || element.id == "masthead") {
                         element.style.display = "block";
                     } else {
                         element.style.display = "none";
@@ -169,7 +169,7 @@ function hoverability(link, sections) {
             element.style.display = "block";
         });
         if (link.innerHTML == "Me") {
-            document.getElementById('meInTenSeconds').scrollIntoView();
+            document.getElementById('me').scrollIntoView();
         }
         else if (link.innerHTML == "Now") {
             document.getElementById('whatImDoingNow').scrollIntoView();
