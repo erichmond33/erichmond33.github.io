@@ -77,7 +77,7 @@ function navbarElements() {
             divNavLinks.appendChild(spacer.cloneNode(true));
 
             let now = document.createElement('a');
-            now.setAttribute('href', '/#whatImDoingNow');
+            now.setAttribute('href', '/#now');
             now.innerHTML = "Now";
             divNavLinks.appendChild(now);
             divNavLinks.appendChild(spacer.cloneNode(true));
@@ -95,7 +95,7 @@ function navbarElements() {
             divNavLinks.appendChild(spacer.cloneNode(true));
 
             let misc = document.createElement('a');
-            misc.setAttribute('href', '/#myRealEducation');
+            misc.setAttribute('href', '/#misc');
             misc.innerHTML = "Misc";
             divNavLinks.appendChild(misc);
 }
@@ -121,7 +121,7 @@ function hoverability(link, sections) {
             }
             else if (link.innerHTML == "Now") {
                 sections.forEach(element => {
-                    if (element.id == "whatImDoingNow" || element.id == "masthead") {
+                    if (element.id == "now" || element.id == "masthead") {
                         element.style.display = "block";
                     } else {
                         element.style.display = "none";
@@ -148,7 +148,7 @@ function hoverability(link, sections) {
             }
             else if (link.innerHTML == "Misc") {
                 sections.forEach(element => {
-                    if (element.id == "myRealEducation" || element.id == "masthead") {
+                    if (element.id == "misc" || element.id == "masthead") {
                         element.style.display = "block";
                     } else {
                         element.style.display = "none";
@@ -172,7 +172,7 @@ function hoverability(link, sections) {
             document.getElementById('me').scrollIntoView();
         }
         else if (link.innerHTML == "Now") {
-            document.getElementById('whatImDoingNow').scrollIntoView();
+            document.getElementById('now').scrollIntoView();
         }
         else if (link.innerHTML == "Blog") {
             document.getElementById('articles').scrollIntoView();
@@ -181,7 +181,7 @@ function hoverability(link, sections) {
             document.getElementById('book').scrollIntoView();
         }
         else if (link.innerHTML == "Misc") {
-            document.getElementById('myRealEducation').scrollIntoView();
+            document.getElementById('misc').scrollIntoView();
         }
     });
 }
