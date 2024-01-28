@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function load_page() {
 
+    const BOOK_TITLES_2024 = {
+        "The Alchemist" : "alchemist.jpg",
+        "The Celebrity CEO" : "celebrity_ceo.jpg"
+    }
+
     const BOOK_TITLES_2023 = {
         "The Authentic Swing" : "swing.jpg",
         "Infinite Jest" : "jest.jpg",
@@ -151,6 +156,11 @@ function load_page() {
     }
             
     console.log("connected");
+
+    for (const [key, value] of Object.entries(BOOK_TITLES_2024)) {
+        console.log(key, value, "2024");
+        create_book_layout(key, value, "2024");
+    }
 
     for (const [key, value] of Object.entries(BOOK_TITLES_2023)) {
         console.log(key, value, "2023");
