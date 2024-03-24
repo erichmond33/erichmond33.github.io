@@ -20,44 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = function() {
         scrollToId();
     }
-
-    // Disqus stuff
-    // The current URL matches either /articles/<anything> or /ideas/<anything>
-    if (/\/articles\/.+/.test(window.location.pathname) || /\/ideas\/.+/.test(window.location.pathname)) {
-        const newElement = document.createElement('div');
-        newElement.id = 'disqus_thread';
-
-        function insertAfter(newNode, referenceNode) {
-            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-        }
-
-        const ideaElement = document.getElementById('idea');
-        const articleElement = document.getElementById('article');
-
-        if (ideaElement) {
-            insertAfter(newElement, ideaElement);
-        } else if (articleElement) {
-            insertAfter(newElement, articleElement);
-        } else {
-            console.log('Neither insertion point exists');
-        }
-    }
-
-    // Insert disqus script element
-    const disqusScript = document.createElement('script');
-    disqusScript.innerHTML = `var disqus_config = function () {
-        this.page.url = window.location.href;
-        this.page.identifier = window.location.pathname;
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://bloge-li.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();`;
-    document.body.appendChild(disqusScript);
-    
-
 });
 
 function navbarElements() {
