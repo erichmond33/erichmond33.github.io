@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2024 = {
+        "Happy" : "happy.jpg",
+        "Every Love Story Is a Ghost Story" : "ghost.jpg",
         "The Alchemist" : "alchemist.jpg",
         "The Celebrity CEO" : "celebrity_ceo.jpg"
     }
