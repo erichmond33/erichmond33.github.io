@@ -23,6 +23,16 @@
 	font-family: Rich-Georgia;
 	src: url("fonts/Rich-Georgia.ttf");
 }
+@font-face {
+	font-family: Programme;
+	src: url("fonts/Programme-Light.ttf");
+	font-weight: 300;
+}
+@font-face {
+	font-family: Programme-R;
+	src: url("fonts/Programme-Regular.ttf");
+	font-weight: 300;
+}
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
 	opacity: .99;
@@ -42,7 +52,7 @@ body{
 	padding:5px;
 	padding-right:1em;
 	padding-left: 1em;
-	font-family:Rich-Georgia, Georgia,'Times New Roman', Times, serif;
+	font-family: Rich-Georgia, Georgia,'Times New Roman', Times, serif;
 	font-size:20px;
 	line-height:30px;
 	background-color:#fff;
