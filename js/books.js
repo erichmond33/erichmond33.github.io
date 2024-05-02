@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2024 = {
+        "Seth Godin's Startup School" : "startup_school.jpg",
+        "The Bootstrapper's Bible" : "bootstrappers_bible.jpg",
         "Happy" : "happy.jpg",
         "Every Love Story Is a Ghost Story" : "ghost.jpg",
         "The Alchemist" : "alchemist.jpg",
