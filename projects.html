@@ -16,329 +16,387 @@
     <section id="masthead">
         <div id="logo"><a href="/">Eli Richmond</a></div>
     </section>
+
+    <script>
+        function sortProjects(attribute) {
+            const projectsContainer = document.getElementById('myProjects');
+            const projects = Array.from(document.getElementsByClassName('projects'));
+
+            const sortedProjects = projects.sort((a, b) => {
+                const aValue = parseInt(a.getAttribute(attribute));
+                const bValue = parseInt(b.getAttribute(attribute));
+                if (attribute === 'date') {
+                    return bValue - aValue; // Reverse order for date
+                } else {
+                    return aValue - bValue;
+                }
+            });
+
+            sortedProjects.forEach(project => {
+                projectsContainer.appendChild(project);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            sortProjects('pride');
+        });
+    </script>
+    
     
     <div id="content">
         <h1>
             My Projects
         </h1>
+        <style>
+            .projects-links {
+                display: flex;
+                justify-content: space-around;
+            }
+        </style>
+        <br>
+        <div class="projects-links">
+            <small><a href="#myProjects" onclick="sortProjects('date')">Sort by date</a></small>
+            <small>|</small>
+            <small><a href="#myProjects" onclick="sortProjects('pride')">Sort by pride</a></small>
+        </div>
         <section id="myProjects">
-            <h2 id="sourceformer">
-                Sourceformer: Tool Integration into Transformer Large Language Models Through Source Code
-            </h2>
-            <p>
-                This was a REU (Research Experiences for Undergrads) program at East Carolina University.
-                I spent my almost my entire summer in North Carolina proposing and implementing this AI research paper.
-                My mentor was Dr. Nic Herndon.
-            </p>
-            <p>
-                I had such a great time, and I am super grateful for this opportunity.
-                The mentors and my student colleagues were such a blast to be around whether we were talking AI or just chatting about life.
-            </p>
-            <p>
+            <div class="projects" pride="8" date="17">
+                <h2 id="linkfeed">
+                    Linkfeed
+                </h2>
+                <p>
+                    The idea behind this is my longstanding belief that there should be some decentralized personal-website-centric form of social media. Right now the best alternative is email/RSS which doesn't include any modern social media features i.e. following, reshares, comments, etc.
+                </p>
+                <p>
+                    This project benefited me as a crash course in management which was my primary aim since I have been using the framework we were supposed to be learning for many years.
+                </p>
+                <p>
+                    (Incomplete school project. Although, I really hope something like this takes off in the future.)
+                </p>
+                <p>
+                    <small>
+                        <a href="https://github.com/erichmond33/Linkfeed">Code</a> | 2024
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="4" date="16">
+                <h2 id="bannernote">
+                    Banner Note
+                </h2>
+                <p>
+                    Let people leave notes on your Twitter banner.
+                </p>
+                <p>
+                    <a href="https://bootstrapper.tech/graffiti" target="_blank">Try it on mine </a>:)
+                <p>
+                    <small>
+                        <a href="https://github.com/erichmond33/GraffitiMe">Code</a> | 2024
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="7" date="15">
+                <h2 id="indiechrome">
+                    Indie Chrome
+                </h2>
+                <p>
+                    A chrome extension that filters out any search results from the top 1000 most visited websites.
+                </p>
+                <p>
+                    Check it out <a href="https://chromewebstore.google.com/detail/indie-chrome/cphabhpgddkkjdbkfjbicfgifpgchnbg" target="_blank">here.</a>
+                <p>
+                    <small>
+                        <a href="https://github.com/erichmond33/IndieChrome">Code</a> | 2024
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="1" date="14">
+                <h2 id="sourceformer">
+                    Sourceformer: Tool Integration into Transformer Large Language Models Through Source Code
+                </h2>
+                <p>
+                    This was a REU (Research Experiences for Undergrads) program at East Carolina University.
+                    I spent my almost my entire summer in North Carolina proposing and implementing this AI research paper.
+                    My mentor was Dr. Nic Herndon.
+                </p>
+                <p>
+                    I had such a great time, and I am super grateful for this opportunity.
+                    The mentors and my student colleagues were such a blast to be around whether we were talking AI or just chatting about life.
+                </p>
+                <p>
+                    <small>
+                        <a href="./static/sourceformer.pdf">Paper</a> | 2023
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="5" date="13">
+                <h2 id="creativity">
+                    My creativity experiment
+                </h2>
+                <p>
+                    Every day during my spring semester I headed to The Den at 5:30am. If anyone asked, it was my office. But in reality it was a 10x10 storage unit I had rented out. Inside was a desk, a chair, and a small heater.
+                </p>
+                <p>
+                    I wanted to explore what creativity was without any preconceived notions about it. For that I needed a quiet, consistent, and safe place to focus.
+                </p>
+                <p>
+                    <a href="./articles/2023-06-10">Read more</a>
+                </p>
+                <p>
+                    <small>
+                        2023
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="2" date="12">
+                <h2 id="md">
+                    Modified Dibels (AI model)
+                </h2>
+                <p>
+                    This was the second half of my research under Dr. Jake Qualls at Astate.
+                    My job was to build the font-readability CNN which takes an image of a font character as input and outputs a readability score from 0 to 1.
+                    Collecting these readability scores was part 1: The website and testing phase of this research project.
+                    We started with the Attr2font GAN, and the idea was to run our font-readability CNN in parallel with the discriminator in hopes that this would generate highly readable fonts for dyslexic.
+                </p>
+                <p>
+                    <small>
+                        <a href="https://github.com/erichmond33/Attr2MDfont">Code</a> | <a href="./static/dyslexia_and_ai.pdf">Paper</a> | 2022
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="3" date="11">
+                <h2>
+                    Modified Dibels (website)
+                </h2>
+                <p>
+                    This was the first half of my research under Dr. Jake Qualls at Astate.
+                    The site is a modified version of two common dyslexic literacy tests.
+                    We are using the data collected from the dyslexic students who take these tests to train an Ai model.
+                    Our hypothesis is that this model will create the most readable font for dyslexic readers.
+                    I used the Django and PostgreSQL to build it.
+                </p>
+                <script>
+                    function redirectToMD() {
+                        window.location = "https://modified-dibels.herokuapp.com/"
+                        alert("This is a duplicate of my Astate Modified Dibels site.\n\nFeel free to make an account and look around :) Your login will be deleted every couple of hours.\n\nIt is running on free servers, so it will take about 20 seconds to load. After that it should run at normal speeds.\n\nClose to redirect to the free server.\n\n")
+                    }
+                </script>
+                <p>
+                    <a onclick="redirectToMD()" href="#">
+                        modified-dibels.herokuapp.com
+                    </a>
+                </p>
+                <p>
+                    <small>
+                        <a href="https://github.com/erichmond33/modifiedDibels">Code</a> | 2022
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="6" date="9">
+                <h2 id="ag">
+                    Avant-Gardes: Rick Rolled
+                </h2>
+                <p>
+                    This was a NFT project I did back when the Bored Ape Yacht Club just came out. Feel free to check it out. 
+                </p>
+                <script>
+                    function redirectToAvantGardes() {
+                        window.location = "https://avantgardesv1.herokuapp.com/"
+                        alert("This site is running on free servers, so it will take about 20 seconds to load. After that it should run at normal speeds.\n\nClose to redirect to the free server.\n\n")
+                    }
+                </script>
+                <p>
+                    <a onclick="redirectToAvantGardes()" href="#">
+                        avantgardesv1.herokuapp.com
+                    </a>
+                </p>
+                <p>
                 <small>
-                    <a href="./static/sourceformer.pdf">Paper</a> | Difficulty: 10/10 | 2023
+                    <a href="https://github.com/avantgardesv1/avantgardesLaunch">Code</a> | 2021
                 </small>
-            </p>
+                </p>
+            </div>
 
-            <h2 id="creativity">
-                My creativity experiment
-            </h2>
-            <p>
-                Every day during my spring semester I headed to The Den at 5:30am. If anyone asked, it was my office. But in reality it was a 10x10 storage unit I had rented out. Inside was a desk, a chair, and a small heater.
-            </p>
-            <p>
-                I wanted to explore what creativity was without any preconceived notions about it. For that I needed a quiet, consistent, and safe place to focus.
-            </p>
-            <p>
-                <a href="./articles/2023-06-10">Read more</a>
-            </p>
-            <p>
+            <div class="projects" pride="9" date="7">
+                <h2 id="cs50">
+                    CS50x - parody (CS50x final project)
+                </h2>
+                <p>
+                    I loved CS50x so much, and I wanted a way to quickly look back on the problem sets.
+                </p>
+                <p>
+                    I scraped their website and made a Flask app out of it. There are sooo many CS50x inside jokes on this website if you look hard enough ;)
+                </p>
+                <p>
+                    To anyone who has taken this course, I think you will find this really funny!!
+                </p>
+                <script>
+                    function redirectToCS50() {
+                        window.location = "https://cs50x-parody.herokuapp.com/"
+                        alert("This site is running on free servers, so it will take about 20 seconds to load. After that it should run at normal speeds.\n\nClose to redirect to the free server.\n\n")
+                    }
+                </script>
+                <p>
+                    <a onclick="redirectToCS50()" href="#">
+                        cs50x-parody.herokuapp.com
+                    </a>
+                </p>
+                <p>
                 <small>
-                    Difficulty: 9/10 | 2023
+                    <a href="https://github.com/erichmond33/cs50x-parody">Code</a> | 2020
                 </small>
-            </p>
+                </p>
+            </div>
 
-            <h2 id="md">
-                Modified Dibels (AI model)
-            </h2>
-            <p>
-                This was the second half of my research under Dr. Jake Qualls at Astate.
-                My job was to build the font-readability CNN which takes an image of a font character as input and outputs a readability score from 0 to 1.
-                Collecting these readability scores was part 1: The website and testing phase of this research project.
-                We started with the Attr2font GAN, and the idea was to run our font-readability CNN in parallel with the discriminator in hopes that this would generate highly readable fonts for dyslexic.
-            </p>
-            <p>
+            <div class="projects" pride="10" date="10">
+                <h2>
+                    A structured programming alternative
+                </h2>
+                <p>
+                    Structured Programming is the first computer science course for most students at Astate.
+                    However, I thought there was alot we could do to improve it.
+                </p>
+                <p>
+                    I spent a month thinking and writing out all of my ideas.
+                </p>
+                <p>
+                    These ideas haven't caused much change just yet.
+                    But I still believe in them, so we will see.
+                </p>
+                <p>
+                    <a href="static/StructuredProgrammingAlternative.pdf">Here is the document.</a>
+                </p>
+                <p>
+                    <small>
+                        2022
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="99" date="6">
+                <h2>
+                    Three weeks of machine learning
+                </h2>
+                <p>
+                    I hadn't committed to a personal project in a while.
+                    So I wanted to brush up on some machine learning, and just get something completed.
+                    The first week I build a simple feed forward neural network by hand.
+                    The second week I did a CNN by hand.
+                    The third week I did a transformer, but I definitely used some libraries to help me lol.
+                </p>
+                <p>
+                    <small>
+                        2022
+                    </small>
+                </p>
+            </div>
+
+            <div class="projects" pride="99" date="5">
+                <h2>
+                    Richey's Rivalry
+                </h2>
+                <p>
+                    This was a very fufilling fundraising project for a friend, and I'm proud of what I was able to coordinate. That's all I'll say about this here.
+                </p>
+                <p>
                 <small>
-                    <a href="https://github.com/erichmond33/Attr2MDfont">Code</a> | <a href="./static/dyslexia_and_ai.pdf">Paper</a> | Difficulty: 7/10 | 2022
+                    2020
                 </small>
-            </p>
+                </p>
+            </div>
 
-            <h2>
-                Modified Dibels (website)
-            </h2>
-            <p>
-                This was the first half of my research under Dr. Jake Qualls at Astate.
-                The site is a modified version of two common dyslexic literacy tests.
-                We are using the data collected from the dyslexic students who take these tests to train an Ai model.
-                Our hypothesis is that this model will create the most readable font for dyslexic readers.
-                I used the Django and PostgreSQL to build it.
-            </p>
-            <script>
-                function redirectToMD() {
-                    window.location = "https://modified-dibels.herokuapp.com/"
-                    alert("This is a duplicate of my Astate Modified Dibels site.\n\nFeel free to make an account and look around :) Your login will be deleted every couple of hours.\n\nIt is running on free servers, so it will take about 20 seconds to load. After that it should run at normal speeds.\n\nClose to redirect to the free server.\n\n")
-                }
-            </script>
-            <p>
-                <a onclick="redirectToMD()" href="#">
-                    modified-dibels.herokuapp.com
-                </a>
-            </p>
-            <p>
+            <div class="projects" pride="99" date="4">
+                <h2>
+                    Reading smart contracts
+                </h2>
+                <p>
+                    I wanted to better understand Solidity, and hopefully think of a new web3 application.
+                    I mainly dove into SushiSwap and WonderlandDAO's contracts; although I poked around in some others.
+                    It was so cool being able to talk to the contract creators over the internet.
+                    For example BoringCrypto answered a few questions about his really clever BentoBox contract.
+                </p>
+                <p>
                 <small>
-                    <a href="https://github.com/erichmond33/modifiedDibels">Code</a> | Difficulty: 10/10 | 2022
+                    2021
                 </small>
-            </p>
+                </p>
+            </div>
 
-            <h2 id="ag">
-                Avant-Gardes: Rick Rolled
-            </h2>
-            <p>
-                This was a NFT project I did back when the Bored Ape Yacht Club just came out. Feel free to check it out. 
-            </p>
-            <script>
-                function redirectToAvantGardes() {
-                    window.location = "https://avantgardesv1.herokuapp.com/"
-                    alert("This site is running on free servers, so it will take about 20 seconds to load. After that it should run at normal speeds.\n\nClose to redirect to the free server.\n\n")
-                }
-            </script>
-            <p>
-                <a onclick="redirectToAvantGardes()" href="#">
-                    avantgardesv1.herokuapp.com
-                </a>
-            </p>
-            <p>
-            <small>
-                <a href="https://github.com/avantgardesv1/avantgardesLaunch">Code</a> | Difficulty: 10/10 | 2021
-            </small>
-            </p>
+            <div class="projects" pride="99" date="3">
+                <h2>
+                    Tab Predictor
+                </h2>
+                <p>
+                    I thought it would be fun to build a basic model that predicts what tab you will open when you first open google chrome. In retrospect I should have used a different model structure, (RNN or transformer) and I only got the accuracy up to 60% on the test set.
+                </p>
+                <p>
+                    <small>
+                    2020
+                    </small>
+                </p>
+            </div>
 
-            <h2 id="cs50">
-                CS50x - parody (CS50x final project)
-            </h2>
-            <p>
-                I loved CS50x so much, and I wanted a way to quickly look back on the problem sets.
-            </p>
-            <p>
-                I scraped their website and made a Flask app out of it. There are sooo many CS50x inside jokes on this website if you look hard enough ;)
-            </p>
-            <p>
-                To anyone who has taken this course, I think you will find this really funny!!
-            </p>
-            <script>
-                function redirectToCS50() {
-                    window.location = "https://cs50x-parody.herokuapp.com/"
-                    alert("This site is running on free servers, so it will take about 20 seconds to load. After that it should run at normal speeds.\n\nClose to redirect to the free server.\n\n")
-                }
-            </script>
-            <p>
-                <a onclick="redirectToCS50()" href="#">
-                    cs50x-parody.herokuapp.com
-                </a>
-            </p>
-            <p>
-            <small>
-                <a href="https://github.com/erichmond33/cs50x-parody">Code</a> | Difficulty: 8/10 | 2020
-            </small>
-            </p>
+            <div class="projects" pride="98" date="8">
+                <h2>
+                    Flamethrower
+                </h2>
+                <p>
+                    I got tired of writing code. I did this instead.
+                </p>
+                    <a href="static/flamethrower.JPG" style="width: min-content;" target="_blank">
+                        <img src="static/flamethrower.JPG" style="object-position: 0% 0%; object-fit:cover; height: 125px; width: 125px;">
+                    </a>
+                <p>
+                    <small>
+                    2020
+                    </small>
+                </p>
+            </div>
 
-            <h2>
-                A structured programming alternative
-            </h2>
-            <p>
-                Structured Programming is the first computer science course for most students at Astate.
-                However, I thought there was alot we could do to improve it.
-            </p>
-            <p>
-                I spent a month thinking and writing out all of my ideas.
-            </p>
-            <p>
-                These ideas haven't caused much change just yet.
-                But I still believe in them, so we will see.
-            </p>
-            <p>
-                <a href="static/StructuredProgrammingAlternative.pdf">Here is the document.</a>
-            </p>
-            <p>
-                <small>
-                    Difficulty: 7/10 | 2022
-                </small>
-            </p>
+            <div class="projects" pride="99" date="2">
+                <h2>
+                    Personal Podcast
+                </h2>
+                <p>
+                    This is the basic idea of what this is.
+                    Here Rick Rubin is talking about what a personal podcast is.
+                </p>
+                <audio controls>
+                    <source src="./static/rick.mp3" type="audio/mpeg">
+                    Rick Rubin on podcasting with friends & family
+                </audio>
+                <p>
+                    So far I've only done one personal podcast with one of my oldest friends.
+                    I thought it was a lot of fun and I learned a bunch.
+                    I might do more.
+                    We will see.
+                </p>
+                <p>
+                    <small>
+                        2023
+                    </small>
+                </p>
+            </div>
 
-            <h2>
-                Three weeks of machine learning
-            </h2>
-            <p>
-                I hadn't committed to a personal project in a while.
-                So I wanted to brush up on some machine learning, and just get something completed.
-                The first week I build a simple feed forward neural network by hand.
-                The second week I did a CNN by hand.
-                The third week I did a transformer, but I definitely used some libraries to help me lol.
-            </p>
-            <p>
-                <small>
-                    Difficulty: 6/10 | 2022
-                </small>
-            </p>
-
-            <h2>
-                Richey's Rivalry
-            </h2>
-            <p>
-                This was a very fufilling fundraising project for a friend, and I'm proud of what I was able to coordinate. That's all I'll say about this here.
-            </p>
-            <p>
-            <small>
-                Difficulty: 6/10 | 2020
-            </small>
-            </p>
-
-            <h2>
-                Reading smart contracts
-            </h2>
-            <p>
-                I wanted to better understand Solidity, and hopefully think of a new web3 application.
-                I mainly dove into SushiSwap and WonderlandDAO's contracts; although I poked around in some others.
-                It was so cool being able to talk to the contract creators over the internet.
-                For example BoringCrypto answered a few questions about his really clever BentoBox contract.
-            </p>
-            <p>
-            <small>
-                Difficulty: 5/10 | 2021
-            </small>
-            </p>
-
-            <h2>
-                Tab Predictor
-            </h2>
-            <p>
-                I thought it would be fun to build a basic model that predicts what tab you will open when you first open google chrome. In retrospect I should have used a different model structure, (RNN or transformer) and I only got the accuracy up to 60% on the test set.
-            </p>
-            <p>
-                <small>
-                    Difficulty: 5/10 | 2020
-                </small>
-            </p>
-
-            <h2>
-                Flamethrower
-            </h2>
-            <p>
-                I got tired of writing code. I did this instead.
-            </p>
-                <a href="static/flamethrower.JPG" style="width: min-content;" target="_blank">
-                    <img src="static/flamethrower.JPG" style="object-position: 0% 0%; object-fit:cover; height: 125px; width: 125px;">
-                </a>
-            <p>
-                <small>
-                Difficulty: 3/10 | 2020
-                </small>
-            </p>
-
-            <h2>
-                Personal Podcast
-            </h2>
-            <p>
-                This is the basic idea of what this is.
-                Here Rick Rubin is talking about what a personal podcast is.
-            </p>
-            <audio controls>
-                <source src="./static/rick.mp3" type="audio/mpeg">
-                Rick Rubin on podcasting with friends & family
-            </audio>
-            <p>
-                So far I've only done one personal podcast with one of my oldest friends.
-                I thought it was a lot of fun and I learned a bunch.
-                I might do more.
-                We will see.
-            </p>
-            <p>
-                <small>
-                    Difficulty: 2/10 | 2023-01
-                </small>
-            </p>
-
-            <h2>    
-                Vex EDR Clawbot
-            </h2>
-            <p>
-                I had to make a guide for the EDR Clawbot during my senior year in highschool. Not hard but pretty fun.
-            </p>
-            <p>
-                <small>
-                        Difficulty: 2/10 | 2020
-                </small>
-            </p>
-
-            <!-- <h2>
-                Video journal camera glasses
-            </h2>
-            <p>
-                ** abandoned project **
-            </p>
-            <p>
-                Camera glasses aren't new: Snap spectacles and Ray-ban stories.
-                But I really wanted a pair that could last for like 8 hours of filming.
-                It would be like a video journal, but you could also search that video by people, things, or words you saw.
-                Or even words you heard.
-                I spent a long time planning and thinking about these.
-                I started writing the software for them too.
-                But as soon as I did some calculations for the battery life, I realized that was going to be an issue.
-                Also, I don't think I really loved the idea all that much.
-            </p>
-            <p>
-            <small>
-                Difficulty: 1/10 | 2022
-            </small>
-            </p>
-
-            <h2>
-                EMG sensor keyboard
-            </h2>
-            <p>
-                ** abandoned project **
-            </p>
-            <p>
-                This was going to be two bands you put around each forearm, and they would allow you to type without a physical keyboard being there.
-                I couldn't ever figure out how these could actually be made.
-                I spent a long time thinking about it though.
-            </p>
-            <p>
-            <small>
-                Difficulty: 0/10 | 2022
-            </small>
-            </p>
-            
-            <h2>
-                Decentralized social media
-            </h2>
-            <p>
-                ** abandoned project **
-            </p>
-            <p>
-                I was really excited about this idea.
-                By the time I thought of it, LensProtocol was already in the works.
-                I was just excited to see if this idea would work without having to actually build it myself.
-                It has been launched for a while now, and hasn't really taken off.
-                I think web3 tools aren't mainstream enough yet, or people don't care about owning their data and not being able to be censored that much.
-                I'm not sure.
-            </p>
-            <p>
-            <small>
-                Difficulty: 0/10 | 2022
-            </small>
-            </p> -->
-
+            <div class="projects" pride="99" date="1">    
+                <h2>
+                    Vex EDR Clawbot
+                </h2>
+                <p>
+                    I had to make a guide for the EDR Clawbot during my senior year in highschool. Not hard but pretty fun.
+                </p>
+                <p>
+                    <small>
+                        2020
+                    </small>
+                </p>
+            </div>
 
         </section>
     </div>
