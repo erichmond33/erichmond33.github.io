@@ -106,10 +106,10 @@ a:visited{
 a:hover{
 	text-decoration:underline
 }
-b {
+/* b {
 	font-family: Rich-Georgia-Bold, Georgia,'Times New Roman', Times, serif;
 	font-weight: normal;
-}
+} */
 dt{
 	margin-top:2em;
 	font-size:1.2em;
