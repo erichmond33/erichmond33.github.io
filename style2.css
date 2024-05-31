@@ -11,10 +11,10 @@
 	font-family: mono;
 	src: url("fonts/TechnoScriptEF.ttf");
 }
-@font-face {
+/* @font-face {
 	font-family: special;
 	src: url("fonts/special.woff");
-}
+} */
 @font-face {
 	font-family: Rich-Georgia-Bold;
 	src: url("fonts/Rich-Georgia-Bold.ttf");
@@ -23,7 +23,7 @@
 	font-family: Rich-Georgia;
 	src: url("fonts/Rich-Georgia.ttf");
 }
-@font-face {
+/* @font-face {
 	font-family: Programme;
 	src: url("fonts/Programme-Light.ttf");
 	font-weight: 300;
@@ -32,7 +32,7 @@
 	font-family: Programme-R;
 	src: url("fonts/Programme-Regular.ttf");
 	font-weight: 300;
-}
+} */
 @keyframes flicker {
 	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
 	opacity: .99;
@@ -52,7 +52,7 @@ body{
 	padding:5px;
 	padding-right:1em;
 	padding-left: 1em;
-	font-family: Rich-Georgia, Georgia,'Times New Roman', Times, serif;
+	font-family: 'Palantino','Georgia','Times New Roman', Times, serif;
 	font-size:20px;
 	line-height:30px;
 	background-color:#fff;
@@ -222,17 +222,33 @@ section#masthead #logo a{
 section#masthead small{
 	margin-left:10px;
 }
+/* nav {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	width:100%;
+} */
 section#masthead #nav-links {
 	display:flex;
+	/* flex-direction: column; */
 	justify-content:space-between;
-	align-items: center;
+	/* align-items: end; */
 }
 section#masthead #nav-links a {
 	text-decoration: none;
 	font-size: 1em;
 	font-family: Nexa;
 	letter-spacing: 0.1em;
+	/* width: 15%;
+	min-width: 20px;
+	border-bottom: 1px solid white;
+	text-align: right;
+	padding-top: .25rem;
+	padding-bottom: .25rem; */
 }
+/* section#masthead #nav-links a:last-child {
+	border: none;
+} */
 section#masthead #nav-links a:hover {
 	text-decoration: underline;
 }
