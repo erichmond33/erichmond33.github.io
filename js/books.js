@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2024 = {
+        "The Daily Pressfield" : "daily_pressfield.jpg",
         "Building macOS apps with SwiftUI" : "building_macOS.jpg",
         "Seth Godin's Startup School" : "startup_school.jpg",
         "The Bootstrapper's Bible" : "bootstrappers_bible.jpg",
