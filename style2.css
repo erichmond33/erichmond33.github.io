@@ -296,6 +296,10 @@ body#home div#content ul li{
 	padding-left:1.5em;
 	position: relative;
 }
+body#home div#content ol li{
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
 body#home div#content ul li::before{
 	content: "\2015";
 	margin-right: 0.5em;
