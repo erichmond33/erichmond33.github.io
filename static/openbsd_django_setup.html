@@ -1,0 +1,226 @@
+<pre>** Note that <i>italics</i> denote command line calls **
+
+Ex:
+
+<i>echo "hello, world"</i>
+
+<h2>Step 1: Follow Derek's OpenBSD Setup</h2>
+
+https://web.archive.org/web/20230505005732/https://sive.rs/ti
+
+(I like the older one.)
+
+
+<h2>Step 2: uwsgi setup</h2>
+
+(These commands won't be complete, rather a general order of things to get it working.)
+
+(This is a modified/updated version of this tutorial incase something doesn't work: 
+https://www.adrianobarbosa.xyz/blog/django-httpd-uwsgi.html)
+
+
+<h3>Project structure</h3>
+
+(Don't do anything here.
+This is just so ya know.)
+
+/var/www/django/
+/var/www/django/manage.py
+/var/www/django/uwsgi.ini  <--- uwsgi config file
+/var/www/django/uwsgi.log  <--- created for you
+/var/www/django/uwsgi.pid  <--- created for you
+/var/www/django/myproject
+/var/www/django/myproject/__init__.py
+/var/www/django/myproject/urls.py
+/var/www/django/myproject/wsgi.py
+/var/www/django/myproject/settings.py
+/var/www/django/myproject/asgi.py
+
+<h3>env setup</h3>
+
+cd into /var/www/
+
+<i>mkdir django
+
+python3 -m venv /var/www/django/env
+. /var/www/django/env/bin/activate
+pip install django uwsgi
+chown -R www.www /var/www/django</i>
+
+<h3>Create the django project</h3>
+
+<i>django-admin startproject mysite</i>
+
+The problem here is the project directory will be nested too far down.
+You'll have to copy every up one folder.
+
+<i>mv myfolder/* .</i>
+
+So for example if the data was in /home/myuser/myfolder then from /home/myuser/ run the command.
+
+
+<h3>Create uwsgi.ini</h3>
+
+-----
+
+[uwsgi]
+chdir=/var/www/django
+home=/var/www/django/env
+module=myproject.wsgi:application
+env DJANGO_SETTINGS_MODULE=myproject.settings
+master=True
+fastcgi-socket=127.0.0.1:3031
+vacuum=True
+uid=www
+gid=www
+ftok=/var/www/django/uwsgi.pid
+
+-----
+
+**Note that the error message I was getting that has a misleading message: 
+[Thu Dec 1 01:51:19 2005] [error] mod_ssl: Parent process could not
+create private SSLMutex semaphore (System error follows)
+[Thu Dec 1 01:51:19 2005] [error] System: No space left on device
+(errno: 28)
+
+The way to fix this was first to add more semaphores**
+
+<i>ipcs -T | grep semmni
+sysctl -w kern.seminfo.semmni=20</i>
+
+Output should look like this-ish:
+semmni: 10 (# of semaphore identifiers)
+kern.seminfo.semmni: 10 -> 20
+
+But then it would still abandon them when using:
+
+<i>doas rcctl restart httpd uwsgid</i>
+
+So I needed to add ftok=/var/www/django/uwsgi.pid to the .ini file.
+(Already done, don't do anything here.)
+
+
+<h3>rcctl script</h3>
+
+Create the file /etc/rc.d/uwsgid with the following content:
+
+----
+
+#!/bin/ksh
+#
+UWSGI_INI="/var/www/django/uwsgi.ini"
+PID_FILE="/var/www/django/uwsgi.pid"
+LOG_FILE="/var/www/django/uwsgi.log"
+
+daemon_user="www"
+daemon_group="www"
+daemon="/var/www/django/env/bin/uwsgi --ini ${UWSGI_INI} --pidfile ${PID_FILE} --daemonize ${LOG_FILE}"
+
+. /etc/rc.d/rc.subr
+
+rc_reload="NO"
+rc_stop() {
+        kill -INT `cat ${PID_FILE}`
+}
+
+rc_cmd $1
+
+----
+
+Make script executable:
+
+<i>chmod +x /etc/rc.d/uwsgid</i>
+
+
+<h3>httpd.conf</h3>
+
+Add the server config to /etc/httpd.conf
+
+(This works with Siver's method of tls stuff)
+
+(**Update** You don't actually need the two bootstrapper.tech server block for hosting Django stuff.
+Those are for more tradional OpenBSD usage.)
+
+----
+
+# $OpenBSD: httpd.conf,v 1.22 2020/11/04 10:34:18 denis Exp $
+
+server "django" {
+    listen on egress tls port 443
+    tls {
+        certificate "/etc/ssl/bootstrapper.tech.fullchain.pem"
+        key "/etc/ssl/private/bootstrapper.tech.key"
+    }
+    location "/static/*" {
+        request strip 1
+        root "/django/static"
+    }
+    location "/media/*" {
+        request strip 1
+        root "/django/media"
+    }
+    location "/*" {
+        fastcgi socket tcp 127.0.0.1 3031
+    }
+    connection { max request body 8388608 }
+}
+
+server "bootstrapper.tech" {
+        listen on * port 80
+        location "/.well-known/acme-challenge/*" {
+                root "/acme"
+                request strip 2
+        }
+        location * {
+                block return 302 "https://$HTTP_HOST$REQUEST_URI"
+        }
+}
+
+server "bootstrapper.tech" {
+        listen on * tls port 443
+        tls {
+                certificate "/etc/ssl/bootstrapper.tech.fullchain.pem"
+                key "/etc/ssl/private/bootstrapper.tech.key"
+        }
+        location "/pub/*" {
+                directory auto index
+        }
+        location "/.well-known/acme-challenge/*" {
+                root "/acme"
+                request strip 2
+        }
+}
+
+-----
+
+(Some things to note.
+I was getting a file size too big error, so that is what the connection tag is for.)
+
+
+<h3>Semafores</h3>
+
+Add the lines below to /etc/sysctl.conf to make the changes persistent:
+
+----
+
+kern.seminfo.semmni=20
+kern.seminfo.semmns=120
+kern.seminfo.semmnu=60
+kern.seminfo.semmsl=120
+kern.seminfo.semopm=200
+
+----
+
+
+<h3>Start httpd and uwsgi</h3>
+
+<i>rcctl enable httpd uwsgid
+rcctl start httpd uwsgid</i>
+
+
+
+<h3>Debugging stuff</h3>
+
+uWSGI log file is located in /var/www/django/uwsgi.log.
+
+<i>httpd -n</i> is a good way to check syntax in httpd.conf</pre>
