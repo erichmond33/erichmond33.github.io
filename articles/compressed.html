@@ -27,6 +27,16 @@
         <h1>
             Compressed Lessons
         </h1>
+        <div id="gallery">
+            <a href="https://shop.elir.net" class="link-preview"></a>
+            <a href="https://elir.net/subscribe" class="link-preview" src="https://elir.net/subscribe" data-set-data='{"title": "hello world"}'></a>
+            <a href="https://x.com/EliRichmond33" class="link-preview"></a>
+        </div>
+        <div id="gallery">
+            <a href="https://shop.elir.net" class=""><div class="microlink_card sc-kAzzGY jPRzES" title="Muse"><div class="microlink_card__media_video_wrapper sc-bZQynM fkHgmI"><video class="microlink_card__media microlink_card__media_video sc-jTzLTM idgogC" poster="https://imgproxy.fourthwall.com/PTivJX8tfGpQ6WY9EcLKimA-x0Ihdp85qHUTCRLkVdw/w:1200/sm:1/enc/MTZkZjBjYjBlNzNi/ZjRkONFLEdPoOvdr/aCmc8bvzj-GLb9YL/MXyo1_A_3VxKs0z5/qRqD3Aol-q7p1KrQ/FVulDARlAeyoWkXZ/rKLyLTTLN5dbZtmY/OcONrNeMHEreKVAU/QZuosdY-RJGF5RVV/9KzF-5wgHh9MUPyS/Y4oqwM8PMl9RvRcw/TsFy9zbM-s2JQkv3/ooFiuqsLufR5fGnj/3RNuNIIaZfPRyszl/bTv9tHq93JI.webp" autoplay="" loop="" playsinline=""></video><div class="sc-gqjmRU eNREwC"></div><div class="sc-VigVT bbDobc" style="width: 0%; opacity: 0.8;"></div></div><div class="microlink_card__content sc-bwzfXH ctGTXH"><header class="microlink_card__content_title sc-htpNat bXmqbP"><p title="Muse" class="sc-bdVaJa cCSipI">Muse</p></header><div class="microlink_card__content_description sc-bxivhb eOrjhk"><p title="The official website and shop of Muse." class="sc-bdVaJa cCSipI">The official website and shop of Muse.</p></div><footer class="microlink_card__content_url sc-ifAKCX eDeKKO"><p title="shop.elir.net" class="sc-bdVaJa cCSipI">shop.elir.net</p></footer></div></div></a>
+            <a href="https://elir.net/subscribe" class="" src="https://elir.net/subscribe" data-set-data="{&quot;title&quot;: &quot;hello world&quot;}"><div class="microlink_card sc-chPdSV dZugEZ" title="3-Bullet Thursday"><div class="microlink_card__media_video_wrapper sc-bZQynM fkHgmI"><video class="microlink_card__media microlink_card__media_video sc-jTzLTM idgogC" poster="https://elir.net/static/xi.png" autoplay="" loop="" playsinline=""></video><div class="sc-gqjmRU eNREwC"></div><div class="sc-VigVT bbDobc" style="width: 0%; opacity: 0.8;"></div></div><div class="microlink_card__content sc-bwzfXH ctGTXH"><header class="microlink_card__content_title sc-htpNat bXmqbP"><p title="3-Bullet Thursday" class="sc-bdVaJa cCSipI">3-Bullet Thursday</p></header><div class="microlink_card__content_description sc-bxivhb eOrjhk"><p title="Don’t miss out on the 3 coolest things I find each week.​High signal. Low noise. Subscribe to get the latest issue today." class="sc-bdVaJa cCSipI">Don’t miss out on the 3 coolest things I find each week.​High sig…</p></div><footer class="microlink_card__content_url sc-ifAKCX eDeKKO"><p title="elir.net/subscribe" class="sc-bdVaJa cCSipI">elir.net/subscribe</p></footer></div></div></a>
+            <a href="https://x.com/EliRichmond33" class=""><div class="microlink_card sc-kgoBCf bgEESy" title="@EliRichmond33 on X"><div class="microlink_card__media_video_wrapper sc-bZQynM fkHgmI"><video class="microlink_card__media microlink_card__media_video sc-jTzLTM idgogC" poster="https://pbs.twimg.com/profile_images/1743351121261772800/pica7TuL_400x400.jpg" autoplay="" loop="" playsinline=""></video><div class="sc-gqjmRU eNREwC"></div><div class="sc-VigVT bbDobc" style="width: 0%; opacity: 0.8;"></div></div><div class="microlink_card__content sc-bwzfXH ctGTXH"><header class="microlink_card__content_title sc-htpNat bXmqbP"><p title="@EliRichmond33 on X" class="sc-bdVaJa cCSipI">@EliRichmond33 on X</p></header><div class="microlink_card__content_description sc-bxivhb eOrjhk"><p title="Tech enthusiast • Dev freelancing $11,000 &amp; $100/MRR • Investments $250/MRR • Merch 👕 https://t.co/gLxLyOqBdc • Leave a note ⬆️ https://t.co/PzRuaGW7Xt" class="sc-bdVaJa cCSipI">Tech enthusiast • Dev freelancing $11,000 &amp; $100/MRR • Inves…</p></div><footer class="microlink_card__content_url sc-ifAKCX eDeKKO"><p title="x.com" class="sc-bdVaJa cCSipI">x.com</p></footer></div></div></a>
+        </div>
         <h2>
             Bargain with the future
             </h2>
@@ -52,7 +62,29 @@
             <p>
             So we must align ourselves with the stars. We must have higher purpose.
             </p>
+
+            <script src="https://cdn.jsdelivr.net/npm/@microlink/vanilla@latest/umd/microlink.min.js"></script>
+            <script>
+                function initMicrolink() {
+                    if (typeof microlink === 'function') {
+                        document.querySelectorAll('.link-preview').forEach(el => {
+                            microlink(el, { 
+                                prerender: true,
+                                // setData: { image: 'https://elir.net/static/xi.png' },
+                                size: 'large',
+                            });
+                        });
+                    } else {
+                        console.error('Microlink function not available');
+                    }
+                }
             
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initMicrolink);
+                } else {
+                    initMicrolink();
+                }
+            </script>
             <h2>
             Angst? No, excitement
             </h2>
