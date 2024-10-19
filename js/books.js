@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2024 = {
+        "Meaningful Work" : "meaningful.jpg",
+        "Useful Not True" : "useful.jpg",
         "Hackers & Painters" : "hackers.jpg",
         "The Pale King" : "pale_king.jpg",
         "The Daily Pressfield" : "daily_pressfield.jpg",
