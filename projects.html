@@ -23,8 +23,8 @@
             const projects = Array.from(document.getElementsByClassName('projects'));
 
             const sortedProjects = projects.sort((a, b) => {
-                const aValue = parseInt(a.getAttribute(attribute));
-                const bValue = parseInt(b.getAttribute(attribute));
+                const aValue = parseFloat(a.getAttribute(attribute));
+                const bValue = parseFloat(b.getAttribute(attribute));
                 if (attribute === 'date') {
                     return bValue - aValue; // Reverse order for date
                 } else {
@@ -41,6 +41,28 @@
             sortProjects('pride');
         });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@microlink/vanilla@latest/umd/microlink.min.js"></script>
+<script>
+    function initMicrolink() {
+        if (typeof microlink === 'function') {
+            document.querySelectorAll('.link-preview').forEach(el => {
+                microlink(el, { 
+                    prerender: true,
+                    size: 'large',
+                });
+            });
+        } else {
+            console.error('Microlink function not available');
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMicrolink);
+    } else {
+        initMicrolink();
+    }
+</script>
     
     
     <div id="content">
@@ -60,22 +82,51 @@
             <small><a href="#myProjects" onclick="sortProjects('pride')">Sort by pride</a></small>
         </div>
         <section id="myProjects">
-            <div class="projects" pride="8" date="17">
+            <div class="projects" pride="9.1" date="19">
                 <h2 id="linkfeed">
-                    Linkfeed
+                    Muse: Inventors Collection
                 </h2>
                 <p>
-                    The idea behind this is my longstanding belief that there should be some decentralized personal-website-centric form of social media. Right now the best alternative is email/RSS which doesn't include any modern social media features i.e. following, reshares, comments, etc.
+                    This is a seven piece apparel collection dedicated to innovative inventors and their inventions. They are super cool.
                 </p>
                 <p>
-                    This project benefited me as a crash course in management which was my primary aim since I have been using the framework we were supposed to be learning for many years.
+                    Check it out here: <a href="https://shop.elir.net" target="_blank">shop.elir.net</a>
+                </p>
+                <p><a href="https://shop.elir.net" class="link-preview"></a></p>
+                <p>
+                    <small>
+                        2024
+                    </small>
+                </p>
+            </div>
+            <div class="projects" pride="1.1" date="18">
+                <h2 id="linkfeed">
+                    Delta Timepieces
+                </h2>
+                <p>
+                    Engineered and launched a robust and well designed e-commerce website for a luxury watch brand that did over $1,000,000 in revenue during 2024.
                 </p>
                 <p>
-                    (Incomplete school project. Although, I really hope something like this takes off in the future.)
+                    Check it out here: <a href="https://deltatimepiecesllc.com" target="_blank">DeltaTimepiecesllc.com</a>
                 </p>
                 <p>
                     <small>
-                        <a href="https://github.com/erichmond33/Linkfeed">Code</a> | 2024
+                        <a href="https://github.com/erichmond33/DeltaTimepieces">Code</a> | 2024
+                    </small>
+                </p>
+            </div>
+            <div class="projects" pride="6.1" date="17">
+                <h2 id="linkfeed">
+                    Hacker Social
+                </h2>
+                <p>
+                    Developed a niche social media platform that integrates elements of personal websites, blogs, and RSS feeds, catering to tech enthusiasts and championing the principles of the IndieWeb movement.
+                </p>
+                <p>
+                    Check it out here: <a href="https://HackerSocial.org" target="_blank">HackerSocial.org</a>
+                <p>
+                    <small>
+                        <a href="https://github.com/erichmond33/HackerSocial">Code</a> | 2024
                     </small>
                 </p>
             </div>
@@ -88,7 +139,7 @@
                     Let people leave notes on your Twitter banner.
                 </p>
                 <p>
-                    <a href="https://bootstrapper.tech/graffiti" target="_blank">Try it on mine </a>:)
+                    <a href="https://bannernote.live/graffiti" target="_blank">Try it on mine </a>:)
                 <p>
                     <small>
                         <a href="https://github.com/erichmond33/GraffitiMe">Code</a> | 2024
