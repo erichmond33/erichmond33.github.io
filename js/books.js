@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-//Shoe Dog, QmXvXFihf7mbkcQzFGS6WDUhGAcDik1TK2vpqUmDDpW5FF, QmTxTYJcuULjCu7yWxYU3482uxkeShwr9Edj5nFStBhnti
-
 function load_page() {
 
     const BOOK_TITLES_2024 = {
