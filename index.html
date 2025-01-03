@@ -120,56 +120,35 @@
                 <small>(click to enlarge)</small>
             </p>
 
-            <style>
-                .main-carousel-blur {
-                    opacity: 0.6;
-                    filter: saturate(200%) blur(120px);
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    z-index: -1;
-                    transform: translateZ(0);
-                }
-                img {
-                    position: relative;
-                    width: 100%;
-                    height: auto;
-                    z-index: 1;
-                }
-                .image-wrapper {
-                    position: relative;
-                }
-            </style>            
-
             <div id="gallery">
-                <div class="image-wrapper">
+                <div class="img-wrapper">
                     <a href="static/2023-08-30.jpg">
-                        <img src="static/2023-08-30_1000px_cropped.jpg" class="main-carousel-blur">
-                        <img src="static/2023-08-30_1000px_cropped.jpg" class="main-image">
+                        <img src="static/2023-08-30_1000px_cropped.jpg" class="img-background-blur">
+                        <img src="static/2023-08-30_1000px_cropped.jpg">
                     </a>
                 </div>
-                <div class="image-wrapper">
+                <div class="img-wrapper">
                     <a href="static/2023-08-30(2).jpg">
-                        <img src="static/2023-08-30(2)_1000px_cropped.png" class="main-carousel-blur">
-                        <img src="static/2023-08-30(2)_1000px_cropped.png" class="main-image">
+                        <img src="static/2023-08-30(2)_1000px_cropped.png" class="img-background-blur">
+                        <img src="static/2023-08-30(2)_1000px_cropped.png">
                     </a>
                 </div>
-                <div class="image-wrapper">
+                <div class="img-wrapper">
                     <a href="static/image2-big.jpg">
-                        <img src="static/image2-1000.jpg" class="main-carousel-blur">
-                        <img src="static/image2-1000.jpg" class="main-image">
+                        <img src="static/image2-1000.jpg" class="img-background-blur">
+                        <img src="static/image2-1000.jpg">
                     </a>
                 </div>
-                <div class="image-wrapper">
+                <div class="img-wrapper">
                     <a href="static/image1-big.jpg">
-                        <img src="static/image1-1000.jpg" class="main-carousel-blur">
-                        <img src="static/image1-1000.jpg" class="main-image">
+                        <img src="static/image1-1000.jpg" class="img-background-blur">
+                        <img src="static/image1-1000.jpg">
                     </a>
                 </div>
-                <div class="image-wrapper">
+                <div class="img-wrapper">
                     <a href="static/image3-big.jpg">
-                        <img src="static/image3-big.jpg" class="main-carousel-blur">
-                        <img src="static/image3-big.jpg" class="main-image">
+                        <img src="static/image3-big.jpg" class="img-background-blur">
+                        <img src="static/image3-big.jpg">
                     </a>
                 </div>
             </div>
@@ -235,18 +214,18 @@
                 </li>
             </ul>
         </section>
-        <section id="book" >
+        <section id="book">
             <h2>
                 Book
             </h2>
             <p>
                 <a href="/IFeelCrazy">I Feel Crazy: Stories Of Ambition From A 21 Year Old</a>
             </p>
-            <div class="image-wrapper index-cover">
+            <div class="img-wrapper index-cover">
                     <a href="/IFeelCrazy" class="">
-                    <img src="./static/cover_small.jpg" class="main-carousel-blur">
-                    <img id="index-cover" src="./static/cover_small.jpg" alt="cover" class="main-image">
-                </a>
+                        <img src="./static/cover_small.jpg" class="img-background-blur">
+                        <img id="index-cover" src="./static/cover_small.jpg" alt="cover">
+                    </a>
                 </div>
         </section>
         <section id="misc">
