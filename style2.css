@@ -391,7 +391,7 @@ div.presentation_summary{
 	width: 50%;
 	box-shadow: 0 0 1em 0 rgba(0,0,0,0.5);
 }
-#index-cover{
+.index-cover{
 	margin: auto;
 	width: 50%;
 	box-shadow: 0 0 1em 0 rgba(0,0,0,0.5);
