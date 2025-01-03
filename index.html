@@ -121,9 +121,6 @@
             </p>
 
             <style>
-                /* body {
-                    background-color: #000;
-                } */
                 .main-carousel-blur {
                     opacity: 0.6;
                     filter: saturate(200%) blur(120px);
@@ -131,6 +128,7 @@
                     top: 0;
                     left: 0;
                     z-index: -1;
+                    transform: translateZ(0);
                 }
                 img {
                     position: relative;
@@ -141,14 +139,7 @@
                 .image-wrapper {
                     position: relative;
                 }
-            </style>
-
-            
-<!-- <div class="image-wrapper">
-    <img src="static/2023-08-30.jpg" alt="Image 1" class="main-carousel-blur">
-    <img src="static/2023-08-30.jpg" alt="Image 1" class="main-image">
-</div> -->
-            
+            </style>            
 
             <div id="gallery">
                 <div class="image-wrapper">
