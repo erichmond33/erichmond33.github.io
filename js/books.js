@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function load_page() {
 
+    const BOOK_TITLES_2025 = {
+        "Why \"A\" Students Work for \"C\" Students" : "c_students.jpg",
+        "Oblivion" : "oblivion.jpg",
+        "Deluxe: How Luxury Lost Its Luster" : "deluxe.jpg",
+        "Gym Launch Secrets" : "gym_launch.jpg",
+        "This Is Strategy" : "this_is_strategy.jpg"
+    }
+
     const BOOK_TITLES_2024 = {
         "Meaningful Work" : "meaningful.jpg",
         "Useful Not True" : "useful.jpg",
@@ -164,6 +172,11 @@ function load_page() {
     }
             
     console.log("connected");
+
+    for (const [key, value] of Object.entries(BOOK_TITLES_2025)) {
+        console.log(key, value, "2025");
+        create_book_layout(key, value, "2025");
+    }
 
     for (const [key, value] of Object.entries(BOOK_TITLES_2024)) {
         console.log(key, value, "2024");
