@@ -167,8 +167,9 @@ function load_page() {
         "Brave New World" : "braveNewWorld.jpeg",
         "Elon Musk And The Quest For A Fantastic Future" : "elon.jpeg",
         "Rich Dad Poor Dad" : "richDadPoorDad.jpeg",
-        " 1984" : "1984.jpeg",
+        "1984" : "1984.jpeg",
         "How To Win At The Sport Of Business" : "mark.jpeg",
+        "Teenagers: Preparing for the Real World" : "teenagers.jpg"
     }
             
     console.log("connected");
