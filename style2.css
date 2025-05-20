@@ -421,6 +421,21 @@ div.presentation_summary{
 	margin-top: 3.5em;
 	margin-bottom: 3.5em;
 }
+hr {
+    border: none;
+    position: relative;
+    margin: 1em 0;
+    height: 1em;
+}
+
+hr::after {
+    content: "—";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 @media screen and (max-height: 400px){
 	section#motto div {
 		top: 65%;
