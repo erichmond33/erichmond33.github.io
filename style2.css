@@ -426,6 +426,7 @@ hr {
     position: relative;
     margin: 1em 0;
     height: 1em;
+	color: #666;
 }
 
 hr::after {
