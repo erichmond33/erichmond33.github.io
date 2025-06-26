@@ -6,14 +6,14 @@ xml_start = """<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
     <title>Eli Richmond's /Now Feed</title>
-    <link href="http://bloge.li/now"/>
+    <link href="http://elir.net/now"/>
     <updated>2002-11-26T18:30:02Z</updated>
     <author>
     <name>Eli Richmond</name>
     </author>
-    <id>bloge.li</id>
-    <logo>https://bloge.li/static/xi.png</logo>
-    <icon>https://bloge.li/static/xi.png</icon>
+    <id>elir.net</id>
+    <logo>https://elir.net/static/xi.png</logo>
+    <icon>https://elir.net/static/xi.png</icon>
 
     """ 
 
@@ -39,7 +39,7 @@ def HtmlArticleToXmlEntry(raw_html):
     soup = BeautifulSoup(raw_html, 'html.parser')
 
     # Extract relevant data from the parsed HTML
-    published = soup.find('small', id='date').text.strip().replace("updated ", "")
+    published = soup.find('small', id='date-hidden').text.strip().replace("updated ", "")
     content = str(soup.find('section', id='now'))
 
     # Format the 'updated' and 'published' dates to match the Atom feed format
@@ -49,8 +49,8 @@ def HtmlArticleToXmlEntry(raw_html):
     # Generate the XML output
     xml_output = f'''
         <entry>
-            <id>https://bloge.li/now</id>
-            <link href="https://bloge.li/now"/>
+            <id>https://elir.net/now</id>
+            <link href="https://elir.net/now"/>
             <title>What I'm doing now</title>
             <published>{published_date}</published>
             <content type="html">

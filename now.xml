@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>Eli Richmond's /Now Feed</title>
+    <link href="http://elir.net/now"/>
+    <updated>2002-11-26T18:30:02Z</updated>
+    <author>
+    <name>Eli Richmond</name>
+    </author>
+    <id>elir.net</id>
+    <logo>https://elir.net/static/xi.png</logo>
+    <icon>https://elir.net/static/xi.png</icon>
+
+    
+        <entry>
+            <id>https://elir.net/now</id>
+            <link href="https://elir.net/now"/>
+            <title>What I'm doing now</title>
+            <published>2025-03-10T00:00:00Z</published>
+            <content type="html">
+                <section id="now">
+<p>I'm not updating this regularly right now.</p>
+<p>Cool stuff to come in the future though! :)</p>
+<!-- <h2>Figuring it out...</h2>
+            <p>I had some things that didn't go as planned post-graduation, so I don't have much going on right now and am trying to figure it all out.</p>
+            <p>Stay tuned :)</p> -->
+</section>
+            </content>
+        </entry>
+    
+</feed>
