@@ -13,6 +13,110 @@
 
     
         <entry>
+            <id>https://bloge.li/articles/2025-07-04</id>
+            <link href="https://bloge.li/articles/2025-07-04"/>
+            <title>
+                The Most Important Thing I Do That Nobody Knows About
+            </title>
+            <published>2025-07-04T00:00:00Z</published>
+            <content type="html">
+                <section id="article">
+<h2></h2>
+<p>
+                Journaling is a crucial habit I've built into my life over the past 4-5 years, and much like social media, I think people journal in lots of different ways.
+                When I mentioned journaling, you might have imagined writing about the things you did during the day or how you felt about them – I know I would have before I started doing it.
+                Originally, that is how I journaled, but now I hardly ever write about those kinds of things.
+                Here is a quick look at what journaling is like for me today...
+            </p><p>
+                First, I never consciously sit down to journal, and in fact, I almost never consciously think about the fact that I do journal.
+                An interesting thought will come to mind that feels like it should be written down, and I'll pull out my phone or laptop, click one button, and jot it down in like 10 seconds.
+                Other times if an issue or important topic is bothering me, I'll journal about it, although it ends up being a kind of talking with myself to form full thoughts rather than having a full thought and simply recording it.
+            </p><p>
+                I don't ever think about whether something is worth writing down – it is all based purely on feeling; however, I asked Grok to analyze the things that have made it into my journal last month and it said I personally tend to journal about these things:
+            </p><p>
+<blockquote>
+<ul>
+<li><b>Stream-of-consciousness:</b> Raw, unstructured thoughts blending personal and societal insights.</li>
+<li><b>Philosophical:</b> Grapples with purpose, identity, and existential questions.</li>
+<li><b>Self-critical:</b> Reflects on past failures and future ambitions for growth.</li>
+<li><b>Cultural critique:</b> Challenges societal norms and success metrics.</li>
+<li><b>Emotional catharsis:</b> Expresses anger, frustration, and defiance.</li>
+<li><b>Creative ideation:</b> Incubates tech and artistic ideas.</li>
+</ul>
+</blockquote>
+</p><p>
+                This sounds about right, but again, I must reiterate, I'm not consciously choosing what is worth and not worth writing.
+                I have quick access to my journal, and I just let whatever feels right fall onto the keyboard.
+            </p><p>
+                To me, my journal is like a superpower that speeds up everything intellectual that I do.
+                Most of the time when we talk with friends and family, we are forming thoughts and testing how they feel; journaling is no different and speeds up clarity, formation of new ideas, and processing of old experiences.
+                I strongly encourage you to journal without any expectation as to what you should journal about.
+                Just write and let whatever happens happen.
+            </p>
+<hr/>
+
+                I'd be ecstatic to share with you how I go about my journaling setup with all the technical details.
+                Just email me.
+            <p>
+                In general though, follow these rules:
+                <ol>
+<li><b>Use plain text (.txt):</b> you'll want to be able to read these long after other proprietary file formats are outdated.</li>
+<li><b>Create a keyboard shortcut to pull up your journal in 1 second:</b> I hit command+control+option+t on my keyboard and this month's file gets opened.</li>
+<li><b>(Bonus) Sync it to your phone:</b> I use iCloud and a simple .txt editing app on my iPhone to jot things down on the go.</li>
+<li><b>Format your entries like this:</b></li>
+</ol>
+</p><p>
+<pre>date: 2025-06-30
+
+This is a new entry. I'm talking about formatting.
+
+    If the thought continues but requires a new paragraph, add a TAB to denote it is continuing.
+Often I'll use a new line for each new sentence.
+Like this :)
+
+Now this is a new entry.
+I'm talking about music or whatever.
+
+Another new entry.
+Add two lines like below before the previous date.
+
+
+date: 2025-06-29
+
+See how the top is always the latest entry?
+
+
+date: 2025-06-28
+
+Alright I think you've got it.</pre></p>
+<hr/>
+<p>
+                I'm not sure what the meaning of life is; however, it does feel like I'm hurling towards something important or someone I'm supposed to be without any choice in the matter.
+                I think whatever or wherever or whoever this destination is, it can really be felt when reading a long chain of my journal entries – they have a familiar theme beyond any label I (or Grok) can give them.
+                The things I find worth jotting down are somehow undoubtedly tied to this.
+                I think this will be very obvious in hindsight despite my current lack of clarity.
+            </p>
+<p>
+                I also intentionally try not to inspect what I end up writing down too much.
+                I think somehow if I analyze what is naturally and unconsciously flowing out of me, it'll interrupt or poison the material in some way.
+                This feeling of gradually, as if by gravity, moving towards this thing feels monumentally important, and by extension, so does journaling – perhaps one of the most important things I do.
+            </p>
+<small>
+                
+            </small>
+<style>
+            pre {
+                white-space: pre-wrap;       /* Wraps text */
+                word-wrap: break-word;       /* Breaks long words */
+                line-height: 1.15;            /* Adds more space between lines */
+            }
+            </style>
+</section>
+            </content>
+        </entry>
+    
+
+        <entry>
             <id>https://bloge.li/articles/2025-05-23</id>
             <link href="https://bloge.li/articles/2025-05-23"/>
             <title>
