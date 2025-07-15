@@ -13,6 +13,80 @@
 
     
         <entry>
+            <id>https://bloge.li/articles/2025-07-14</id>
+            <link href="https://bloge.li/articles/2025-07-14"/>
+            <title>
+                Better Keyboard Layout Tips
+            </title>
+            <published>2025-07-14T00:00:00Z</published>
+            <content type="html">
+                <section id="article">
+<h2></h2>
+<p>
+                I'm constantly finding new ways to make me more efficient on my computer which is really important given the amount of time we all spend on them.
+                While my list of optimizations is very long, there are some simple keyboard changes that offer large increases in comfort/productivity without much effort.
+            </p><p>
+                As a reminder, this is the Mac keyboard layout with a legend to avoid confusion about which keys I'm referring to in this article.
+            </p>
+<img alt="Mac Keyboard Layout" src="../static/articles/mac_keyboard.png"/>
+<h3>
+                Better Arrow Keys
+            </h3>
+<p>
+                Problem: Arrow keys are too far from home row.
+                <br/><br/>
+                Solution: Map left, down, up, right to h, j, k, l when holding right command.
+                <br/><br/>
+                For all the developers reading, this is my modern Vim compromise.
+            </p>
+<h3>
+                Better Backspace And Forward Delete
+            </h3>
+<p>
+                Problem: Backspace is too hard to reach, and forward delete is hidden behind a key combination.
+                <br/><br/>
+                Solution: Map backspace to right shift and forward delete to the original backspace key.
+                <br/><br/>
+                This might not be for everyone. I have never used my right shift key always capitalizing all my letters with right shift.
+            </p>
+<h3>
+                Better Control And Escape
+            </h3>
+<p>
+                Problem: Control is too far from home row, and escape is too hard to reach.
+                <br/><br/>
+                Solution: Map caps lock to escape when tapped but left control when held.
+                <br/><br/>
+                I use the escape key a lot with the <a href="https://lydell.github.io/LinkHints/" target="_blank">Link Hints</a> web extension and <a href="https://github.com/nchudleigh/vimac?tab=readme-ov-file" target="_blank">Vimac</a> app which are both incredible complements to these keyboard changes.
+            <p>
+<h3>
+                Another Better Control
+            </h3>
+<p>
+                Problem: Left control makes it hard to switch tabs in various apps with control + tab
+                <br/><br/>
+                Solution: Swap left control and fn mappings.
+                <br/><br/>
+                To switch tabs in most apps using control + tab is pretty uncomfortable with it in its normal position next to the option key.
+            <hr/>
+<p>
+                I hope this also serves as a fun reminder that you can change things.
+                Just remember, the hard part about making things better isn't in the creation or fixing of a problem; it is noticing it in the first place.
+            </p>
+<p>
+                (I use <a href="https://karabiner-elements.pqrs.org/" target="_blank">Karabiner</a> – Mac only – to make these changes.
+                I'd love to help you get this set up if you aren't super techy – just email me.
+                I'm sure there is a similar app for Windows, but I am not sure what that is.)
+            </p>
+<small>
+                
+            </small>
+</p></p></p></section>
+            </content>
+        </entry>
+    
+
+        <entry>
             <id>https://bloge.li/articles/2025-07-04</id>
             <link href="https://bloge.li/articles/2025-07-04"/>
             <title>
