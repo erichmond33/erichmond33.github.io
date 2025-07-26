@@ -20,38 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = function() {
         scrollToId();
     }
-
-    // // Check if we are at /articles/... or /ideas/...
-    // if (window.location.pathname.includes("/articles/") || window.location.pathname.includes("/ideas/")) {
-    //     // If we are, find either #article or #idea
-    //     var article = document.querySelector('#article');
-    //     var idea = document.querySelector('#idea');
-    //     // Find the <small> which holds the date of the article
-    //     var date = document.querySelector('small');
-    //     // strip the date of spaces and tabs
-    //     date = date.innerHTML.replace(/\s/g, '');
-    //     // Insert this right before the end of #article or #idea
-    //     //<h3>Comments</h3>
-    //     //<iframe src="https://hackersocial.org/comments/by-date/test.com/2024-07-08/?id=1" frameborder="0" width="100%"></iframe>
-    //     var comments = document.createElement('div');
-    //     comments.setAttribute('id', 'comments');
-    //     var commentsHeader = document.createElement('h3');
-    //     commentsHeader.innerHTML = "Comments";
-    //     var commentsIframe = document.createElement('iframe');
-    //     commentsIframe.setAttribute('src', `https://hackersocial.org/comments/by-date/test.com/${date}/?id=1`);
-    //     commentsIframe.setAttribute('frameborder', '0');
-    //     commentsIframe.setAttribute('width', '100%');
-    //     commentsIframe.setAttribute('onload', 'resizeIframe(this)');
-    //     commentsIframe.setAttribute('sandbox', 'allow-scripts');
-    //     comments.appendChild(commentsHeader);
-    //     comments.appendChild(commentsIframe);
-    //     if (article) {
-    //         article.appendChild(comments);
-    //     }
-    //     else if (idea) {
-    //         idea.appendChild(comments);
-    //     }
-    // }
 });
 
 function resizeIframe(obj) {
