@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Connect | Eli Richmond</title>
+        <meta name="keywords" content="Eli Richmond, Ai, artificial intelligence, web3, crytpo, decentralization, blog, article, projects"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="static/xi.png">
+        <link rel="stylesheet" href="style2.css">
+        <script src="layout.js"></script>
+    </head>
+
+    <script>
+        PEOPLE = {
+            "https://sive.rs" : "Found through Karpathy's Tweet.",
+            "https://taylor.town" : "Found through nownownow."
+        }
+
+        function addPeople() {
+            const ul = document.querySelector("ul");
+            Object.keys(PEOPLE).reverse().forEach(person => {
+            const li = document.createElement("li");
+            li.style.display = "flex";
+            const a = document.createElement("a");
+            a.style.display = "flex";
+            a.href = person;
+            a.target = "_blank";
+            a.textContent = person;
+
+            const small = document.createElement("small");
+            small.textContent = PEOPLE[person];
+            small.style.display = "none";
+            small.style.marginLeft = ".5em";
+
+            a.addEventListener("mouseenter", () => {
+                small.style.display = "inline";
+            });
+            a.addEventListener("mouseleave", () => {
+                small.style.display = "none";
+            });
+
+            li.appendChild(a);
+            li.appendChild(small);
+            ul.appendChild(li);
+            });
+        }
+
+        function randomPerson() {
+            const randomIndex = Math.floor(Math.random() * PEOPLE.length);
+            const person = PEOPLE[randomIndex];
+            window.open(person, "_blank");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            addPeople();
+            const randomButton = document.getElementById("random");
+            randomButton.addEventListener("click", randomPerson);
+        });
+    </script>
+
+    <body id="home">
+
+    <section id="masthead">
+        <div id="logo"><a href="/">Eli Richmond</a></div>
+    </section>
+    
+    <div id="content">
+        <h1>
+            Cool People
+        </h1>
+        <section id="">
+            <button id="random">Random Person</button>
+            <ul>
+            </ul>
+        </section>
+    </div>
+     
+    </body>
+</html>
