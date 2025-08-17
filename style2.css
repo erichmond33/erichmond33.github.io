@@ -73,7 +73,7 @@ h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite
 span.url {
 	font-family:Georgia,serif;
 }
-small,.small,footer,dl#tweetlist dt{
+small,time,.small,footer,dl#tweetlist dt{
 	font-size:1em;
 	color:#666;
 	font-family: mono;
@@ -133,7 +133,8 @@ pre{
 	color:#fff;
 	background-color:#333;
 	padding:0.25em;
-	line-height:1
+	line-height:1;
+	overflow-y: auto;
 }
 code{
 	font-size:0.8em

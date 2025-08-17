@@ -40,7 +40,11 @@ def HtmlArticleToXmlEntry(raw_html):
 
     # Extract relevant data from the parsed HTML
     entry_title = soup.find('h2').text
-    published = soup.find('small').text.strip()  # Remove leading/trailing whitespace
+    time_tag = soup.find('time')
+    if time_tag and time_tag.text.strip():
+        published = time_tag.text.strip()
+    else:
+        published = soup.find('small').text.strip()
     content = str(soup.find('section', id='article'))
 
     # Format the 'updated' and 'published' dates to match the Atom feed format
