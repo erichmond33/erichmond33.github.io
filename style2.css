@@ -128,6 +128,8 @@ blockquote{
 	margin:0;
 	padding-left: 2em;
 	color:#444;
+	border-left: 5px solid #666;
+	padding-left: 15px;
 }
 pre{
 	color:#fff;
