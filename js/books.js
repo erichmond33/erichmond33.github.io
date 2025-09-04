@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2025 = {
+        "A Moveable Feast" : "moveable.jpg",
+        "The Art Of War" : "art_of_war.jpg",
+        "The Art of Doing Science and Engineering" : "science.jpg",
+        "Million Dollar Weekend" : "million.jpg",
         "Why \"A\" Students Work for \"C\" Students" : "c_students.jpg",
         "Oblivion" : "oblivion.jpg",
         "Deluxe: How Luxury Lost Its Luster" : "deluxe.jpg",
