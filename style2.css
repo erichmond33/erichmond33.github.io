@@ -64,7 +64,7 @@ body{
 	overflow-y:scroll;
 }
 h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
-	font-family: Nexa;
+	font-family: Nexa, verdana;
 	font-weight:normal;
 	font-style:normal;
 	text-align:left;
@@ -217,7 +217,7 @@ section#masthead img{
 section#masthead #logo{
 	margin:0;
 	text-align:left;
-	font-family: Sabado;
+	font-family: Sabado, verdana;
 	line-height: .8em;
 }
 section#masthead #lastName{
@@ -255,7 +255,7 @@ section#masthead #nav-links {
 section#masthead #nav-links a {
 	text-decoration: none;
 	font-size: 1em;
-	font-family: Nexa;
+	font-family: Nexa, verdana;
 	letter-spacing: 0.1em;
 	/* width: 15%;
 	min-width: 20px;
@@ -280,7 +280,7 @@ section#motto {
 	position: relative;
 }
 section#motto div {
-	font-family: mono;
+	font-family: mono, verdana;
 	margin: 0;
 	position: absolute;
 	top: 50%;
