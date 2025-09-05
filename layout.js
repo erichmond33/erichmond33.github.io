@@ -20,6 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = function() {
         scrollToId();
     }
+
+    // Dynamically add social meta tags to every page
+    const head = document.head;
+    const pageUrl = window.location.origin + window.location.pathname;
+
+    function addMetaTag(name, content, property = false) {
+        const meta = document.createElement('meta');
+        if (property) {
+            meta.setAttribute('property', name);
+        } else {
+            meta.setAttribute('name', name);
+        }
+        meta.setAttribute('content', content);
+        head.appendChild(meta);
+    }
+
+    addMetaTag('twitter:card', 'summary_large_image');
+    addMetaTag('twitter:image', 'https://pic.fish/' + pageUrl);
+    addMetaTag('og:image', 'https://pic.fish/' + pageUrl, true);
 });
 
 function resizeIframe(obj) {
