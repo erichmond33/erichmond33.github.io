@@ -21,27 +21,29 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollToId();
     }
 
-    //     // Add newsletter popup scripts - randomly pick one
-    //     const kitConfigs = [
-    //         { uid: '12cb5c8bf9', id: 'kit-script' },
-    //         { uid: '2035836107', id: 'kit-script-4' }
-    //     ];
+    //     // Add newsletter popup scripts - randomly pick one (but not on home page)
+    //     if (window.location.pathname !== "/") {
+    //         const kitConfigs = [
+    //             { uid: '12cb5c8bf9', id: 'kit-script' },
+    //             { uid: '2035836107', id: 'kit-script-4' }
+    //         ];
 
-    //     // Randomly select one config
-    //     const selectedConfig = kitConfigs[Math.floor(Math.random() * kitConfigs.length)];
+    //         // Randomly select one config
+    //         const selectedConfig = kitConfigs[Math.floor(Math.random() * kitConfigs.length)];
 
-    //     if (!document.querySelector(`script[data-uid="${selectedConfig.uid}"]`)) {
-    //         const script = document.createElement('script');
-    //         Object.assign(script, {
-    //         async: true,
-    //         id: selectedConfig.id,
-    //         type: 'text/javascript',
-    //         src: `https://eli-richmond.kit.com/${selectedConfig.uid}/index.js`,
-    //         onload: () => console.log(`${selectedConfig.id} loaded`),
-    //         onerror: (e) => console.error(`${selectedConfig.id} failed to load`, e)
-    //         });
-    //         script.setAttribute('data-uid', selectedConfig.uid);
-    //         document.head.appendChild(script);
+    //         if (!document.querySelector(`script[data-uid="${selectedConfig.uid}"]`)) {
+    //             const script = document.createElement('script');
+    //             Object.assign(script, {
+    //             async: true,
+    //             id: selectedConfig.id,
+    //             type: 'text/javascript',
+    //             src: `https://eli-richmond.kit.com/${selectedConfig.uid}/index.js`,
+    //             onload: () => console.log(`${selectedConfig.id} loaded`),
+    //             onerror: (e) => console.error(`${selectedConfig.id} failed to load`, e)
+    //             });
+    //             script.setAttribute('data-uid', selectedConfig.uid);
+    //             document.head.appendChild(script);
+    //         }
     //     }
     // (()=>{const s='a[data-element="powered-by"],a.formkit-powered-by-convertkit';const hide=()=>{if(!document.getElementById('hkp')){let t=document.createElement('style');t.id='hkp';t.textContent=s+'{display:none!important;visibility:hidden!important}';document.head.appendChild(t)}document.querySelectorAll(s).forEach(n=>n.remove())};const obs=()=>{const o=new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1) return; if(n.matches&&n.matches(s)) n.remove(); else {const f=n.querySelector&&n.querySelector(s); if(f) f.remove()}})));o.observe(document.documentElement||document.body,{childList:!0,subtree:!0});setTimeout(()=>o.disconnect(),15000)};if(document.readyState==='loading')window.addEventListener('DOMContentLoaded',()=>{hide();obs()});else{hide();obs()}})();
 });
