@@ -20,11 +20,11 @@
 /* @font-face {
 	font-family: Rich-Georgia-Bold;
 	src: url("fonts/Rich-Georgia-Bold.ttf");
-}
+}*/
 @font-face {
-	font-family: Rich-Georgia;
-	src: url("fonts/Rich-Georgia.ttf");
-} */
+	font-family: "IBM Plex Sans";
+	src: url("fonts/IBMPlexSans.ttf");
+}
 /* @font-face {
 	font-family: Programme;
 	src: url("fonts/Programme-Light.ttf");
@@ -66,7 +66,7 @@ body{
 	overflow-y:scroll;
 }
 h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
-	font-family: 'IBM Plex Mono', monospace;
+	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight:bold;
 	font-style:normal;
 	text-align:left;
@@ -236,7 +236,7 @@ section#masthead #logo{
 	margin:0;
 	text-align:left;
 	/* font-family: "Sabado", sans-serif; */
-	font-family: "IBM Plex Mono", monospace;
+	font-family: 'IBM Plex Sans', sans-serif;
 	font-weight:bold;
 	text-transform: uppercase;
 	line-height: .8em;
@@ -276,7 +276,7 @@ section#masthead #nav-links {
 section#masthead #nav-links a {
 	text-decoration: none;
 	font-size: 1em;
-	font-family: "IBM Plex Mono", monospace;
+	font-family: 'IBM Plex Sans', sans-serif;
 	letter-spacing: 0.1em;
 	font-weight: bold;
 	text-transform: uppercase;
