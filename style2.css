@@ -152,6 +152,20 @@ img,iframe,audio{
 img{
 	height:auto
 }
+button{
+	padding:10px 15px;
+	font-size:15px;
+	background:#0071C0;
+	color:#fff;
+	border: none;
+	border-radius: 999px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+button:hover{
+	background:#005a8c;
+	cursor: pointer;
+}
 .img-wrapper {
 	position: relative;
 }
