@@ -235,10 +235,10 @@ section#masthead img{
 section#masthead #logo{
 	margin:0;
 	text-align:left;
-	font-family: "Sabado", sans-serif;
-	/* font-family: "IBM Plex Mono", monospace; */
-	/* font-weight:bold; */
-	/* text-transform: uppercase; */
+	/* font-family: "Sabado", sans-serif; */
+	font-family: "IBM Plex Mono", monospace;
+	font-weight:bold;
+	text-transform: uppercase;
 	line-height: .8em;
 }
 section#masthead #lastName{
@@ -309,7 +309,7 @@ section#motto div {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 1.5em;
+	font-size: 1.25em;
 	width: 100%;
 	/* bottom: Navbar height; */
 }
@@ -481,7 +481,7 @@ hr::after {
 }
 @media screen and (max-width: 440px){
 	section#masthead #logo{
-		font-size:3em;
+		font-size:2.5em;
 		text-shadow: .5px 0 0 black;
 	}
 	section#masthead #logo a{
@@ -526,7 +526,7 @@ hr::after {
 }
 @media screen and (min-width: 440px){
 	section#masthead #logo{
-		font-size:3em
+		font-size:2.5em
 	}
 	div.presentation_summary img{
 		float:right
