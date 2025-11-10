@@ -4,12 +4,13 @@
 	font-style: normal;
 }
 @font-face {
-	font-family: Nexa;
-	 src: url("fonts/Nexa\ Bold.otf");
+	font-family: IBM Plex Mono;
+	 src: url("fonts/M Plex Mono\ Bold.otf");
 }
 @font-face {
 	font-family: mono;
-	src: url("fonts/TechnoScriptEF.ttf");
+	/* src: url("fonts/TechnoScriptEF.ttf"); */
+	src: url("fonts/OCR-A.ttf");
 }
 /* @font-face {
 	font-family: special;
@@ -55,17 +56,17 @@ body{
 	padding:5px;
 	padding-right:1em;
 	padding-left: 1em;
-	font-family: Rich-Georgia, Georgia,'Times New Roman', Times, serif;
-	font-size:20px;
+	font-family: "DM Sans", sans-serif, Rich-Georgia, Georgia,'Times New Roman', Times, serif;
+	font-size: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.227), 1.125rem);
 	line-height:30px;
 	background-color:#fff;
 	color:#000;
-	font-weight: 300;
+	font-weight: 500;
 	overflow-y:scroll;
 }
 h1,h2,h3,h4,dt,small,.small,dl#tweetlist dt,footer,label,#commentlist ol li cite,div.blogparent,input[type="submit"]{
-	font-family: Nexa, verdana;
-	font-weight:normal;
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight:bold;
 	font-style:normal;
 	text-align:left;
 	font-size: 2em;
@@ -77,6 +78,7 @@ small,time,.small,footer,dl#tweetlist dt{
 	font-size:1em;
 	color:#666;
 	font-family: mono;
+	font-weight: 100;
 }
 h2 small,.small,footer,dl#tweetlist dt{
 	font-size: .75em;
@@ -99,12 +101,12 @@ h3{
 }
 a{
 	text-decoration:none;
-	color: #ea322e;
+	color: #0071C0;
 	overflow-wrap:break-word;
 	word-wrap:break-word
 }
 a:visited{
-	 color: #941100;
+	 color: #0071C0;
 }
 a:hover{
 	text-decoration:underline
@@ -116,7 +118,8 @@ b {
 dt{
 	margin-top:2em;
 	font-size:1.2em;
-	font-family: mono
+	font-family: mono;
+	font-weight: 300;
 }
 dd{
 	margin-bottom:1em
@@ -217,18 +220,21 @@ section#masthead img{
 section#masthead #logo{
 	margin:0;
 	text-align:left;
-	font-family: Sabado, verdana;
+	font-family: "Sabado", sans-serif;
+	/* font-family: "IBM Plex Mono", monospace; */
+	/* font-weight:bold; */
+	/* text-transform: uppercase; */
 	line-height: .8em;
 }
 section#masthead #lastName{
-	font-family: Nexa;
+	font-family: "IBM Plex Mono";
 	font-size: 1em;
 	text-align: right;
 	line-height: 0;
 	padding-bottom: 8px;
 }
 section#masthead #mediaLinks {
-	font-family: Nexa;
+	font-family: "IBM Plex Mono";
 	font-size: .7em;
 	text-align: left;
 	line-height: 0em;
@@ -255,8 +261,10 @@ section#masthead #nav-links {
 section#masthead #nav-links a {
 	text-decoration: none;
 	font-size: 1em;
-	font-family: Nexa, verdana;
+	font-family: "IBM Plex Mono", monospace;
 	letter-spacing: 0.1em;
+	font-weight: bold;
+	text-transform: uppercase;
 	/* width: 15%;
 	min-width: 20px;
 	border-bottom: 1px solid white;
@@ -280,13 +288,13 @@ section#motto {
 	position: relative;
 }
 section#motto div {
-	font-family: mono, verdana;
+	font-family: mono, sans-serif;
 	margin: 0;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 1.2em;
+	font-size: 1.5em;
 	width: 100%;
 	/* bottom: Navbar height; */
 }
@@ -294,9 +302,13 @@ section#motto div h1 {
 	font-family: mono;
 	margin: 0;
 	text-align: center;
+	font-weight: 300;
 }
 section#motto div h1 span {
 	font-family: mono;
+}
+body#home h1, body#home h2 {
+	text-transform: uppercase;
 }
 body#home div#content h2 small{
 	margin-left:2em
@@ -423,6 +435,13 @@ div.presentation_summary{
 #mail hr {
 	margin-top: 3.5em;
 	margin-bottom: 3.5em;
+	border-top: 4px solid #666;
+	width: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#mail hr::after {
+	content: "";
 }
 hr {
     border: none;
@@ -492,7 +511,7 @@ hr::after {
 }
 @media screen and (min-width: 440px){
 	section#masthead #logo{
-		font-size:3.5em
+		font-size:3em
 	}
 	div.presentation_summary img{
 		float:right
@@ -504,10 +523,10 @@ hr::after {
 		color:#ccc
 	}
 	a{
-		color: #EA322E;
+		color: #0071C0;
 	}
 	a:visited{
-		color: #d96c6a;
+		color: #0071C0;
 	}
 	.response{
 		background-color:#444
@@ -541,7 +560,7 @@ ul#reviews li blockquote cite {
 }
 /* ---- dropdown ----- */
 .panel-info > .panel-heading {
-	font-family: Nexa;
+	font-family: "IBM Plex Mono";
 }
 .dropbtn {
 	background-color: #04AA6D;
