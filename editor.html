@@ -132,9 +132,9 @@
             font-size: 14px;
             transition: all 0.2s;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            gap: 2px;
+            gap: 8px;
         }
 
         .toolbar button:hover {
@@ -156,6 +156,8 @@
             font-size: 10px;
             color: #666;
             font-weight: normal;
+            margin-left: auto;
+            opacity: 0.7;
         }
 
         .toolbar button:hover .btn-shortcut,
@@ -297,15 +299,15 @@
             <div class="separator"></div>
             <button onclick="execCmd('justifyLeft')" title="Align Left">
                 <span class="btn-label">⬅</span>
-                <span class="btn-shortcut">⌘L</span>
+                <span class="btn-shortcut">⌘<</span>
             </button>
             <button onclick="execCmd('justifyCenter')" title="Align Center">
                 <span class="btn-label">↔</span>
-                <span class="btn-shortcut">⌘C</span>
+                <span class="btn-shortcut">⌘.</span>
             </button>
             <button onclick="execCmd('justifyRight')" title="Align Right">
                 <span class="btn-label">⮕</span>
-                <span class="btn-shortcut">⌘R</span>
+                <span class="btn-shortcut">⌘></span>
             </button>
             <div class="separator"></div>
             <button onclick="insertLink()" title="Insert Link">
@@ -579,22 +581,22 @@ ${content}
                 return;
             }
 
-            // Align Left: ⌘L
-            if (cmd && e.key === 'l') {
+            // Align Left: ⌘<
+            if (cmd && e.shiftKey && e.key === ',') {
                 e.preventDefault();
                 execCmd('justifyLeft');
                 return;
             }
 
-            // Align Center: ⌘C
-            if (cmd && e.key === 'c') {
+            // Align Center: ⌘.
+            if (cmd && e.key === '.') {
                 e.preventDefault();
                 execCmd('justifyCenter');
                 return;
             }
 
-            // Align Right: ⌘R
-            if (cmd && e.key === 'r') {
+            // Align Right: ⌘>
+            if (cmd && e.shiftKey && e.key === '>') {
                 e.preventDefault();
                 execCmd('justifyRight');
                 return;
