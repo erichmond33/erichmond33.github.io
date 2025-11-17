@@ -249,72 +249,72 @@
         <div class="toolbar">
             <button onclick="toggleView()" id="viewToggle">
                 <span class="btn-label">HTML</span>
-                <span class="btn-shortcut">cmd+E</span>
+                <span class="btn-shortcut">⌘E</span>
             </button>
             <div class="separator"></div>
             <button onclick="execCmd('bold')" title="Bold">
                 <span class="btn-label"><b>B</b></span>
-                <span class="btn-shortcut">cmd+B</span>
+                <span class="btn-shortcut">⌘B</span>
             </button>
             <button onclick="execCmd('italic')" title="Italic">
                 <span class="btn-label"><i>I</i></span>
-                <span class="btn-shortcut">cmd+I</span>
+                <span class="btn-shortcut">⌘I</span>
             </button>
             <button onclick="execCmd('underline')" title="Underline">
                 <span class="btn-label"><u>U</u></span>
-                <span class="btn-shortcut">cmd+U</span>
+                <span class="btn-shortcut">⌘U</span>
             </button>
             <button onclick="execCmd('strikeThrough')" title="Strikethrough">
                 <span class="btn-label"><s>S</s></span>
-                <span class="btn-shortcut">cmd+Shift+X</span>
+                <span class="btn-shortcut">⌘X</span>
             </button>
             <div class="separator"></div>
             <button onclick="execCmd('formatBlock', '<h1>')" title="Heading 1">
                 <span class="btn-label">H1</span>
-                <span class="btn-shortcut">cmd+Alt+1</span>
+                <span class="btn-shortcut">⌘1</span>
             </button>
             <button onclick="execCmd('formatBlock', '<h2>')" title="Heading 2">
                 <span class="btn-label">H2</span>
-                <span class="btn-shortcut">cmd+Alt+2</span>
+                <span class="btn-shortcut">⌘2</span>
             </button>
             <button onclick="execCmd('formatBlock', '<h3>')" title="Heading 3">
                 <span class="btn-label">H3</span>
-                <span class="btn-shortcut">cmd+Alt+3</span>
+                <span class="btn-shortcut">⌘3</span>
             </button>
             <button onclick="execCmd('formatBlock', '<p>')" title="Paragraph">
                 <span class="btn-label">P</span>
-                <span class="btn-shortcut">cmd+Alt+0</span>
+                <span class="btn-shortcut">⌘0</span>
             </button>
             <div class="separator"></div>
             <button onclick="execCmd('insertUnorderedList')" title="Bullet List">
                 <span class="btn-label">• List</span>
-                <span class="btn-shortcut">cmd+Shift+8</span>
+                <span class="btn-shortcut">⌘8</span>
             </button>
             <button onclick="execCmd('insertOrderedList')" title="Numbered List">
                 <span class="btn-label">1. List</span>
-                <span class="btn-shortcut">cmd+Shift+7</span>
+                <span class="btn-shortcut">⌘7</span>
             </button>
             <div class="separator"></div>
             <button onclick="execCmd('justifyLeft')" title="Align Left">
                 <span class="btn-label">⬅</span>
-                <span class="btn-shortcut">cmd+Shift+L</span>
+                <span class="btn-shortcut">⌘L</span>
             </button>
             <button onclick="execCmd('justifyCenter')" title="Align Center">
                 <span class="btn-label">↔</span>
-                <span class="btn-shortcut">cmd+Shift+E</span>
+                <span class="btn-shortcut">⌘C</span>
             </button>
             <button onclick="execCmd('justifyRight')" title="Align Right">
                 <span class="btn-label">⮕</span>
-                <span class="btn-shortcut">cmd+Shift+R</span>
+                <span class="btn-shortcut">⌘R</span>
             </button>
             <div class="separator"></div>
             <button onclick="insertLink()" title="Insert Link">
                 <span class="btn-label">🔗 Link</span>
-                <span class="btn-shortcut">cmd+K</span>
+                <span class="btn-shortcut">⌘K</span>
             </button>
             <button onclick="execCmd('removeFormat')" title="Clear Formatting">
                 <span class="btn-label">✕ Clear</span>
-                <span class="btn-shortcut">cmd+\</span>
+                <span class="btn-shortcut">⌘\</span>
             </button>
         </div>
         
@@ -523,13 +523,8 @@ ${content}
         // Keyboard shortcuts handler
         document.addEventListener('keydown', function(e) {
             const cmd = e.cmdKey || e.metaKey;
-            const shift = e.shiftKey;
-            const alt = e.altKey;
 
-            // Prevent default for our custom shortcuts
-            let shouldPrevent = false;
-
-            // Save: cmd+S
+            // Save: ⌘S
             if (cmd && e.key === 's') {
                 e.preventDefault();
                 if (!isSaved) {
@@ -538,81 +533,81 @@ ${content}
                 return;
             }
 
-            // Toggle HTML view: cmd+E
-            if (cmd && e.key === 'e' && !shift && !alt) {
+            // Toggle HTML view: ⌘E
+            if (cmd && e.key === 'e') {
                 e.preventDefault();
                 toggleView();
                 return;
             }
 
-            // Bold: cmd+B (native)
-            // Italic: cmd+I (native)
-            // Underline: cmd+U (native)
+            // Bold: ⌘B (native)
+            // Italic: ⌘I (native)  
+            // Underline: ⌘U (native)
 
-            // Strikethrough: cmd+Shift+X
-            if (cmd && shift && e.key === 'X') {
+            // Strikethrough: ⌘X
+            if (cmd && e.key === 'x') {
                 e.preventDefault();
                 execCmd('strikeThrough');
                 return;
             }
 
-            // Headings: cmd+Alt+1/2/3
-            if (cmd && alt && ['1', '2', '3'].includes(e.key)) {
+            // Headings: ⌘1/2/3
+            if (cmd && ['1', '2', '3'].includes(e.key)) {
                 e.preventDefault();
                 execCmd('formatBlock', `<h${e.key}>`);
                 return;
             }
 
-            // Paragraph: cmd+Alt+0
-            if (cmd && alt && e.key === '0') {
+            // Paragraph: ⌘0
+            if (cmd && e.key === '0') {
                 e.preventDefault();
                 execCmd('formatBlock', '<p>');
                 return;
             }
 
-            // Bullet list: cmd+Shift+8
-            if (cmd && shift && e.key === '*') { // Shift+8 produces *
+            // Bullet list: ⌘8
+            if (cmd && e.key === '8') {
                 e.preventDefault();
                 execCmd('insertUnorderedList');
                 return;
             }
 
-            // Numbered list: cmd+Shift+7
-            if (cmd && shift && e.key === '&') { // Shift+7 produces &
+            // Numbered list: ⌘7
+            if (cmd && e.key === '7') {
                 e.preventDefault();
                 execCmd('insertOrderedList');
                 return;
             }
 
-            // Align Left: cmd+Shift+L
-            if (cmd && shift && e.key === 'L') {
+            // Align Left: ⌘L
+            if (cmd && e.key === 'l') {
                 e.preventDefault();
                 execCmd('justifyLeft');
                 return;
             }
 
-            // Align Center: cmd+Shift+E
-            if (cmd && shift && e.key === 'E') {
+            // Align Center: ⌘C
+            if (cmd && e.key === 'c') {
                 e.preventDefault();
                 execCmd('justifyCenter');
                 return;
             }
 
-            // Align Right: cmd+Shift+R
-            if (cmd && shift && e.key === 'R') {
+            // Align Right: ⌘R
+            if (cmd && e.key === 'r') {
                 e.preventDefault();
                 execCmd('justifyRight');
                 return;
             }
 
-            // Insert Link: cmd+K
-            if (cmd && e.key === 'k' && !shift && !alt) {
+            // Insert Link: ⌘K
+            if (cmd && e.key === 'k') {
                 e.preventDefault();
                 insertLink();
                 return;
             }
 
-            // Clear formatting: cmd+\
+            // Clear formatting: ⌘\
             if (cmd && e.key === '\\') {
                 e.preventDefault();
                 execCmd('removeFormat');
