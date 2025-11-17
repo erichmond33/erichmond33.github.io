@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Text Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .save-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .save-status {
+            font-size: 14px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .save-status.unsaved {
+            color: #dc3545;
+        }
+
+        .save-status.saved {
+            color: #28a745;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot.unsaved {
+            background: #dc3545;
+        }
+
+        .status-dot.saved {
+            background: #28a745;
+        }
+
+        .save-btn, .export-btn {
+            padding: 8px 20px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .save-btn {
+            background: #007bff;
+        }
+
+        .save-btn:hover {
+            background: #0056b3;
+        }
+
+        .export-btn {
+            background: #28a745;
+        }
+
+        .export-btn:hover {
+            background: #218838;
+        }
+
+        .save-btn:active, .export-btn:active {
+            transform: scale(0.98);
+        }
+
+        .save-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 5px;
+            padding: 12px;
+            background: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+
+        .toolbar button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .toolbar button:hover {
+            background: #e8e8e8;
+        }
+
+        .toolbar button.active {
+            background: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .btn-label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn-shortcut {
+            font-size: 10px;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .toolbar button:hover .btn-shortcut,
+        .toolbar button.active .btn-shortcut {
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        .separator {
+            width: 1px;
+            background: #ddd;
+            margin: 0 5px;
+        }
+
+        .editor-container {
+            position: relative;
+        }
+
+        #editor {
+            min-height: 400px;
+            padding: 20px;
+            outline: none;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        #htmlView {
+            min-height: 400px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            background: #f8f8f8;
+            border: none;
+            width: 100%;
+            resize: vertical;
+            outline: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1, h2, h3 {
+            margin: 16px 0 8px 0;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        ul, ol {
+            margin: 8px 0;
+            padding-left: 30px;
+        }
+
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #666;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">Rich Text Editor</div>
+            <div class="save-section">
+                <div class="save-status saved" id="saveStatus">
+                    <span class="status-dot saved" id="statusDot"></span>
+                    <span id="statusText">All changes saved</span>
+                </div>
+                <button class="export-btn" id="exportBtn" onclick="exportHTML()">📥 Export</button>
+                <button class="save-btn" id="saveBtn" onclick="saveContent()">Save</button>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <button onclick="toggleView()" id="viewToggle">
+                <span class="btn-label">HTML</span>
+                <span class="btn-shortcut">cmd+E</span>
+            </button>
+            <div class="separator"></div>
+            <button onclick="execCmd('bold')" title="Bold">
+                <span class="btn-label"><b>B</b></span>
+                <span class="btn-shortcut">cmd+B</span>
+            </button>
+            <button onclick="execCmd('italic')" title="Italic">
+                <span class="btn-label"><i>I</i></span>
+                <span class="btn-shortcut">cmd+I</span>
+            </button>
+            <button onclick="execCmd('underline')" title="Underline">
+                <span class="btn-label"><u>U</u></span>
+                <span class="btn-shortcut">cmd+U</span>
+            </button>
+            <button onclick="execCmd('strikeThrough')" title="Strikethrough">
+                <span class="btn-label"><s>S</s></span>
+                <span class="btn-shortcut">cmd+Shift+X</span>
+            </button>
+            <div class="separator"></div>
+            <button onclick="execCmd('formatBlock', '<h1>')" title="Heading 1">
+                <span class="btn-label">H1</span>
+                <span class="btn-shortcut">cmd+Alt+1</span>
+            </button>
+            <button onclick="execCmd('formatBlock', '<h2>')" title="Heading 2">
+                <span class="btn-label">H2</span>
+                <span class="btn-shortcut">cmd+Alt+2</span>
+            </button>
+            <button onclick="execCmd('formatBlock', '<h3>')" title="Heading 3">
+                <span class="btn-label">H3</span>
+                <span class="btn-shortcut">cmd+Alt+3</span>
+            </button>
+            <button onclick="execCmd('formatBlock', '<p>')" title="Paragraph">
+                <span class="btn-label">P</span>
+                <span class="btn-shortcut">cmd+Alt+0</span>
+            </button>
+            <div class="separator"></div>
+            <button onclick="execCmd('insertUnorderedList')" title="Bullet List">
+                <span class="btn-label">• List</span>
+                <span class="btn-shortcut">cmd+Shift+8</span>
+            </button>
+            <button onclick="execCmd('insertOrderedList')" title="Numbered List">
+                <span class="btn-label">1. List</span>
+                <span class="btn-shortcut">cmd+Shift+7</span>
+            </button>
+            <div class="separator"></div>
+            <button onclick="execCmd('justifyLeft')" title="Align Left">
+                <span class="btn-label">⬅</span>
+                <span class="btn-shortcut">cmd+Shift+L</span>
+            </button>
+            <button onclick="execCmd('justifyCenter')" title="Align Center">
+                <span class="btn-label">↔</span>
+                <span class="btn-shortcut">cmd+Shift+E</span>
+            </button>
+            <button onclick="execCmd('justifyRight')" title="Align Right">
+                <span class="btn-label">⮕</span>
+                <span class="btn-shortcut">cmd+Shift+R</span>
+            </button>
+            <div class="separator"></div>
+            <button onclick="insertLink()" title="Insert Link">
+                <span class="btn-label">🔗 Link</span>
+                <span class="btn-shortcut">cmd+K</span>
+            </button>
+            <button onclick="execCmd('removeFormat')" title="Clear Formatting">
+                <span class="btn-label">✕ Clear</span>
+                <span class="btn-shortcut">cmd+\</span>
+            </button>
+        </div>
+        
+        <div class="editor-container">
+            <div id="editor" contenteditable="true">
+                <h1>Welcome to the Rich Text Editor</h1>
+                <p>Start typing here or use the toolbar above to format your content.</p>
+                <p>You can make text <b>bold</b>, <i>italic</i>, or <u>underlined</u>.</p>
+                <ul>
+                    <li>Create bullet lists</li>
+                    <li>Add links</li>
+                    <li>Format headings</li>
+                </ul>
+                <p>Click the "HTML" button to see and edit the raw HTML code.</p>
+                <p><strong>Make changes and click Save to store your content.</strong></p>
+                <p><strong>Click Export to download your content as an HTML file.</strong></p>
+                <p><strong>Use keyboard shortcuts for faster editing!</strong></p>
+            </div>
+            <textarea id="htmlView" class="hidden"></textarea>
+        </div>
+    </div>
+
+    <script>
+        const editor = document.getElementById('editor');
+        const htmlView = document.getElementById('htmlView');
+        const viewToggle = document.getElementById('viewToggle');
+        const saveBtn = document.getElementById('saveBtn');
+        const saveStatus = document.getElementById('saveStatus');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        
+        let isHtmlMode = false;
+        let isSaved = true;
+        let savedContent = '';
+
+        function execCmd(command, value = null) {
+            document.execCommand(command, false, value);
+            editor.focus();
+        }
+
+        function insertLink() {
+            const url = prompt('Enter URL:');
+            if (url) {
+                execCmd('createLink', url);
+            }
+        }
+
+        function toggleView() {
+            if (isHtmlMode) {
+                // Switch to visual mode
+                editor.innerHTML = htmlView.value;
+                editor.classList.remove('hidden');
+                htmlView.classList.add('hidden');
+                viewToggle.querySelector('.btn-label').textContent = 'HTML';
+                viewToggle.classList.remove('active');
+                isHtmlMode = false;
+            } else {
+                // Switch to HTML mode
+                htmlView.value = editor.innerHTML;
+                editor.classList.add('hidden');
+                htmlView.classList.remove('hidden');
+                viewToggle.querySelector('.btn-label').textContent = 'Visual';
+                viewToggle.classList.add('active');
+                isHtmlMode = true;
+            }
+        }
+
+        function getCurrentContent() {
+            return isHtmlMode ? htmlView.value : editor.innerHTML;
+        }
+
+        function markAsUnsaved() {
+            if (isSaved) {
+                isSaved = false;
+                saveStatus.classList.remove('saved');
+                saveStatus.classList.add('unsaved');
+                statusDot.classList.remove('saved');
+                statusDot.classList.add('unsaved');
+                statusText.textContent = 'Unsaved changes';
+                saveBtn.disabled = false;
+            }
+        }
+
+        function markAsSaved() {
+            isSaved = true;
+            saveStatus.classList.remove('unsaved');
+            saveStatus.classList.add('saved');
+            statusDot.classList.remove('unsaved');
+            statusDot.classList.add('saved');
+            statusText.textContent = 'All changes saved';
+            saveBtn.disabled = true;
+        }
+
+        function saveContent() {
+            const content = getCurrentContent();
+            localStorage.setItem('editorContent', content);
+            savedContent = content;
+            markAsSaved();
+            
+            // Show temporary feedback
+            const originalText = statusText.textContent;
+            statusText.textContent = 'Saved!';
+            setTimeout(() => {
+                if (isSaved) {
+                    statusText.textContent = originalText;
+                }
+            }, 2000);
+        }
+
+        function exportHTML() {
+            const content = getCurrentContent();
+            
+            // Create a complete HTML document
+            const htmlDocument = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exported Content</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2, h3 {
+            margin: 16px 0 8px 0;
+        }
+        p {
+            margin: 8px 0;
+        }
+        ul, ol {
+            margin: 8px 0;
+            padding-left: 30px;
+        }
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #666;
+        }
+        a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+${content}
+</body>
+</html>`;
+
+            // Create a blob and download link
+            const blob = new Blob([htmlDocument], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            
+            // Generate filename with timestamp
+            const date = new Date();
+            const timestamp = date.toISOString().slice(0, 10) + '_' + 
+                            date.getHours().toString().padStart(2, '0') + 
+                            date.getMinutes().toString().padStart(2, '0');
+            a.href = url;
+            a.download = `content_${timestamp}.html`;
+            
+            // Trigger download
+            document.body.appendChild(a);
+            a.click();
+            
+            // Cleanup
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Show feedback
+            const originalText = exportBtn.textContent;
+            exportBtn.textContent = '✓ Exported!';
+            setTimeout(() => {
+                exportBtn.textContent = originalText;
+            }, 2000);
+        }
+
+        function checkForChanges() {
+            const currentContent = getCurrentContent();
+            if (currentContent !== savedContent) {
+                markAsUnsaved();
+            }
+        }
+
+        // Track changes in editor
+        editor.addEventListener('input', checkForChanges);
+        editor.addEventListener('paste', checkForChanges);
+
+        // Track changes in HTML view
+        htmlView.addEventListener('input', checkForChanges);
+        htmlView.addEventListener('paste', checkForChanges);
+
+        // Keyboard shortcuts handler
+        document.addEventListener('keydown', function(e) {
+            const cmd = e.cmdKey || e.metaKey;
+            const shift = e.shiftKey;
+            const alt = e.altKey;
+
+            // Prevent default for our custom shortcuts
+            let shouldPrevent = false;
+
+            // Save: cmd+S
+            if (cmd && e.key === 's') {
+                e.preventDefault();
+                if (!isSaved) {
+                    saveContent();
+                }
+                return;
+            }
+
+            // Toggle HTML view: cmd+E
+            if (cmd && e.key === 'e' && !shift && !alt) {
+                e.preventDefault();
+                toggleView();
+                return;
+            }
+
+            // Bold: cmd+B (native)
+            // Italic: cmd+I (native)
+            // Underline: cmd+U (native)
+
+            // Strikethrough: cmd+Shift+X
+            if (cmd && shift && e.key === 'X') {
+                e.preventDefault();
+                execCmd('strikeThrough');
+                return;
+            }
+
+            // Headings: cmd+Alt+1/2/3
+            if (cmd && alt && ['1', '2', '3'].includes(e.key)) {
+                e.preventDefault();
+                execCmd('formatBlock', `<h${e.key}>`);
+                return;
+            }
+
+            // Paragraph: cmd+Alt+0
+            if (cmd && alt && e.key === '0') {
+                e.preventDefault();
+                execCmd('formatBlock', '<p>');
+                return;
+            }
+
+            // Bullet list: cmd+Shift+8
+            if (cmd && shift && e.key === '*') { // Shift+8 produces *
+                e.preventDefault();
+                execCmd('insertUnorderedList');
+                return;
+            }
+
+            // Numbered list: cmd+Shift+7
+            if (cmd && shift && e.key === '&') { // Shift+7 produces &
+                e.preventDefault();
+                execCmd('insertOrderedList');
+                return;
+            }
+
+            // Align Left: cmd+Shift+L
+            if (cmd && shift && e.key === 'L') {
+                e.preventDefault();
+                execCmd('justifyLeft');
+                return;
+            }
+
+            // Align Center: cmd+Shift+E
+            if (cmd && shift && e.key === 'E') {
+                e.preventDefault();
+                execCmd('justifyCenter');
+                return;
+            }
+
+            // Align Right: cmd+Shift+R
+            if (cmd && shift && e.key === 'R') {
+                e.preventDefault();
+                execCmd('justifyRight');
+                return;
+            }
+
+            // Insert Link: cmd+K
+            if (cmd && e.key === 'k' && !shift && !alt) {
+                e.preventDefault();
+                insertLink();
+                return;
+            }
+
+            // Clear formatting: cmd+\
+            if (cmd && e.key === '\\') {
+                e.preventDefault();
+                execCmd('removeFormat');
+                return;
+            }
+        });
+
+        // Load saved content on page load
+        window.addEventListener('load', function() {
+            const loadedContent = localStorage.getItem('editorContent');
+            if (loadedContent) {
+                editor.innerHTML = loadedContent;
+                savedContent = loadedContent;
+                markAsSaved();
+            } else {
+                // Save the default content
+                savedContent = editor.innerHTML;
+                localStorage.setItem('editorContent', savedContent);
+                markAsSaved();
+            }
+        });
+
+        // Warn before leaving with unsaved changes
+        window.addEventListener('beforeunload', function(e) {
+            if (!isSaved) {
+                e.preventDefault();
+                e.returnValue = '';
+                return '';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -45,9 +45,6 @@
 
 	}
 	}
-* {
-	-webkit-font-smoothing: antialiased;
-}
 html {
 	scroll-behavior: smooth;
 }
