@@ -352,8 +352,53 @@
         let isSaved = true;
         let savedContent = '';
 
+        function cleanupHTML(html) {
+            // Remove font tags and spans that only contain styling
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            
+            // Remove all font tags (deprecated HTML element)
+            const fontTags = tempDiv.querySelectorAll('font');
+            fontTags.forEach(font => {
+                while (font.firstChild) {
+                    font.parentNode.insertBefore(font.firstChild, font);
+                }
+                font.parentNode.removeChild(font);
+            });
+            
+            // Remove spans with only font-family style
+            const unnecessarySpans = tempDiv.querySelectorAll('span[style*="font-family"]');
+            unnecessarySpans.forEach(span => {
+                // If the span only has a font-family style, unwrap it
+                if (span.style.fontFamily && !span.style.color && !span.style.backgroundColor && 
+                    !span.style.fontSize && !span.style.fontWeight && !span.style.fontStyle) {
+                    while (span.firstChild) {
+                        span.parentNode.insertBefore(span.firstChild, span);
+                    }
+                    span.parentNode.removeChild(span);
+                }
+            });
+            
+            // Remove unnecessary inline styles from links
+            const links = tempDiv.querySelectorAll('a[style]');
+            links.forEach(link => {
+                link.removeAttribute('style');
+            });
+            
+            // Remove unnecessary inline styles from other elements that shouldn't have them
+            const allElements = tempDiv.querySelectorAll('[style*="font-family"]');
+            allElements.forEach(el => {
+                if (!['b', 'i', 'u', 's', 'strong', 'em'].includes(el.tagName.toLowerCase())) {
+                    el.removeAttribute('style');
+                }
+            });
+            
+            return tempDiv.innerHTML;
+        }
+
         function execCmd(command, value = null) {
             document.execCommand(command, false, value);
+            editor.innerHTML = cleanupHTML(editor.innerHTML);
             editor.focus();
         }
 
@@ -367,7 +412,7 @@
         function toggleView() {
             if (isHtmlMode) {
                 // Switch to visual mode
-                editor.innerHTML = htmlView.value;
+                editor.innerHTML = cleanupHTML(htmlView.value);
                 editor.classList.remove('hidden');
                 htmlView.classList.add('hidden');
                 viewToggle.querySelector('.btn-label').textContent = 'HTML';
@@ -516,7 +561,12 @@ ${content}
 
         // Track changes in editor
         editor.addEventListener('input', checkForChanges);
-        editor.addEventListener('paste', checkForChanges);
+        editor.addEventListener('paste', (e) => {
+            setTimeout(() => {
+                editor.innerHTML = cleanupHTML(editor.innerHTML);
+                checkForChanges();
+            }, 10);
+        });
 
         // Track changes in HTML view
         htmlView.addEventListener('input', checkForChanges);
@@ -621,8 +671,8 @@ ${content}
         window.addEventListener('load', function() {
             const loadedContent = localStorage.getItem('editorContent');
             if (loadedContent) {
-                editor.innerHTML = loadedContent;
-                savedContent = loadedContent;
+                editor.innerHTML = cleanupHTML(loadedContent);
+                savedContent = editor.innerHTML;
                 markAsSaved();
             } else {
                 // Save the default content
