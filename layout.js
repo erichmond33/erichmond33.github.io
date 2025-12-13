@@ -127,8 +127,8 @@ function navbarElements() {
             let book = document.createElement('a');
             book.setAttribute('href', '/#book');
             book.innerHTML = "Book";
-            divNavLinks.appendChild(book);
-            divNavLinks.appendChild(spacer.cloneNode(true));
+            // divNavLinks.appendChild(book);
+            // divNavLinks.appendChild(spacer.cloneNode(true));
 
             let misc = document.createElement('a');
             misc.setAttribute('href', '/#misc');
