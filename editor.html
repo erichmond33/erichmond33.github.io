@@ -393,6 +393,27 @@
                 }
             });
             
+            // Remove the specific auto-added system font style
+            const systemFontStyle = 'font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;';
+            const elementsWithSystemFont = tempDiv.querySelectorAll('[style]');
+            elementsWithSystemFont.forEach(el => {
+                const styleAttr = el.getAttribute('style');
+                if (styleAttr && styleAttr.includes('font-family: -apple-system')) {
+                    // Remove the entire style attribute if it only contains the system font
+                    if (styleAttr.replace(/\s/g, '').replace(/font-family:-apple-system,BlinkMacSystemFont,"SegoaUI",Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;?/g, '').length === 0) {
+                        el.removeAttribute('style');
+                    } else {
+                        // Otherwise just remove the font-family part
+                        const cleanedStyle = styleAttr.replace(/font-family:\s*-apple-system[^;]*;?\s*/g, '');
+                        if (cleanedStyle.trim()) {
+                            el.setAttribute('style', cleanedStyle);
+                        } else {
+                            el.removeAttribute('style');
+                        }
+                    }
+                }
+            });
+            
             return tempDiv.innerHTML;
         }
 
