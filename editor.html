@@ -414,7 +414,11 @@
                 }
             });
             
-            return tempDiv.innerHTML;
+            // Replace &nbsp; with normal spaces
+            let cleanedHTML = tempDiv.innerHTML;
+            cleanedHTML = cleanedHTML.replace(/&nbsp;/g, ' ');
+            
+            return cleanedHTML;
         }
 
         function execCmd(command, value = null) {
