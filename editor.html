@@ -287,6 +287,10 @@
                 <span class="btn-label">P</span>
                 <span class="btn-shortcut">⌘0</span>
             </button>
+            <button onclick="execCmd('formatBlock', '<blockquote>')" title="Blockquote">
+                <span class="btn-label">" Quote</span>
+                <span class="btn-shortcut">⌘'</span>
+            </button>
             <div class="separator"></div>
             <button onclick="execCmd('insertUnorderedList')" title="Bullet List">
                 <span class="btn-label">• List</span>
@@ -314,7 +318,7 @@
                 <span class="btn-label">🔗 Link</span>
                 <span class="btn-shortcut">⌘K</span>
             </button>
-            <button onclick="execCmd('removeFormat')" title="Clear Formatting">
+            <button onclick="clearFormatting()" title="Clear Formatting">
                 <span class="btn-label">✕ Clear</span>
                 <span class="btn-shortcut">⌘\</span>
             </button>
@@ -423,7 +427,14 @@
 
         function execCmd(command, value = null) {
             document.execCommand(command, false, value);
-            editor.innerHTML = cleanupHTML(editor.innerHTML);
+            editor.focus();
+        }
+
+        function clearFormatting() {
+            // Remove inline formatting
+            document.execCommand('removeFormat', false, null);
+            // Convert block elements to paragraphs
+            document.execCommand('formatBlock', false, '<p>');
             editor.focus();
         }
 
@@ -599,8 +610,20 @@ ${content}
 
         // Keyboard shortcuts handler
         document.addEventListener('keydown', function(e) {
-            const cmd = e.cmdKey || e.metaKey;
+            const cmd = e.metaKey;
+            // Undo: ⌘Z
+            if (cmd && e.key === 'z' && !e.shiftKey) {
+                e.preventDefault();
+                execCmd('undo');
+                return;
+            }
 
+            // Redo: ⌘⇧Z
+            if (cmd && e.shiftKey && e.key === 'z') {
+                e.preventDefault();
+                execCmd('redo');
+                return;
+            }
             // Save: ⌘S
             if (cmd && e.key === 's') {
                 e.preventDefault();
@@ -639,6 +662,13 @@ ${content}
             if (cmd && e.key === '0') {
                 e.preventDefault();
                 execCmd('formatBlock', '<p>');
+                return;
+            }
+
+            // Blockquote: ⌘'
+            if (cmd && e.key === "'") {
+                e.preventDefault();
+                execCmd('formatBlock', '<blockquote>');
                 return;
             }
 
@@ -687,7 +717,7 @@ ${content}
             // Clear formatting: ⌘\
             if (cmd && e.key === '\\') {
                 e.preventDefault();
-                execCmd('removeFormat');
+                clearFormatting();
                 return;
             }
         });
