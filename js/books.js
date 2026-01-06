@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2025 = {
+        "Skunk Works" : "skunk_works.jpg",
         "What Do You Care What Other People Think?" : "what_do_you_care.jpg",
         "The Warrior Ethos" : "warrior_ethos.jpg",
         "A Moveable Feast" : "moveable.jpg",
