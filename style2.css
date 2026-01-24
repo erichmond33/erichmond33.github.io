@@ -471,6 +471,13 @@ hr::after {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+section#me .img-wrapper {
+	float: right;
+	max-width: 160px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
 @media screen and (max-height: 400px){
 	section#motto div {
 		top: 65%;
@@ -519,6 +526,18 @@ hr::after {
 		display: block;
 		width: 80%;
 		margin: auto;
+	}                
+	section#me .img-wrapper {
+		float: none;
+		max-width: 50%;
+		margin: 5em auto;
+		display: block;
+	}
+	section#me p {
+		text-align: center;
+	}
+	section #hi {
+		text-align: center;
 	}
 }
 @media screen and (min-width: 440px){
