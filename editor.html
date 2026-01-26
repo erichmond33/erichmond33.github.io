@@ -287,7 +287,7 @@
                 <span class="btn-label">P</span>
                 <span class="btn-shortcut">⌘0</span>
             </button>
-            <button onclick="insertBlockquote()" title="Blockquote">
+            <button onclick="execCmd('formatBlock', '<blockquote>')" title="Blockquote">
                 <span class="btn-label">" Quote</span>
                 <span class="btn-shortcut">⌘'</span>
             </button>
@@ -355,6 +355,123 @@
         let isHtmlMode = false;
         let isSaved = true;
         let savedContent = '';
+        
+        // Undo/Redo state management
+        let undoStack = [];
+        let redoStack = [];
+        let isRestoringState = false;
+        const MAX_UNDO_STEPS = 50;
+
+        function saveState() {
+            if (isRestoringState) return;
+            
+            const currentContent = editor.innerHTML;
+            const selection = saveSelection();
+            
+            // Don't save if content hasn't changed
+            if (undoStack.length > 0 && undoStack[undoStack.length - 1].content === currentContent) {
+                return;
+            }
+            
+            undoStack.push({
+                content: currentContent,
+                selection: selection
+            });
+            
+            // Clear redo stack when new action is performed
+            redoStack = [];
+            
+            // Limit undo stack size
+            if (undoStack.length > MAX_UNDO_STEPS) {
+                undoStack.shift();
+            }
+        }
+
+        function saveSelection() {
+            const selection = window.getSelection();
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                const preSelectionRange = range.cloneRange();
+                preSelectionRange.selectNodeContents(editor);
+                preSelectionRange.setEnd(range.startContainer, range.startOffset);
+                const start = preSelectionRange.toString().length;
+                
+                return {
+                    start: start,
+                    end: start + range.toString().length
+                };
+            }
+            return { start: 0, end: 0 };
+        }
+
+        function restoreSelection(savedSelection) {
+            if (!savedSelection) return;
+            
+            const range = document.createRange();
+            const selection = window.getSelection();
+            
+            let charIndex = 0;
+            let startSet = false;
+            const walker = document.createTreeWalker(
+                editor,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            let node;
+            while (node = walker.nextNode()) {
+                const nextCharIndex = charIndex + node.textContent.length;
+                
+                if (!startSet && savedSelection.start >= charIndex && savedSelection.start <= nextCharIndex) {
+                    range.setStart(node, savedSelection.start - charIndex);
+                    startSet = true;
+                }
+                
+                if (savedSelection.end >= charIndex && savedSelection.end <= nextCharIndex) {
+                    range.setEnd(node, savedSelection.end - charIndex);
+                    break;
+                }
+                
+                charIndex = nextCharIndex;
+            }
+            
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+
+        function undo() {
+            if (undoStack.length <= 1) return; // Keep at least one state
+            
+            const currentState = undoStack.pop();
+            redoStack.push(currentState);
+            
+            if (undoStack.length > 0) {
+                const prevState = undoStack[undoStack.length - 1];
+                isRestoringState = true;
+                editor.innerHTML = prevState.content;
+                setTimeout(() => {
+                    restoreSelection(prevState.selection);
+                    isRestoringState = false;
+                    checkForChanges();
+                }, 0);
+            }
+        }
+
+        function redo() {
+            if (redoStack.length === 0) return;
+            
+            const nextState = redoStack.pop();
+            undoStack.push(nextState);
+            
+            isRestoringState = true;
+            editor.innerHTML = nextState.content;
+            setTimeout(() => {
+                restoreSelection(nextState.selection);
+                isRestoringState = false;
+                checkForChanges();
+            }, 0);
+        }
 
         function cleanupHTML(html) {
             // Remove font tags and spans that only contain styling
@@ -425,54 +542,34 @@
             return cleanedHTML;
         }
 
-        function insertBlockquote() {
-            const selection = window.getSelection();
-            if (selection.rangeCount > 0) {
-                const range = selection.getRangeAt(0);
-                const blockquote = document.createElement('blockquote');
-                const paragraph = document.createElement('p');
-                
-                // If there's selected text, wrap it in the blockquote
-                if (!range.collapsed) {
-                    const contents = range.extractContents();
-                    paragraph.appendChild(contents);
-                } else {
-                    // Add a non-breaking space to make the paragraph visible
-                    paragraph.innerHTML = '&nbsp;';
-                }
-                
-                blockquote.appendChild(paragraph);
-                range.insertNode(blockquote);
-                
-                // Position cursor inside the paragraph
-                const newRange = document.createRange();
-                newRange.selectNodeContents(paragraph);
-                if (paragraph.innerHTML === '&nbsp;') {
-                    newRange.selectNodeContents(paragraph);
-                }
-                newRange.collapse(false);
-                selection.removeAllRanges();
-                selection.addRange(newRange);
-            }
-            editor.focus();
-        }
-
         function execCmd(command, value = null) {
+            // Save state before formatting commands (except undo/redo)
+            if (command !== 'undo' && command !== 'redo') {
+                saveState();
+            }
             document.execCommand(command, false, value);
             editor.focus();
+            
+            // Save state after formatting commands for proper undo tracking
+            if (command !== 'undo' && command !== 'redo') {
+                setTimeout(saveState, 10);
+            }
         }
 
         function clearFormatting() {
+            saveState();
             // Remove inline formatting
             document.execCommand('removeFormat', false, null);
             // Convert block elements to paragraphs
             document.execCommand('formatBlock', false, '<p>');
             editor.focus();
+            setTimeout(saveState, 10);
         }
 
         function insertLink() {
             const url = prompt('Enter URL:');
             if (url) {
+                saveState();
                 execCmd('createLink', url);
             }
         }
@@ -628,12 +725,102 @@ ${content}
         }
 
         // Track changes in editor
-        editor.addEventListener('input', checkForChanges);
+        editor.addEventListener('input', (e) => {
+            if (!isRestoringState) {
+                // Debounced state saving for performance
+                clearTimeout(editor.saveTimeout);
+                editor.saveTimeout = setTimeout(saveState, 500);
+                checkForChanges();
+            }
+        });
+        
         editor.addEventListener('paste', (e) => {
+            // Save state before paste
+            saveState();
+            
             setTimeout(() => {
-                editor.innerHTML = cleanupHTML(editor.innerHTML);
+                // Capture cursor position before cleanup
+                const selection = window.getSelection();
+                let cursorOffset = 0;
+                if (selection.rangeCount > 0) {
+                    const range = selection.getRangeAt(0);
+                    const preSelectionRange = range.cloneRange();
+                    preSelectionRange.selectNodeContents(editor);
+                    preSelectionRange.setEnd(range.startContainer, range.startOffset);
+                    cursorOffset = preSelectionRange.toString().length;
+                }
+                
+                const cleanedHTML = cleanupHTML(editor.innerHTML);
+                if (cleanedHTML !== editor.innerHTML) {
+                    editor.innerHTML = cleanedHTML;
+                    
+                    // Restore cursor position at the end of content or maintain relative position
+                    setTimeout(() => {
+                        const newSelection = window.getSelection();
+                        const range = document.createRange();
+                        
+                        // Try to position cursor at the same relative position
+                        let charIndex = 0;
+                        const walker = document.createTreeWalker(
+                            editor,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        let node;
+                        let targetNode = null;
+                        let targetOffset = 0;
+                        
+                        while (node = walker.nextNode()) {
+                            const nextCharIndex = charIndex + node.textContent.length;
+                            
+                            if (cursorOffset >= charIndex && cursorOffset <= nextCharIndex) {
+                                targetNode = node;
+                                targetOffset = cursorOffset - charIndex;
+                                break;
+                            }
+                            
+                            charIndex = nextCharIndex;
+                        }
+                        
+                        // If we found a target position, use it; otherwise, go to end
+                        if (targetNode) {
+                            range.setStart(targetNode, Math.min(targetOffset, targetNode.textContent.length));
+                            range.collapse(true);
+                        } else {
+                            // Fallback: position at the end of the editor content
+                            const lastNode = editor.lastChild;
+                            if (lastNode) {
+                                if (lastNode.nodeType === Node.TEXT_NODE) {
+                                    range.setStart(lastNode, lastNode.textContent.length);
+                                } else {
+                                    range.setStartAfter(lastNode);
+                                }
+                                range.collapse(true);
+                            }
+                        }
+                        
+                        newSelection.removeAllRanges();
+                        newSelection.addRange(range);
+                        editor.focus();
+                        
+                        // Save state after cleanup
+                        saveState();
+                    }, 10);
+                } else {
+                    // Save state after cleanup even if no changes
+                    setTimeout(saveState, 10);
+                }
                 checkForChanges();
             }, 10);
+        });
+
+        // Save state before major formatting operations
+        editor.addEventListener('keydown', (e) => {
+            if (e.metaKey && ['b', 'i', 'u'].includes(e.key.toLowerCase())) {
+                saveState();
+            }
         });
 
         // Track changes in HTML view
@@ -646,14 +833,14 @@ ${content}
             // Undo: ⌘Z
             if (cmd && e.key === 'z' && !e.shiftKey) {
                 e.preventDefault();
-                execCmd('undo');
+                undo();
                 return;
             }
 
             // Redo: ⌘⇧Z
             if (cmd && e.shiftKey && e.key === 'z') {
                 e.preventDefault();
-                execCmd('redo');
+                redo();
                 return;
             }
             // Save: ⌘S
@@ -679,6 +866,7 @@ ${content}
             // Strikethrough: ⌘X
             if (cmd && e.key === 'x') {
                 e.preventDefault();
+                saveState();
                 execCmd('strikeThrough');
                 return;
             }
@@ -686,6 +874,7 @@ ${content}
             // Headings: ⌘1/2/3
             if (cmd && ['1', '2', '3'].includes(e.key)) {
                 e.preventDefault();
+                saveState();
                 execCmd('formatBlock', `<h${e.key}>`);
                 return;
             }
@@ -693,6 +882,7 @@ ${content}
             // Paragraph: ⌘0
             if (cmd && e.key === '0') {
                 e.preventDefault();
+                saveState();
                 execCmd('formatBlock', '<p>');
                 return;
             }
@@ -700,13 +890,15 @@ ${content}
             // Blockquote: ⌘'
             if (cmd && e.key === "'") {
                 e.preventDefault();
-                insertBlockquote();
+                saveState();
+                execCmd('formatBlock', '<blockquote>');
                 return;
             }
 
             // Bullet list: ⌘8
             if (cmd && e.key === '8') {
                 e.preventDefault();
+                saveState();
                 execCmd('insertUnorderedList');
                 return;
             }
@@ -714,6 +906,7 @@ ${content}
             // Numbered list: ⌘7
             if (cmd && e.key === '7') {
                 e.preventDefault();
+                saveState();
                 execCmd('insertOrderedList');
                 return;
             }
@@ -721,6 +914,7 @@ ${content}
             // Align Left: ⌘<
             if (cmd && e.shiftKey && e.key === ',') {
                 e.preventDefault();
+                saveState();
                 execCmd('justifyLeft');
                 return;
             }
@@ -728,6 +922,7 @@ ${content}
             // Align Center: ⌘.
             if (cmd && e.key === '.') {
                 e.preventDefault();
+                saveState();
                 execCmd('justifyCenter');
                 return;
             }
@@ -735,6 +930,7 @@ ${content}
             // Align Right: ⌘>
             if (cmd && e.shiftKey && e.key === '>') {
                 e.preventDefault();
+                saveState();
                 execCmd('justifyRight');
                 return;
             }
@@ -767,6 +963,9 @@ ${content}
                 localStorage.setItem('editorContent', savedContent);
                 markAsSaved();
             }
+            
+            // Initialize undo stack with current state
+            saveState();
         });
 
         // Warn before leaving with unsaved changes
