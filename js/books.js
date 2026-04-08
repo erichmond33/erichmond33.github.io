@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function load_page() {
 
+    const BOOK_TITLES_2026 = {
+        "Mobilize: How to Reboot the American Industrial Base and Stop World War III" : "mobilize.jpg",
+        "Maintenance of Everything" : "maintenance.jpg",
+        "Pieces of the Action" : "pieces.jpg",
+        "Extreme Ownership" : "extreme_ownership.jpg",
+    }
+
     const BOOK_TITLES_2025 = {
         "Skunk Works" : "skunk_works.jpg",
         "What Do You Care What Other People Think?" : "what_do_you_care.jpg",
@@ -180,6 +187,11 @@ function load_page() {
     }
             
     console.log("connected");
+
+    for (const [key, value] of Object.entries(BOOK_TITLES_2026)) {
+        console.log(key, value, "2026");
+        create_book_layout(key, value, "2026");
+    }
 
     for (const [key, value] of Object.entries(BOOK_TITLES_2025)) {
         console.log(key, value, "2025");
