@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function load_page() {
 
     const BOOK_TITLES_2026 = {
+        "Old Money Style" : "old_money_style.jpg",
+        "The Old Money Book" : "old_money_book.jpg",
+        "Driven" : "driven.jpg",
         "Mobilize: How to Reboot the American Industrial Base and Stop World War III" : "mobilize.jpg",
         "Maintenance of Everything" : "maintenance.jpg",
         "Pieces of the Action" : "pieces.jpg",
